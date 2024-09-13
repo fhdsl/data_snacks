@@ -4,13 +4,23 @@ title: "Contributing"
 
 ## Want to Contribute a Snack?
 
-We always welcome contributions! Please note that we follow the [WILDS contributor guide](https://getwilds.org/guide/) in terms of reviewing contributions
+We always welcome contributions! Please note that we follow the [WILDS contributor guide](https://getwilds.org/guide/) in terms of reviewing contributions. 
+
+## Set Up Quarto
+
+We're using RStudio to build the website, but you can also work in Visual Studio Code or other IDEs.
+
+Follow the instructions to set up Quarto for your IDE at [quarto.org](https://quarto.org)
 
 ## Fork Our Repo to Add a Snack
 
+You'll want to fork the `data_snacks` repository to get started: <https://github.com/fhdsl/data_snacks/>
+
 ## R Snack Template
 
-An example of an R Snack is here.
+[An example of an R Snack is here](https://github.com/fhdsl/data_snacks/blob/main/snack_template.qmd).
+
+Add a preview image in `/r_snacks/images/` to make your post more enticing.
 
 ## Python Snack Template
 

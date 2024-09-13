@@ -88,28 +88,35 @@
     "href": "contributing.html",
     "title": "Contributing",
     "section": "",
-    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions"
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions."
   },
   {
     "objectID": "contributing.html#want-to-contribute-a-snack",
     "href": "contributing.html#want-to-contribute-a-snack",
     "title": "Contributing",
     "section": "",
-    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions"
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions."
+  },
+  {
+    "objectID": "contributing.html#set-up-quarto",
+    "href": "contributing.html#set-up-quarto",
+    "title": "Contributing",
+    "section": "Set Up Quarto",
+    "text": "Set Up Quarto\nWe’re using RStudio to build the website, but you can also work in Visual Studio Code or other IDEs.\nFollow the instructions to set up Quarto for your IDE at quarto.org"
   },
   {
     "objectID": "contributing.html#fork-our-repo-to-add-a-snack",
     "href": "contributing.html#fork-our-repo-to-add-a-snack",
     "title": "Contributing",
     "section": "Fork Our Repo to Add a Snack",
-    "text": "Fork Our Repo to Add a Snack"
+    "text": "Fork Our Repo to Add a Snack\nYou’ll want to fork the data_snacks repository to get started: https://github.com/fhdsl/data_snacks/"
   },
   {
     "objectID": "contributing.html#r-snack-template",
     "href": "contributing.html#r-snack-template",
     "title": "Contributing",
     "section": "R Snack Template",
-    "text": "R Snack Template\nAn example of an R Snack is here."
+    "text": "R Snack Template\nAn example of an R Snack is here.\nAdd a preview image in /r_snacks/images/ to make your post more enticing."
   },
   {
     "objectID": "contributing.html#python-snack-template",
