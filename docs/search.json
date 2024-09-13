@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "DaSL Data Snacks",
     "section": "",
-    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science."
+    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCompose with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#want-to-contribute-a-snack",
@@ -117,5 +117,68 @@
     "title": "Compose with {patchwork}",
     "section": "Go Further",
     "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
+  },
+  {
+    "objectID": "contributing.html",
+    "href": "contributing.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions"
+  },
+  {
+    "objectID": "contributing.html#want-to-contribute-a-snack",
+    "href": "contributing.html#want-to-contribute-a-snack",
+    "title": "Contributing",
+    "section": "",
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions"
+  },
+  {
+    "objectID": "contributing.html#fork-our-repo-to-add-a-snack",
+    "href": "contributing.html#fork-our-repo-to-add-a-snack",
+    "title": "Contributing",
+    "section": "Fork Our Repo to Add a Snack",
+    "text": "Fork Our Repo to Add a Snack"
+  },
+  {
+    "objectID": "contributing.html#r-snack-template",
+    "href": "contributing.html#r-snack-template",
+    "title": "Contributing",
+    "section": "R Snack Template",
+    "text": "R Snack Template\nAn example of an R Snack is here."
+  },
+  {
+    "objectID": "contributing.html#python-snack-template",
+    "href": "contributing.html#python-snack-template",
+    "title": "Contributing",
+    "section": "Python Snack Template",
+    "text": "Python Snack Template\nAn example of a Python Snack is here."
+  },
+  {
+    "objectID": "snack_template.html",
+    "href": "snack_template.html",
+    "title": "Snack Template: R",
+    "section": "",
+    "text": "One sentence summary here why someone"
+  },
+  {
+    "objectID": "snack_template.html#show-your-data",
+    "href": "snack_template.html#show-your-data",
+    "title": "Snack Template: R",
+    "section": "Show your data",
+    "text": "Show your data\nLoad and show your dataset here. In general, it’s easiest to used packaged datasets, but you can also use download.file() if your data is at a specific URL.\n\nlibrary(gt)\nlibrary(palmerpenguins)\n\ngt(head(penguins))"
+  },
+  {
+    "objectID": "snack_template.html#demonstrate-your-thing",
+    "href": "snack_template.html#demonstrate-your-thing",
+    "title": "Snack Template: R",
+    "section": "Demonstrate Your Thing",
+    "text": "Demonstrate Your Thing\n\nlibrary(dplyr)\n\npenguins |&gt;\n  select(species, island, bill_length_mm)"
+  },
+  {
+    "objectID": "snack_template.html#give-learners-a-chance-to-play",
+    "href": "snack_template.html#give-learners-a-chance-to-play",
+    "title": "Snack Template: R",
+    "section": "Give Learners a Chance to Play",
+    "text": "Give Learners a Chance to Play\n\npenguins |&gt;\n  select(-----)"
   }
 ]

@@ -1,0 +1,44 @@
+---
+title: "Snack Template: R"
+author: "Snacky Snackerson"
+format: live-html
+image: ""  #path to image in images/ folder
+engine: knitr
+categories: ["R", "Tables"]
+webr:
+  packages:   # put your R packages here
+    - palmerpenguins
+    - gt
+    - dplyr
+---
+
+One sentence summary here why someone
+
+
+## Show your data
+
+Load and show your dataset here. In general, it's easiest to used packaged datasets, but you can also use `download.file()` if your data is at a specific URL.
+
+```{webr}
+#| edit: false #use this cell to load and show the first few rows of your data
+library(gt)
+library(palmerpenguins)
+
+gt(head(penguins))
+```
+
+## Demonstrate Your Thing
+
+```{webr}
+library(dplyr)
+
+penguins |>
+  select(species, island, bill_length_mm)
+```
+
+## Give Learners a Chance to Play
+
+```{webr}
+penguins |>
+  select(-----)
+```

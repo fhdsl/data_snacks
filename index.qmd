@@ -16,8 +16,3 @@ title-block-banner: true
 This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called `quarto-live` to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.
 
 Think of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.
-
-## Want to Contribute a Snack?
-
-We always welcome contributions! Check our contributing guide to see how to add a snack.
-

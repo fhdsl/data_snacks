@@ -1,0 +1,17 @@
+---
+title: "Contributing"
+---
+
+## Want to Contribute a Snack?
+
+We always welcome contributions! Please note that we follow the [WILDS contributor guide](https://getwilds.org/guide/) in terms of reviewing contributions
+
+## Fork Our Repo to Add a Snack
+
+## R Snack Template
+
+An example of an R Snack is here.
+
+## Python Snack Template
+
+An example of a Python Snack is here. 
