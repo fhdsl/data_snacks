@@ -180,5 +180,12 @@
     "title": "Make your Table 1 with {gtsummary}",
     "section": "Packages Used",
     "text": "Packages Used"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#plot-labeling",
+    "href": "r_snacks/patchwork.html#plot-labeling",
+    "title": "Compose with {patchwork}",
+    "section": "Plot Labeling",
+    "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
   }
 ]

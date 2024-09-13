@@ -115,6 +115,24 @@ There is an equivalent syntax of using `|` (the pipe character), which does the 
 (penguin_species | penguin_island) / penguin_bill_length
 ```
 
+## Plot Labeling
+
+You can automatically label plots in your figure using `plot_annotation()`:
+
+```{webr}
+#| autorun: false
+(penguin_species + penguin_island) / penguin_bill_length + 
+    plot_annotation(tag_levels="A")
+```
+
+Finally, let's add a title for our figure:
+
+```{webr}
+#| autorun: false
+(penguin_species + penguin_island) / penguin_bill_length + 
+  plot_annotation(tag_levels="A") +
+  plot_annotation(title="Penguins are Very Surprising")
+```
 ## Try it out!
 
 Try out a different combination of plots, such as one plot on top and another on the bottom. Or make your own `penguins` plot and compose them.
