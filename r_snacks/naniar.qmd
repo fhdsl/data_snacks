@@ -37,6 +37,7 @@ My favorite way to look for these patterns is a package called [`{naniar}`](http
 Let's take a look at the missing values in the `penguins` data.
 
 ```{webr}
+#| autorun: false
 library(naniar)
 vis_miss(penguins)
 ```
@@ -44,6 +45,7 @@ vis_miss(penguins)
 What I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that cereals are missing mascots; in our case, we expect this because we merged in a list of cereal mascots and not every cereal has a mascot.
 
 ```{webr}
+#| autorun: false
 gg_miss_upset(penguins)
 ```
 
@@ -61,6 +63,7 @@ Most of these visualizations use a shadow matrix representation of missing value
 When you are plotting two continuous values, you need to be curious about whether there are biases in the missingness. `geom_miss_point()` gives us a way to visualize the missing values when we plot.
 
 ```{webr}
+#| autorun: false
 ggplot(airquality,
        aes(x = Ozone,
            y = Solar.R)) +
@@ -81,6 +84,7 @@ In this plot, the missing values are represented by red points that are below th
 ful when you facet on a categorical variable, to look for conditioned randomness, MAR/MNAR. 
 
 ```{webr}
+#| autorun: false
 ggplot(airquality,
        aes(x = Ozone,
            y = Solar.R)) +
