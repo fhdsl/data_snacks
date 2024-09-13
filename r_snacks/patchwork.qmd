@@ -1,0 +1,129 @@
+---
+title: "Compose with {patchwork}"
+format: live-html
+engine: knitr
+image: images/patchwork.png
+categories: ["R", "graphics"]
+author: Ted Laderas
+webr:
+  packages:
+    - ggplot2
+    - patchwork
+    - palmerpenguins
+    - gt
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+Learn more about composing plots together with a package with straightforward syntax.
+
+## Learning Objectives
+
+After working with this Data Snack you should be able to:
+
+- **Explain** how the `{patchwork}` package lets you compose plots together
+- **Utilize** `{patchwork}` to compose multiple plots in various layouts
+
+## What is `{patchwork}`?
+
+The `{patchwork}` package solves a problem that many of us have: 
+
+> how do we compose multiple plots together into a single figure?
+
+## Penguins Data
+
+Just a quick reminder of the penguins data:
+
+```{webr}
+#| edit: false
+data(penguins)
+library(gt)
+
+gt(head(penguins))
+```
+
+## Let's start with two plots
+
+Let's make two different views of the `palmerpenguins` data. The first is a bar plot of the penguin `species`:
+
+```{webr}
+#| autorun: false
+library(palmerpenguins)
+library(ggplot2)
+
+penguin_species <- ggplot(penguins, aes(y=species, fill=species)) +
+  geom_bar(color="black")
+
+penguin_species
+```
+
+Let's do a histogram of penguin `bill_length_mm`, colored by `species`:
+
+```{webr}
+#| autorun: false
+penguin_bill_length <- ggplot(penguins, aes(y=bill_length_mm, fill=species)) +
+  geom_histogram()
+
+penguin_bill_length
+```
+
+# Composing Plots together
+
+Now that we have our two plots, let's combine them into a single plot. 
+
+The {patchwork} package has two basic operations. `+` composes the plots side by side, and `/` composes one plot on top of each other.
+
+Let's try out a side by side composition:
+
+```{webr}
+#| autorun: false
+library(patchwork)
+penguin_species + penguin_bill_length
+```
+
+Let's try stacking the plots on top of each other:
+
+```{webr}
+#| autorun: false
+penguin_species / penguin_bill_length
+```
+
+We can remove the legends from both:
+
+```{webr}
+#| autorun: false
+(penguin_species + theme(legend.position="none")) /
+  (penguin_bill_length + theme(legend.position="none"))
+```
+
+## Side by side and Stacked
+
+How about three figures? We can compose them with a combination of `+` and `/`:
+
+```{webr}
+#| autorun: false
+penguin_island <- ggplot(penguins, aes(y=island)) +
+  geom_bar()
+
+(penguin_species + penguin_island) / penguin_bill_length
+```
+
+There is an equivalent syntax of using `|` (the pipe character), which does the same thing as `+`:
+
+```{webr}
+#| autorun: false
+(penguin_species | penguin_island) / penguin_bill_length
+```
+
+## Try it out!
+
+Try out a different combination of plots, such as one plot on top and another on the bottom. Or make your own `penguins` plot and compose them.
+
+```{webr}
+#| autorun: false
+
+```
+
+## Go Further
+
+This is just the tip of the iceberg. You can learn way more about `{patchwork}` at Thomas Lin Pedersen's website: <https://patchwork.data-imaginist.com/index.html>

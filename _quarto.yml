@@ -1,0 +1,28 @@
+project:
+  type: website
+  render: 
+    - "r_snacks/*.qmd"
+    - "python_snacks/*.qmd"
+    - "!r_snacks/index.qmd"
+    - "!python_snacks/index.qmd"
+  output-dir: docs
+execute: 
+  freeze: true
+
+website:
+  title: "DaSL Data Snacks"
+  description: "Need a data snack? Come learn with us!"
+  navbar:
+    right:
+      - r_snacks/index.qmd
+      - python_snacks/index.qmd
+#      - about.qmd
+      - icon: github
+        href: https://github.com/fhdsl/data_snacks/
+format:
+  html:
+    theme: litera
+    css: styles.css
+
+
+

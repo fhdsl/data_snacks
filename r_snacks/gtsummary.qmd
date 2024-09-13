@@ -1,0 +1,78 @@
+---
+title: "Make your Table 1 with {gtsummary}"
+author: "Ted Laderas"
+format: live-html
+image: "images/gtsummary.png"
+engine: knitr
+categories: ["R", "Tables"]
+webr:
+  packages:
+    - palmerpenguins
+    - gtsummary
+    - dplyr
+    - gt
+    - cardx
+    - broom
+---
+
+## Need a Table 1?
+
+When making tables for publication, one of the most common ones we need are Table 1's: the summarization of our study populations in terms of demographics.
+
+Oftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.
+
+Well, Daniel Sjoberg's `{gtsummary}` package is here to save you a lot of work!
+
+## Learning Objectives
+
+- **Explain** the major use case of `{gtsummary}`
+- **Utilize** `{gtsummary}` features to summarize your cohort
+- **Output** `{gtsummary}` tables in a variety of formats
+
+## Our Cohort: Penguins
+
+We're going to use the `palmerpenguins` dataset as our example cohort. As a reminder, here's the first few rows of this dataset.
+
+```{webr}
+#| edit: false
+library(palmerpenguins)
+library(gtsummary)
+library(dplyr)
+
+gt(head(penguins))
+```
+
+## Summary Table of Penguins
+
+`{gtsummary}` lets you build up a summary demographics table with `dplyr` commands and special summarization commands. 
+
+Here, we're 
+
+```{webr}
+#| autorun: false
+penguins |>
+  select(species, island, bill_length_mm) |>
+  tbl_summary()
+```
+
+## Comparing Groups
+
+```{webr}
+penguins |>
+  tbl_summary(include=c(island, bill_length_mm),
+              by=species,
+              missing="no")
+
+```
+
+We can also add N's and P-values:
+
+```{webr}
+penguins |>
+  tbl_summary(include=c(island, bill_length_mm),
+              by=species,
+              missing="no") |>
+  add_n() |>
+  add_p()
+
+```

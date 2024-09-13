@@ -1,0 +1,23 @@
+---
+title: "DaSL Data Snacks"
+listing:
+  contents: 
+    - "r_snacks/*.qmd"
+    - "python_snacks/*.qmd"
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: true
+  filter-ui: true
+page-layout: full
+title-block-banner: true
+---
+
+This is a collection of short tutorials sharing cool data tricks with R and Python. We leverage a technology called `quarto-live` to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.
+
+Think of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.
+
+## Want to Contribute a Snack?
+
+We always welcome contributions! Check our contributing guide to see how to add a snack.
+
