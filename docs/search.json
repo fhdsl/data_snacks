@@ -2,56 +2,56 @@
   {
     "objectID": "r_snacks/patchwork.html",
     "href": "r_snacks/patchwork.html",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "",
     "text": "Learn more about composing plots together with a package with straightforward syntax."
   },
   {
     "objectID": "r_snacks/patchwork.html#learning-objectives",
     "href": "r_snacks/patchwork.html#learning-objectives",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nAfter working with this Data Snack you should be able to:\n\nExplain how the {patchwork} package lets you compose plots together\nUtilize {patchwork} to compose multiple plots in various layouts"
   },
   {
     "objectID": "r_snacks/patchwork.html#what-is-patchwork",
     "href": "r_snacks/patchwork.html#what-is-patchwork",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "What is {patchwork}?",
     "text": "What is {patchwork}?\nThe {patchwork} package solves a problem that many of us have:\n\nhow do we compose multiple plots together into a single figure?"
   },
   {
     "objectID": "r_snacks/patchwork.html#penguins-data",
     "href": "r_snacks/patchwork.html#penguins-data",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "Penguins Data",
     "text": "Penguins Data\nJust a quick reminder of the penguins data:"
   },
   {
     "objectID": "r_snacks/patchwork.html#lets-start-with-two-plots",
     "href": "r_snacks/patchwork.html#lets-start-with-two-plots",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "Let’s start with two plots",
     "text": "Let’s start with two plots\nLet’s make two different views of the palmerpenguins data. The first is a bar plot of the penguin species:\n\n\n\n\n\n\n\n\nLet’s do a histogram of penguin bill_length_mm, colored by species:"
   },
   {
     "objectID": "r_snacks/patchwork.html#side-by-side-and-stacked",
     "href": "r_snacks/patchwork.html#side-by-side-and-stacked",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "Side by side and Stacked",
     "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n\n\n\n\n\n\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:"
   },
   {
     "objectID": "r_snacks/patchwork.html#try-it-out",
     "href": "r_snacks/patchwork.html#try-it-out",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "Try it out!",
     "text": "Try it out!\nTry out a different combination of plots, such as one plot on top and another on the bottom. Or make your own penguins plot and compose them."
   },
   {
     "objectID": "r_snacks/patchwork.html#go-further",
     "href": "r_snacks/patchwork.html#go-further",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "Go Further",
     "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
   },
@@ -130,7 +130,7 @@
     "href": "index.html",
     "title": "DaSL Data Snacks",
     "section": "",
-    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCompose with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "r_snacks/gtsummary.html",
@@ -184,8 +184,57 @@
   {
     "objectID": "r_snacks/patchwork.html#plot-labeling",
     "href": "r_snacks/patchwork.html#plot-labeling",
-    "title": "Compose with {patchwork}",
+    "title": "Compose Plots with {patchwork}",
     "section": "Plot Labeling",
     "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
+  },
+  {
+    "objectID": "r_snacks/naniar.html",
+    "href": "r_snacks/naniar.html",
+    "title": "What’s Missing with {naniar}",
+    "section": "",
+    "text": "Learn about patterns of missing values in your data with the {naniar} package."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#our-dataset",
+    "href": "r_snacks/naniar.html#our-dataset",
+    "title": "What’s Missing with {naniar}",
+    "section": "Our Dataset",
+    "text": "Our Dataset"
+  },
+  {
+    "objectID": "r_snacks/naniar.html#visualizing-missing-values",
+    "href": "r_snacks/naniar.html#visualizing-missing-values",
+    "title": "What’s Missing with {naniar}",
+    "section": "Visualizing Missing Values",
+    "text": "Visualizing Missing Values"
+  },
+  {
+    "objectID": "r_snacks/naniar.html#why-should-we-care",
+    "href": "r_snacks/naniar.html#why-should-we-care",
+    "title": "What’s Missing with {naniar}",
+    "section": "Why Should We Care?",
+    "text": "Why Should We Care?\nAs a data scientist, you need to be aware of missing values and how they impact your analysis. There are methods of dealing with missing values, such as imputation, that are highly dependent on the kinds of missingness in your data. Some modeling methods, like zero-inflated models, have different assumptions for using them properly."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
+    "href": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
+    "title": "What’s Missing with {naniar}",
+    "section": "Visualizing Missingness: vis_miss()",
+    "text": "Visualizing Missingness: vis_miss()\nMy favorite way to look for these patterns is a package called {naniar} written by my friend Nick Tierney. naniar visualizes rows of data as lines in a rectangle. Columns are represented by line sections.\nLet’s take a look at the missing values in the penguins data.\n\n\n\n\n\n\n\n\nWhat I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that cereals are missing mascots; in our case, we expect this because we merged in a list of cereal mascots and not every cereal has a mascot.\n\n\n\n\n\n\n\n\nIn this example, reading the combinations from left to right, we can see:\n\n9 penguins had missing values for sex\n2 penguins had missing values in bill_length, bill_depth, flipper_length, body_mass, and sex.\n\nVisualizing the combinations of missing values helps us discover patterns of association in missingness that we don’t expect."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
+    "href": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
+    "title": "What’s Missing with {naniar}",
+    "section": "Continuous Values and Missingness: geom_miss_point()",
+    "text": "Continuous Values and Missingness: geom_miss_point()\nMost of these visualizations use a shadow matrix representation of missing values. This shadow matrix lets you do clever things such as visualize two continuous variables on a plot but include those missing values to assess whether those missing values are MNAR, MAR, or MCAR.\nWhen you are plotting two continuous values, you need to be curious about whether there are biases in the missingness. geom_miss_point() gives us a way to visualize the missing values when we plot.\n\n\n\n\n\n\n\n\nIn this plot, the missing values are represented by red points that are below the zero line for both axes (they are jittered so they don’t all occupy the same line). Specifically, the points on the left side have values for Solar.R but are missing values for Ozone. In this case, the points are distributed across the entire range of Solar.R. Note that this isn’t the case for missing values of Solar.R, which are represented in the lower right of the plot. These missing values are not distributed evenly across Ozone, showing a bias towards lower values of Ozone.\nful when you facet on a categorical variable, to look for conditioned randomness, MAR/MNAR.\n\n\n\n\n\n\n\n\nHere we can see a possible bias in missing values by the month (compare month=6 to month=9)."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
+    "href": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
+    "title": "What’s Missing with {naniar}",
+    "section": "In Conclusion: We Miss You, Missing Values",
+    "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
   }
 ]

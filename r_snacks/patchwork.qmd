@@ -1,6 +1,7 @@
 ---
-title: "Compose with {patchwork}"
+title: "Compose Plots with {patchwork}"
 format: live-html
+date: 2024-09-13
 engine: knitr
 image: images/patchwork.png
 categories: ["R", "graphics"]
@@ -52,7 +53,7 @@ library(palmerpenguins)
 library(ggplot2)
 
 penguin_species <- ggplot(penguins, aes(y=species, fill=species)) +
-  geom_bar(color="black")
+  geom_bar()
 
 penguin_species
 ```
@@ -62,7 +63,7 @@ Let's do a histogram of penguin `bill_length_mm`, colored by `species`:
 ```{webr}
 #| autorun: false
 penguin_bill_length <- ggplot(penguins, aes(y=bill_length_mm, fill=species)) +
-  geom_histogram()
+  geom_histogram(bins=20)
 
 penguin_bill_length
 ```

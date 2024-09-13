@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -186,7 +186,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Tables">Tables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="graphics">graphics <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Tables">Tables <span class="quarto-category-count">(1)</span></div><div class="category" data-category="graphics">graphics <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -210,6 +210,12 @@ window.Quarto = {
          <option value="listing-title" data-direction="asc">
           Title
         </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
          <option value="listing-author" data-direction="asc">
           Author
         </option>
@@ -221,7 +227,121 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,Tables" data-listing-file-modified-sort="1726247413209" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1726243616780">
+<div class="thumbnail">
+<p><a href="./r_snacks/index.qmd" class="no-external"></a></p><a href="./r_snacks/index.qmd" class="no-external">
+</a><p><a href="./r_snacks/index.qmd" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./r_snacks/index.qmd" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./r_snacks/index.qmd" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./r_snacks/index.qmd" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./r_snacks/index.qmd" class="no-external"></a></p><a href="./r_snacks/index.qmd" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1726243664676">
+<div class="thumbnail">
+<p><a href="./python_snacks/index.qmd" class="no-external"></a></p><a href="./python_snacks/index.qmd" class="no-external">
+</a><p><a href="./python_snacks/index.qmd" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./python_snacks/index.qmd" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./python_snacks/index.qmd" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./python_snacks/index.qmd" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./python_snacks/index.qmd" class="no-external"></a></p><a href="./python_snacks/index.qmd" class="no-external">
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="R,graphics" data-listing-date-sort="1726988400000" data-listing-file-modified-sort="1726259446437" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="606">
+<div class="thumbnail">
+<p><a href="./r_snacks/naniar.html" class="no-external"></a></p><a href="./r_snacks/naniar.html" class="no-external">
+<p><img loading="lazy" src="./r_snacks/images/naniar.png" class="thumbnail-image"></p>
+</a><p><a href="./r_snacks/naniar.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./r_snacks/naniar.html" class="no-external">What’s Missing with <code>{naniar}</code></a>
+</h3>
+<div class="listing-subtitle">
+<a href="./r_snacks/naniar.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('graphics'); return false;">
+graphics
+</div>
+</div>
+<div class="listing-description">
+<a href="./r_snacks/naniar.html" class="no-external">Learn about patterns of missing values in your data with the <code>{naniar}</code> package.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./r_snacks/naniar.html" class="no-external">
+<div class="listing-date">
+Sep 22, 2024
+</div>
+<div class="listing-author">
+Ted Laderas
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="R,graphics" data-listing-date-sort="1726210800000" data-listing-file-modified-sort="1726259154278" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="362">
+<div class="thumbnail">
+<p><a href="./r_snacks/patchwork.html" class="no-external"></a></p><a href="./r_snacks/patchwork.html" class="no-external">
+<p><img loading="lazy" src="./r_snacks/images/patchwork.png" class="thumbnail-image"></p>
+</a><p><a href="./r_snacks/patchwork.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./r_snacks/patchwork.html" class="no-external">Compose Plots with {patchwork}</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./r_snacks/patchwork.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('graphics'); return false;">
+graphics
+</div>
+</div>
+<div class="listing-description">
+<a href="./r_snacks/patchwork.html" class="no-external">Learn more about composing plots together with a package with straightforward syntax.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./r_snacks/patchwork.html" class="no-external">
+<div class="listing-date">
+Sep 13, 2024
+</div>
+<div class="listing-author">
+Ted Laderas
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="R,Tables" data-listing-date-sort="1725433200000" data-listing-file-modified-sort="1726259180953" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="236">
 <div class="thumbnail">
 <p><a href="./r_snacks/gtsummary.html" class="no-external"></a></p><a href="./r_snacks/gtsummary.html" class="no-external">
 <p><img loading="lazy" src="./r_snacks/images/gtsummary.png" class="thumbnail-image"></p>
@@ -247,85 +367,13 @@ Tables
 </div>
 </div>
 <div class="metadata">
-<p><a href="./r_snacks/gtsummary.html" class="no-external"></a></p><a href="./r_snacks/gtsummary.html" class="no-external">
+<a href="./r_snacks/gtsummary.html" class="no-external">
+<div class="listing-date">
+Sep 4, 2024
+</div>
 <div class="listing-author">
 Ted Laderas
 </div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1726243616780">
-<div class="thumbnail">
-<p><a href="./r_snacks/index.qmd" class="no-external"></a></p><a href="./r_snacks/index.qmd" class="no-external">
-</a><p><a href="./r_snacks/index.qmd" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./r_snacks/index.qmd" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./r_snacks/index.qmd" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./r_snacks/index.qmd" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./r_snacks/index.qmd" class="no-external"></a></p><a href="./r_snacks/index.qmd" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,graphics" data-listing-file-modified-sort="1726257268531" data-listing-reading-time-sort="2" data-listing-word-count-sort="362">
-<div class="thumbnail">
-<p><a href="./r_snacks/patchwork.html" class="no-external"></a></p><a href="./r_snacks/patchwork.html" class="no-external">
-<p><img loading="lazy" src="./r_snacks/images/patchwork.png" class="thumbnail-image"></p>
-</a><p><a href="./r_snacks/patchwork.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./r_snacks/patchwork.html" class="no-external">Compose with {patchwork}</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./r_snacks/patchwork.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('graphics'); return false;">
-graphics
-</div>
-</div>
-<div class="listing-description">
-<a href="./r_snacks/patchwork.html" class="no-external">Learn more about composing plots together with a package with straightforward syntax.</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./r_snacks/patchwork.html" class="no-external"></a></p><a href="./r_snacks/patchwork.html" class="no-external">
-<div class="listing-author">
-Ted Laderas
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1726243664676">
-<div class="thumbnail">
-<p><a href="./python_snacks/index.qmd" class="no-external"></a></p><a href="./python_snacks/index.qmd" class="no-external">
-</a><p><a href="./python_snacks/index.qmd" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./python_snacks/index.qmd" class="no-external"></a>
-</h3>
-<div class="listing-subtitle">
-<a href="./python_snacks/index.qmd" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./python_snacks/index.qmd" class="no-external"></a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./python_snacks/index.qmd" class="no-external"></a></p><a href="./python_snacks/index.qmd" class="no-external">
 </a>
 </div>
 </div>

@@ -1,6 +1,7 @@
 ---
 title: "Make your Table 1 with {gtsummary}"
 author: "Ted Laderas"
+date: 2024-09-04
 format: live-html
 image: "images/gtsummary.png"
 engine: knitr

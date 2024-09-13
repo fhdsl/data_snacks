@@ -2,8 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/r_snacks/gtsummary.html",
-      "/r_snacks/patchwork.html"
+      "/r_snacks/naniar.html",
+      "/r_snacks/patchwork.html",
+      "/r_snacks/gtsummary.html"
     ]
   }
 ]

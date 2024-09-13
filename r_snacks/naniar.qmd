@@ -1,0 +1,93 @@
+---
+title: "What's Missing with `{naniar}`"
+author: "Ted Laderas"
+date: 2024-09-22
+format: live-html
+engine: knitr
+image: images/naniar.png
+categories: ["R", "graphics"]
+webr:
+  packages:
+    - ggplot2
+    - palmerpenguins
+    - naniar
+    - gt
+---
+
+Learn about patterns of missing values in your data with the `{naniar}` package.
+
+## Our Dataset
+
+```{webr}
+#| edit: false
+data(penguins)
+library(gt)
+
+gt(head(penguins))
+```
+
+## Why Should We Care?
+
+As a data scientist, you need to be aware of missing values and how they impact your analysis. There are methods of dealing with missing values, such as imputation, that are highly dependent on the kinds of missingness in your data. Some modeling methods, like zero-inflated models, have different assumptions for using them properly.
+
+## Visualizing Missingness: `vis_miss()`
+
+My favorite way to look for these patterns is a package called [`{naniar}`](https://naniar.njtierney.com/index.html) written by my friend Nick Tierney. naniar visualizes rows of data as lines in a rectangle. Columns are represented by line sections. 
+
+Let's take a look at the missing values in the `penguins` data.
+
+```{webr}
+library(naniar)
+vis_miss(penguins)
+```
+
+What I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that cereals are missing mascots; in our case, we expect this because we merged in a list of cereal mascots and not every cereal has a mascot.
+
+```{webr}
+gg_miss_upset(penguins)
+```
+
+In this example, reading the combinations from left to right, we can see: 
+
+- 9 penguins had missing values for `sex` 
+- 2 penguins had missing values in `bill_length`, `bill_depth`, `flipper_length`, `body_mass`, and `sex`. 
+
+Visualizing the combinations of missing values helps us discover patterns of association in missingness that we don't expect. 
+
+## Continuous Values and Missingness: `geom_miss_point()`
+
+Most of these visualizations use a shadow matrix representation of missing values. This shadow matrix lets you do clever things such as visualize two continuous variables on a plot but include those missing values to assess whether those missing values are MNAR, MAR, or MCAR.
+
+When you are plotting two continuous values, you need to be curious about whether there are biases in the missingness. `geom_miss_point()` gives us a way to visualize the missing values when we plot.
+
+```{webr}
+ggplot(airquality,
+       aes(x = Ozone,
+           y = Solar.R)) +
+ geom_miss_point() +
+  
+  ##everything past this point is just 
+  #to explain the visualization
+  theme_minimal() +
+  geom_vline(xintercept=0) +
+  geom_hline(yintercept = 0) +
+  annotate("text",x=-5 ,y=150, label= "missing ozone", angle=90) +
+  annotate("text", y=-15, x=75, label="missing Solar.R") +
+  annotate("text", y=-20, x=-20, label="missing\nboth") +
+  annotate("text", y=150, x=75, label="no missing data")
+```
+In this plot, the missing values are represented by red points that are below the zero line for both axes (they are jittered so they don't all occupy the same line). Specifically, the points on the left side have values for `Solar.R` but are missing values for `Ozone`. In this case, the points are distributed across the entire range of `Solar.R`. Note that this isn't the case for missing values of `Solar.R`, which are represented in the lower right of the plot. These missing values are not distributed evenly across `Ozone`, showing a bias towards lower values of `Ozone`. 
+
+ful when you facet on a categorical variable, to look for conditioned randomness, MAR/MNAR. 
+
+```{webr}
+ggplot(airquality,
+       aes(x = Ozone,
+           y = Solar.R)) +
+ geom_miss_point() + facet_wrap(~Month)
+```
+Here we can see a possible bias in missing values by the month (compare month=6 to month=9).
+
+## In Conclusion: We Miss You, Missing Values
+
+I've barely scratched the surface of all you can do with `{naniar}`. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he's added around imputations, which is one way to address missing values. [Check his package out](https://naniar.njtierney.com/index.html)!
