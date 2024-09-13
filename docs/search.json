@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "DaSL Data Snacks",
     "section": "",
-    "text": "This is a collection of short tutorials sharing cool data tricks with R and Python. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science."
+    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science."
   },
   {
     "objectID": "index.html#want-to-contribute-a-snack",
@@ -88,28 +88,28 @@
     "href": "r_snacks/patchwork.html#penguins-data",
     "title": "Compose with {patchwork}",
     "section": "Penguins Data",
-    "text": "Penguins Data\nJust a quick reminder of the penguins data:\n\n#| edit: false\ndata(penguins)\nlibrary(gt)\n\ngt(head(penguins))"
+    "text": "Penguins Data\nJust a quick reminder of the penguins data:"
   },
   {
     "objectID": "r_snacks/patchwork.html#lets-start-with-two-plots",
     "href": "r_snacks/patchwork.html#lets-start-with-two-plots",
     "title": "Compose with {patchwork}",
     "section": "Let’s start with two plots",
-    "text": "Let’s start with two plots\nLet’s make two different views of the palmerpenguins data. The first is a bar plot of the penguin species:\n\n#| autorun: false\nlibrary(palmerpenguins)\nlibrary(ggplot2)\n\npenguin_species &lt;- ggplot(penguins, aes(y=species, fill=species)) +\n  geom_bar(color=\"black\")\n\npenguin_species\n\nLet’s do a histogram of penguin bill_length_mm, colored by species:\n\n#| autorun: false\npenguin_bill_length &lt;- ggplot(penguins, aes(y=bill_length_mm, fill=species)) +\n  geom_histogram()\n\npenguin_bill_length"
+    "text": "Let’s start with two plots\nLet’s make two different views of the palmerpenguins data. The first is a bar plot of the penguin species:\n\n\n\n\n\n\n\n\nLet’s do a histogram of penguin bill_length_mm, colored by species:"
   },
   {
     "objectID": "r_snacks/patchwork.html#side-by-side-and-stacked",
     "href": "r_snacks/patchwork.html#side-by-side-and-stacked",
     "title": "Compose with {patchwork}",
     "section": "Side by side and Stacked",
-    "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n#| autorun: false\npenguin_island &lt;- ggplot(penguins, aes(y=island)) +\n  geom_bar()\n\n(penguin_species + penguin_island) / penguin_bill_length\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:\n\n#| autorun: false\n(penguin_species | penguin_island) / penguin_bill_length"
+    "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n\n\n\n\n\n\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:"
   },
   {
     "objectID": "r_snacks/patchwork.html#try-it-out",
     "href": "r_snacks/patchwork.html#try-it-out",
     "title": "Compose with {patchwork}",
     "section": "Try it out!",
-    "text": "Try it out!\nTry out a different combination of plots, such as one plot on top and another on the bottom. Or make your own penguins plot and compose them.\n\n#| autorun: false"
+    "text": "Try it out!\nTry out a different combination of plots, such as one plot on top and another on the bottom. Or make your own penguins plot and compose them."
   },
   {
     "objectID": "r_snacks/patchwork.html#go-further",
