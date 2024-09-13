@@ -76,3 +76,11 @@ penguins |>
   add_p()
 
 ```
+
+
+## Packages Used
+
+```{webr}
+#| edit: false
+sessionInfo()
+```

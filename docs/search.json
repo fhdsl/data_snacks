@@ -39,21 +39,21 @@
     "href": "r_snacks/gtsummary.html#our-cohort-penguins",
     "title": "Make your Table 1 with {gtsummary}",
     "section": "Our Cohort: Penguins",
-    "text": "Our Cohort: Penguins\nWe’re going to use the palmerpenguins dataset as our example cohort. As a reminder, here’s the first few rows of this dataset.\n\nlibrary(palmerpenguins)\nlibrary(gtsummary)\nlibrary(dplyr)\n\ngt(head(penguins))"
+    "text": "Our Cohort: Penguins\nWe’re going to use the palmerpenguins dataset as our example cohort. As a reminder, here’s the first few rows of this dataset."
   },
   {
     "objectID": "r_snacks/gtsummary.html#summary-table-of-penguins",
     "href": "r_snacks/gtsummary.html#summary-table-of-penguins",
     "title": "Make your Table 1 with {gtsummary}",
     "section": "Summary Table of Penguins",
-    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we’re\n\npenguins |&gt;\n  select(species, island, bill_length_mm) |&gt;\n  tbl_summary()"
+    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we’re"
   },
   {
     "objectID": "r_snacks/gtsummary.html#comparing-groups",
     "href": "r_snacks/gtsummary.html#comparing-groups",
     "title": "Make your Table 1 with {gtsummary}",
     "section": "Comparing Groups",
-    "text": "Comparing Groups\n\npenguins |&gt;\n  tbl_summary(include=c(island, bill_length_mm),\n              by=species,\n              missing=\"no\")\n\n\nWe can also add N’s and P-values:\n\npenguins |&gt;\n  tbl_summary(include=c(island, bill_length_mm),\n              by=species,\n              missing=\"no\") |&gt;\n  add_n() |&gt;\n  add_p()"
+    "text": "Comparing Groups\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:"
   },
   {
     "objectID": "about.html",
