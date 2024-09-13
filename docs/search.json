@@ -109,7 +109,7 @@
     "href": "contributing.html#fork-our-repo-to-add-a-snack",
     "title": "Contributing",
     "section": "Fork Our Repo to Add a Snack",
-    "text": "Fork Our Repo to Add a Snack\nYou’ll want to fork the data_snacks repository to get started: https://github.com/fhdsl/data_snacks/"
+    "text": "Fork Our Repo to Add a Snack\nYou’ll want to fork the data_snacks repository to get started: https://github.com/fhdsl/data_snacks/.\nThen create a branch with your edits."
   },
   {
     "objectID": "contributing.html#r-snack-template",
@@ -236,5 +236,19 @@
     "title": "What’s Missing with {naniar}",
     "section": "In Conclusion: We Miss You, Missing Values",
     "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
+  },
+  {
+    "objectID": "contributing.html#make-sure-the-site-builds",
+    "href": "contributing.html#make-sure-the-site-builds",
+    "title": "Contributing",
+    "section": "Make Sure the Site Builds",
+    "text": "Make Sure the Site Builds\nIn your folder, run:\nquarto preview ."
+  },
+  {
+    "objectID": "contributing.html#make-a-pull-request",
+    "href": "contributing.html#make-a-pull-request",
+    "title": "Contributing",
+    "section": "Make a Pull Request",
+    "text": "Make a Pull Request"
   }
 ]

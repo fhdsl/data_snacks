@@ -6,6 +6,8 @@ title: "Contributing"
 
 We always welcome contributions! Please note that we follow the [WILDS contributor guide](https://getwilds.org/guide/) in terms of reviewing contributions. 
 
+What makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package.
+
 ## Set Up Quarto
 
 We're using RStudio to build the website, but you can also work in Visual Studio Code or other IDEs.
@@ -14,14 +16,37 @@ Follow the instructions to set up Quarto for your IDE at [quarto.org](https://qu
 
 ## Fork Our Repo to Add a Snack
 
-You'll want to fork the `data_snacks` repository to get started: <https://github.com/fhdsl/data_snacks/>
+You'll want to fork the `data_snacks` repository to get started: <https://github.com/fhdsl/data_snacks/>.
+
+Then create a branch with your edits.
 
 ## R Snack Template
 
-[An example of an R Snack is here](https://github.com/fhdsl/data_snacks/blob/main/snack_template.qmd).
+[An example of an R Snack is here](https://github.com/fhdsl/data_snacks/blob/main/snack_template.qmd). Copy this into the `r_snacks/` folder to get started.
 
-Add a preview image in `/r_snacks/images/` to make your post more enticing.
+Add a preview image in `/r_snacks/images/` to make your post more enticing, and then add it to the `image: ` field in your snack. For example, if your image is `/r_snacks/images/my_plot.png`, then the front matter should look like this:
+
+```
+---
+title: My Cool Snack
+image: images/my_plot.png
+[...]
+---
+```
 
 ## Python Snack Template
 
 An example of a Python Snack is here. 
+
+Add a preview image in `/python_snacks/images/` to make your post more enticing.
+
+## Make Sure the Site Builds
+
+In your folder, run:
+
+```
+quarto preview . 
+```
+
+## Make a Pull Request
+
