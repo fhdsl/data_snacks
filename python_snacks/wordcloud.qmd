@@ -1,59 +1,62 @@
 ---
-title: "Summarize text frequency with {wordcloud}"
+title: "Visualize text frequency with {wordcloud}"
 author: "Chris Lo"
 format: live-html
 image: ""  #path to image in images/ folder
 engine: knitr
-categories: ["R", "Tables"]
-webr:
-  packages:   # put your R packages here
-    - palmerpenguins
-    - gt
-    - dplyr
+categories: ["Python", "Visualization"]
 pyodide:
   packages:
     - matplotlib
-    - numpy
-    - seaborn
-    - pandas
     - wordcloud
+  resources:
+    - https://raw.githubusercontent.com/sandyamadhavan/NLP-on-US-presidential-speeches/refs/heads/master/state_union_part1.txt
+    - https://raw.githubusercontent.com/sandyamadhavan/NLP-on-US-presidential-speeches/refs/heads/master/state_union_part2.txt
+    
 ---
 
-One sentence summary here why someone
-
-```{pyodide}
-import matplotlib.pyplot as plt
-import numpy as np
-
-x = np.random.normal(170, 10, 250)
-plt.hist(x)
-plt.show()
-```
+A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text. We show how to make wordclouds via the `wordcloud` Python module. 
 
 ## Show your data
 
-Load and show your dataset here. In general, it's easiest to used packaged datasets, but you can also use `download.file()` if your data is at a specific URL.
+We download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama.
 
-```{webr}
-#| edit: false #use this cell to load and show the first few rows of your data
-library(gt)
-library(palmerpenguins)
+```{pyodide}
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
-gt(head(penguins))
+with open('state_union_part1.txt', 'r') as file:
+    text1 = file.read()
+
+with open('state_union_part2.txt', 'r') as file:
+    text2 = file.read()
+
+text = text1 + text2
+
+text[:50]
 ```
 
-## Demonstrate Your Thing
+## Demonstrate wordcloud
 
-```{webr}
-library(dplyr)
+```{pyodide}
+# Generate a word cloud image
+wordcloud = WordCloud(max_font_size=40).generate(text)
 
-penguins |>
-  select(species, island, bill_length_mm)
+# Display the generated image:
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
 ```
 
 ## Give Learners a Chance to Play
 
+What happens when you change the `max_font_size`?
+
 ```{webr}
-penguins |>
-  select(-----)
+wordcloud2 = WordCloud(max_font_size=-----).generate(text)
+
+# Display the generated image:
+plt.imshow(wordcloud2, interpolation='bilinear')
+plt.axis("off")
+plt.show()
 ```
