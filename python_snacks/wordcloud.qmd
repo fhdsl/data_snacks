@@ -1,6 +1,7 @@
 ---
 title: "Visualize text frequency with {wordcloud}"
 author: "Chris Lo"
+date: 2024-09-19
 format: live-html
 image: ""  #path to image in images/ folder
 engine: knitr

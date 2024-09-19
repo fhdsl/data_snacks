@@ -2,8 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/python_snacks/wordcloud.html",
       "/r_snacks/naniar.html",
+      "/python_snacks/wordcloud.html",
       "/r_snacks/patchwork.html",
       "/r_snacks/gtsummary.html"
     ]
