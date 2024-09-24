@@ -42,6 +42,13 @@
     "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n\n\n\n\n\n\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:"
   },
   {
+    "objectID": "r_snacks/patchwork.html#plot-labeling",
+    "href": "r_snacks/patchwork.html#plot-labeling",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Plot Labeling",
+    "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
+  },
+  {
     "objectID": "r_snacks/patchwork.html#try-it-out",
     "href": "r_snacks/patchwork.html#try-it-out",
     "title": "Compose Plots with {patchwork}",
@@ -54,83 +61,6 @@
     "title": "Compose Plots with {patchwork}",
     "section": "Go Further",
     "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
-  },
-  {
-    "objectID": "snack_template.html",
-    "href": "snack_template.html",
-    "title": "Snack Template: R",
-    "section": "",
-    "text": "One sentence summary here why someone"
-  },
-  {
-    "objectID": "snack_template.html#show-your-data",
-    "href": "snack_template.html#show-your-data",
-    "title": "Snack Template: R",
-    "section": "Show your data",
-    "text": "Show your data\nLoad and show your dataset here. In general, it’s easiest to used packaged datasets, but you can also use download.file() if your data is at a specific URL."
-  },
-  {
-    "objectID": "snack_template.html#demonstrate-your-thing",
-    "href": "snack_template.html#demonstrate-your-thing",
-    "title": "Snack Template: R",
-    "section": "Demonstrate Your Thing",
-    "text": "Demonstrate Your Thing"
-  },
-  {
-    "objectID": "snack_template.html#give-learners-a-chance-to-play",
-    "href": "snack_template.html#give-learners-a-chance-to-play",
-    "title": "Snack Template: R",
-    "section": "Give Learners a Chance to Play",
-    "text": "Give Learners a Chance to Play"
-  },
-  {
-    "objectID": "contributing.html",
-    "href": "contributing.html",
-    "title": "Contributing",
-    "section": "",
-    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
-  },
-  {
-    "objectID": "contributing.html#want-to-contribute-a-snack",
-    "href": "contributing.html#want-to-contribute-a-snack",
-    "title": "Contributing",
-    "section": "",
-    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
-  },
-  {
-    "objectID": "contributing.html#set-up-quarto",
-    "href": "contributing.html#set-up-quarto",
-    "title": "Contributing",
-    "section": "Set Up Quarto",
-    "text": "Set Up Quarto\nWe’re using RStudio to build the website, but you can also work in Visual Studio Code or other IDEs.\nFollow the instructions to set up Quarto for your IDE at quarto.org"
-  },
-  {
-    "objectID": "contributing.html#fork-our-repo-to-add-a-snack",
-    "href": "contributing.html#fork-our-repo-to-add-a-snack",
-    "title": "Contributing",
-    "section": "Fork Our Repo to Add a Snack",
-    "text": "Fork Our Repo to Add a Snack\nYou’ll want to fork the data_snacks repository to get started: https://github.com/fhdsl/data_snacks/.\nThen create a branch with your edits."
-  },
-  {
-    "objectID": "contributing.html#r-snack-template",
-    "href": "contributing.html#r-snack-template",
-    "title": "Contributing",
-    "section": "R Snack Template",
-    "text": "R Snack Template\nAn example of an R Snack is here. Copy this into the r_snacks/ folder to get started.\nAdd a preview image in /r_snacks/images/ to make your post more enticing, and then add it to the image: field in your snack. For example, if your image is /r_snacks/images/my_plot.png, then the front matter should look like this:\n---\ntitle: My Cool Snack\nimage: images/my_plot.png\n[...]\n---"
-  },
-  {
-    "objectID": "contributing.html#python-snack-template",
-    "href": "contributing.html#python-snack-template",
-    "title": "Contributing",
-    "section": "Python Snack Template",
-    "text": "Python Snack Template\nAn example of a Python Snack is here.\nAdd a preview image in /python_snacks/images/ to make your post more enticing."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DaSL Data Snacks",
-    "section": "",
-    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\n\n\n\nPython\n\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "r_snacks/gtsummary.html",
@@ -182,11 +112,123 @@
     "text": "Packages Used"
   },
   {
-    "objectID": "r_snacks/patchwork.html#plot-labeling",
-    "href": "r_snacks/patchwork.html#plot-labeling",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Plot Labeling",
-    "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
+    "objectID": "python_snacks/wordcloud.html",
+    "href": "python_snacks/wordcloud.html",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "",
+    "text": "A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text by the font size. We show how to make wordclouds via the wordcloud Python module."
+  },
+  {
+    "objectID": "python_snacks/wordcloud.html#show-your-data",
+    "href": "python_snacks/wordcloud.html#show-your-data",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Show your data",
+    "text": "Show your data\nWe download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama."
+  },
+  {
+    "objectID": "python_snacks/wordcloud.html#demonstrate-wordcloud",
+    "href": "python_snacks/wordcloud.html#demonstrate-wordcloud",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Demonstrate wordcloud",
+    "text": "Demonstrate wordcloud"
+  },
+  {
+    "objectID": "python_snacks/wordcloud.html#your-turn",
+    "href": "python_snacks/wordcloud.html#your-turn",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Your turn!",
+    "text": "Your turn!\nWhat happens when you change the max_font_size?"
+  },
+  {
+    "objectID": "contributing.html",
+    "href": "contributing.html",
+    "title": "Contributing",
+    "section": "",
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
+  },
+  {
+    "objectID": "contributing.html#want-to-contribute-a-snack",
+    "href": "contributing.html#want-to-contribute-a-snack",
+    "title": "Contributing",
+    "section": "",
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
+  },
+  {
+    "objectID": "contributing.html#set-up-quarto",
+    "href": "contributing.html#set-up-quarto",
+    "title": "Contributing",
+    "section": "Set Up Quarto",
+    "text": "Set Up Quarto\nWe’re using RStudio to build the website, but you can also work in Visual Studio Code or other IDEs.\nFollow the instructions to set up Quarto for your IDE at quarto.org"
+  },
+  {
+    "objectID": "contributing.html#fork-our-repo-to-add-a-snack",
+    "href": "contributing.html#fork-our-repo-to-add-a-snack",
+    "title": "Contributing",
+    "section": "Fork Our Repo to Add a Snack",
+    "text": "Fork Our Repo to Add a Snack\nYou’ll want to fork the data_snacks repository to get started: https://github.com/fhdsl/data_snacks/.\nThen create a branch with your edits."
+  },
+  {
+    "objectID": "contributing.html#r-snack-template",
+    "href": "contributing.html#r-snack-template",
+    "title": "Contributing",
+    "section": "R Snack Template",
+    "text": "R Snack Template\nAn example of an R Snack is here. Copy this into the r_snacks/ folder to get started.\nAdd a preview image in /r_snacks/images/ to make your post more enticing, and then add it to the image: field in your snack. For example, if your image is /r_snacks/images/my_plot.png, then the front matter should look like this:\n---\ntitle: My Cool Snack\nimage: images/my_plot.png\n[...]\n---"
+  },
+  {
+    "objectID": "contributing.html#python-snack-template",
+    "href": "contributing.html#python-snack-template",
+    "title": "Contributing",
+    "section": "Python Snack Template",
+    "text": "Python Snack Template\nAn example of a Python Snack is here.\nAdd a preview image in /python_snacks/images/ to make your post more enticing."
+  },
+  {
+    "objectID": "contributing.html#make-sure-the-site-builds",
+    "href": "contributing.html#make-sure-the-site-builds",
+    "title": "Contributing",
+    "section": "Make Sure the Site Builds",
+    "text": "Make Sure the Site Builds\nIn your folder, run:\nquarto preview ."
+  },
+  {
+    "objectID": "contributing.html#make-a-pull-request",
+    "href": "contributing.html#make-a-pull-request",
+    "title": "Contributing",
+    "section": "Make a Pull Request",
+    "text": "Make a Pull Request"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DaSL Data Snacks",
+    "section": "",
+    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\n\n\n\nPython\n\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "snack_template.html",
+    "href": "snack_template.html",
+    "title": "Snack Template: R",
+    "section": "",
+    "text": "One sentence summary here why someone"
+  },
+  {
+    "objectID": "snack_template.html#show-your-data",
+    "href": "snack_template.html#show-your-data",
+    "title": "Snack Template: R",
+    "section": "Show your data",
+    "text": "Show your data\nLoad and show your dataset here. In general, it’s easiest to used packaged datasets, but you can also use download.file() if your data is at a specific URL."
+  },
+  {
+    "objectID": "snack_template.html#demonstrate-your-thing",
+    "href": "snack_template.html#demonstrate-your-thing",
+    "title": "Snack Template: R",
+    "section": "Demonstrate Your Thing",
+    "text": "Demonstrate Your Thing"
+  },
+  {
+    "objectID": "snack_template.html#give-learners-a-chance-to-play",
+    "href": "snack_template.html#give-learners-a-chance-to-play",
+    "title": "Snack Template: R",
+    "section": "Give Learners a Chance to Play",
+    "text": "Give Learners a Chance to Play"
   },
   {
     "objectID": "r_snacks/naniar.html",
@@ -201,13 +243,6 @@
     "title": "What’s Missing with {naniar}",
     "section": "Our Dataset",
     "text": "Our Dataset"
-  },
-  {
-    "objectID": "r_snacks/naniar.html#visualizing-missing-values",
-    "href": "r_snacks/naniar.html#visualizing-missing-values",
-    "title": "What’s Missing with {naniar}",
-    "section": "Visualizing Missing Values",
-    "text": "Visualizing Missing Values"
   },
   {
     "objectID": "r_snacks/naniar.html#why-should-we-care",
@@ -236,47 +271,5 @@
     "title": "What’s Missing with {naniar}",
     "section": "In Conclusion: We Miss You, Missing Values",
     "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
-  },
-  {
-    "objectID": "contributing.html#make-sure-the-site-builds",
-    "href": "contributing.html#make-sure-the-site-builds",
-    "title": "Contributing",
-    "section": "Make Sure the Site Builds",
-    "text": "Make Sure the Site Builds\nIn your folder, run:\nquarto preview ."
-  },
-  {
-    "objectID": "contributing.html#make-a-pull-request",
-    "href": "contributing.html#make-a-pull-request",
-    "title": "Contributing",
-    "section": "Make a Pull Request",
-    "text": "Make a Pull Request"
-  },
-  {
-    "objectID": "python_snacks/wordcloud.html",
-    "href": "python_snacks/wordcloud.html",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "",
-    "text": "A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text by the font size. We show how to make wordclouds via the wordcloud Python module."
-  },
-  {
-    "objectID": "python_snacks/wordcloud.html#show-your-data",
-    "href": "python_snacks/wordcloud.html#show-your-data",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Show your data",
-    "text": "Show your data\nWe download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama."
-  },
-  {
-    "objectID": "python_snacks/wordcloud.html#demonstrate-wordcloud",
-    "href": "python_snacks/wordcloud.html#demonstrate-wordcloud",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Demonstrate wordcloud",
-    "text": "Demonstrate wordcloud"
-  },
-  {
-    "objectID": "python_snacks/wordcloud.html#your-turn",
-    "href": "python_snacks/wordcloud.html#your-turn",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Your turn!",
-    "text": "Your turn!\nWhat happens when you change the max_font_size?"
   }
 ]
