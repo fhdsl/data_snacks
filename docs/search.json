@@ -102,7 +102,7 @@
     "href": "r_snacks/gtsummary.html#comparing-groups",
     "title": "Make your Table 1 with {gtsummary}",
     "section": "Comparing Groups",
-    "text": "Comparing Groups\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:"
+    "text": "Comparing Groups\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:\n\n\n\n\n\n\n\n\nHere you can see we did a chi-squared test to look at combinations of island and species, and we did a Kruskal-Wallis rank sum to compare bill_length_mm across species.\nThis is just the tip of the iceberg for {gtsummary}. You also can output to Microsoft Word for further tweaks.\n{gtsummary} link"
   },
   {
     "objectID": "r_snacks/gtsummary.html#packages-used",
