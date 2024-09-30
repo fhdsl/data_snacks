@@ -315,6 +315,13 @@
     "text": "Try Constructing Your Own Query\nFind out the mean Age by Pclass (1st, 2nd, 3rd class)."
   },
   {
+    "objectID": "r_snacks/parquet.html#explain-it-to-me",
+    "href": "r_snacks/parquet.html#explain-it-to-me",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Explain it to Me",
+    "text": "Explain it to Me\nYou can see how DuckDB is building the query by asking it to explain(). It will show you the query plan for the search:\n\n\n\n\n\n\n\n\nThis output is a bit difficult to understand, but as you start writing more and more queries, it can be helpful to dive into the query plan."
+  },
+  {
     "objectID": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
     "href": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
     "title": "Large Data Work: Intro to parquet files in R",
