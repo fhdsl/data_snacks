@@ -49,6 +49,7 @@ Let's make two different views of the `palmerpenguins` data. The first is a bar 
 
 ```{webr}
 #| autorun: false
+#| warning: false
 library(palmerpenguins)
 library(ggplot2)
 
@@ -62,6 +63,7 @@ Let's do a histogram of penguin `bill_length_mm`, colored by `species`:
 
 ```{webr}
 #| autorun: false
+#| warning: false
 penguin_bill_length <- ggplot(penguins, aes(y=bill_length_mm, fill=species)) +
   geom_histogram(bins=20)
 
@@ -78,6 +80,7 @@ Let's try out a side by side composition:
 
 ```{webr}
 #| autorun: false
+#| warning: false
 library(patchwork)
 penguin_species + penguin_bill_length
 ```
@@ -86,6 +89,7 @@ Let's try stacking the plots on top of each other:
 
 ```{webr}
 #| autorun: false
+#| warning: false
 penguin_species / penguin_bill_length
 ```
 
@@ -93,6 +97,7 @@ We can remove the legends from both:
 
 ```{webr}
 #| autorun: false
+#| warning: false
 (penguin_species + theme(legend.position="none")) /
   (penguin_bill_length + theme(legend.position="none"))
 ```
@@ -103,6 +108,7 @@ How about three figures? We can compose them with a combination of `+` and `/`:
 
 ```{webr}
 #| autorun: false
+#| warning: false
 penguin_island <- ggplot(penguins, aes(y=island)) +
   geom_bar()
 
@@ -113,6 +119,7 @@ There is an equivalent syntax of using `|` (the pipe character), which does the 
 
 ```{webr}
 #| autorun: false
+#| warning: false
 (penguin_species | penguin_island) / penguin_bill_length
 ```
 
@@ -122,6 +129,7 @@ You can automatically label plots in your figure using `plot_annotation()`:
 
 ```{webr}
 #| autorun: false
+#| warning: false
 (penguin_species + penguin_island) / penguin_bill_length + 
     plot_annotation(tag_levels="A")
 ```
@@ -130,6 +138,7 @@ Finally, let's add a title for our figure:
 
 ```{webr}
 #| autorun: false
+#| warning: false
 (penguin_species + penguin_island) / penguin_bill_length + 
   plot_annotation(tag_levels="A") +
   plot_annotation(title="Penguins are Very Surprising")
@@ -140,6 +149,7 @@ Try out a different combination of plots, such as one plot on top and another on
 
 ```{webr}
 #| autorun: false
+#| warning: false
 
 ```
 

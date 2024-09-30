@@ -22,7 +22,7 @@ When making tables for publication, one of the most common ones we need are Tabl
 
 Oftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.
 
-Well, Daniel Sjoberg's `{gtsummary}` package is here to save you a lot of work!
+Well, Daniel Sjoberg's [`{gtsummary}`](https://www.danieldsjoberg.com/gtsummary/) package is here to save you a lot of work!
 
 ## Learning Objectives
 
@@ -78,6 +78,11 @@ penguins |>
 
 ```
 
+Here you can see we did a chi-squared test to look at combinations of `island` and `species`, and we did a Kruskal-Wallis rank sum to compare `bill_length_mm` across `species`.
+
+This is just the tip of the iceberg for `{gtsummary}`. You also can output to Microsoft Word for further tweaks. 
+
+[`{gtsummary}` link](https://www.danieldsjoberg.com/gtsummary/)
 
 ## Packages Used
 

@@ -1,0 +1,135 @@
+---
+title: "Large Data Work: Intro to parquet files in R"
+author: "Ted Laderas"
+date: 2024-09-30
+format: live-html
+image: "images/duckdb.svg"  #path to image in images/ folder
+engine: knitr
+categories: ["R", "Tables", "databases", "bigdata"]
+webr:
+  autorun: false
+  render-df: gt-interactive
+  packages:   # put your R packages here
+    - nanoparquet
+    - duckdb
+    - gt
+    - dplyr
+    - duckplyr
+    - DBI
+    - dbplyr
+resources: 
+  - ../data
+    
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+
+As you continue on with your work as a Data Scientist, you will start encountering parquet files as a way of storing large data. Let's add to our toolkit. 
+
+What is a [parquet file]()? It is another way of storing data that is organized in a way that it's fast to search. In contrast to row-based storage, where the data is stored by row, `parquet` is *column-based*: data is stored by column. There are some particular advantages to this storage type:
+
+- It is well suited to storing very large datasets.
+- It is extremely fast to filter within a column, since you can just scan up and down in a column in the file
+- It is compressed, and so it is much smaller to store files than a format like Comma-Separated-Value (CSV).
+- Many database systems are now optimized to work with `parquet` files.
+
+The main drawback is that there is additional technology required to work with `parquet` files. We'll use the `nanoparquet`, `duckdb`, and `duckplyr` packages to interact with them using a tidy workflow.
+
+## You Don't Load Parquet Files Into Memory
+
+In general, you don't load parquet files into memory to work with them. You tend to work with them through a database query engine. In our case, we'll use a system called DuckDB. [DuckDB](https://duckdb.org) is a database query engine that works with a wide variety of data types. 
+
+Other query engines that are important are Snowflake, Google BigQuery, and Amazon RedShift. So you can see that learning how to work with `parquet` files is important. 
+
+## A Titanic Parquet file
+
+We've got a folder called `data/`, and there is a file called `titanic.parquet` ([link to data if you want to download](https://github.com/aws-samples/acclerate-research-with-real-world-data-using-aws-data-exchange-for-amazon-redshift/blob/main/titanic.parquet)) in there.
+
+```{webr}
+library(nanoparquet)
+list.files()
+list.files("data")
+```
+
+Now that we know what's in our `data/` folder, we can get some info on this file. We'll use the `{nanoparquet}` package to get some info on the file. We can get an idea of the size of the data using `parquet_info()`:
+
+```{webr}
+#| autorun: false
+nanoparquet::parquet_info("data/titanic.parquet")
+```
+
+Let's get info about the column types in our file with `parquet_column_types`
+
+```{webr}
+#| autorun: false
+nanoparquet::parquet_column_types("data/titanic.parquet")
+```
+
+In general, `nanoparquet` is very useful for reading and writing `parquet` files. But remember, we are going to be interacting with the files through a database query engine. Enter [DuckDB](https://duckdb.org).
+
+## Querying your Data
+
+To actually interact with the data, we can connect to the parquet file with the DuckDB package. We first need to start what's called a *database connection* so that we can connect to the DuckDB software: 
+
+```{webr}
+#| autorun: false
+library(duckdb)
+library(duckplyr)
+con <- dbConnect(duckdb())
+```
+
+Now, we're going to make a "View", which is a temporary table in DuckDB to do our queries on. This also connects our `parquet` file into DuckDB with the `PARQUET_SCAN()` function in DuckDB. 
+
+This is the only SQL we need to write to interact with the data. The rest we can do with `dplyr` commands thanks to a package called `duckplyr`.
+
+```{webr}
+#| autorun: false
+dbExecute(con,
+  "CREATE VIEW titanic AS
+   SELECT * FROM PARQUET_SCAN('data/titanic.parquet');")
+```
+
+Now, we have our connection and our view, we can start to take a look at the data. We can pass our connection and view with the `tbl()` function. Here we're calling `head()`, followed by `collect()`.
+
+```{webr}
+#| autorun: false
+tbl(con, "titanic") |>
+  head() |>
+  collect()
+```
+
+Why do we need to call `collect()`? DuckDB uses what's called *Lazy Execution*: it only calculates a value when you tell it to. *Lazy Execution* allows DuckDB to make an *execution plan*: it finds the best strategy for executing the entire query rather than calculate it piece by piece.
+
+## Summarizing the Passengers
+
+Let's look at who survived and their average fare. Note that we can remove missing values with the `na.rm` argument to `mean()`:
+
+```{webr}
+#| autorun: false
+survived_fare <- tbl(con, "titanic") |>
+  group_by(Survived) |>
+  summarise(mean_fare = mean(Fare, na.rm=TRUE)) |>
+  collect()
+
+survived_fare
+```
+
+Depressingly, it seems that those who survived paid more for their fare. 
+
+## Try Constructing Your Own Query
+
+Find out the mean `Age` by `Pclass` (1st, 2nd, 3rd class). 
+
+```{webr}
+#| autorun: false
+tbl(con, "titanic") |>
+  group_by(------) |>
+  summarize(mean_age=-----) |>
+  collect()
+```
+
+## The Tip of the, er, Iceberg
+
+That's just the beginning of working with DuckDB and `parquet` files. Hopefully you learned something useful and I'll write more about `parquet` files in a future data snack.
+

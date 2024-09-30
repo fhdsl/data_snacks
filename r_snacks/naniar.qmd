@@ -42,7 +42,7 @@ library(naniar)
 vis_miss(penguins)
 ```
 
-What I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that cereals are missing mascots; in our case, we expect this because we merged in a list of cereal mascots and not every cereal has a mascot.
+What I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that some penguins are missing information such as `sex`.
 
 ```{webr}
 #| autorun: false
