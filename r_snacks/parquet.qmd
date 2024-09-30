@@ -133,3 +133,4 @@ tbl(con, "titanic") |>
 
 That's just the beginning of working with DuckDB and `parquet` files. Hopefully you learned something useful and I'll write more about `parquet` files in a future data snack.
 
+Thanks to Francois Michonneau for the [DuckDB Tutorial](https://francoismichonneau.net/2023/06/duckdb-r-remote-data/).

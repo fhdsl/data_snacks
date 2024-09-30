@@ -319,6 +319,6 @@
     "href": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
     "title": "Large Data Work: Intro to parquet files in R",
     "section": "The Tip of the, er, Iceberg",
-    "text": "The Tip of the, er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack."
+    "text": "The Tip of the, er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack.\nThanks to Francois Michonneau for the DuckDB Tutorial."
   }
 ]
