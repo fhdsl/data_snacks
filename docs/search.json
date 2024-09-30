@@ -63,81 +63,81 @@
     "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
   },
   {
-    "objectID": "r_snacks/gtsummary.html",
-    "href": "r_snacks/gtsummary.html",
-    "title": "Make your Table 1 with {gtsummary}",
+    "objectID": "r_snacks/naniar.html",
+    "href": "r_snacks/naniar.html",
+    "title": "What’s Missing with {naniar}",
     "section": "",
-    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
+    "text": "Learn about patterns of missing values in your data with the {naniar} package."
   },
   {
-    "objectID": "r_snacks/gtsummary.html#need-a-table-1",
-    "href": "r_snacks/gtsummary.html#need-a-table-1",
-    "title": "Make your Table 1 with {gtsummary}",
+    "objectID": "r_snacks/naniar.html#our-dataset",
+    "href": "r_snacks/naniar.html#our-dataset",
+    "title": "What’s Missing with {naniar}",
+    "section": "Our Dataset",
+    "text": "Our Dataset"
+  },
+  {
+    "objectID": "r_snacks/naniar.html#why-should-we-care",
+    "href": "r_snacks/naniar.html#why-should-we-care",
+    "title": "What’s Missing with {naniar}",
+    "section": "Why Should We Care?",
+    "text": "Why Should We Care?\nAs a data scientist, you need to be aware of missing values and how they impact your analysis. There are methods of dealing with missing values, such as imputation, that are highly dependent on the kinds of missingness in your data. Some modeling methods, like zero-inflated models, have different assumptions for using them properly."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
+    "href": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
+    "title": "What’s Missing with {naniar}",
+    "section": "Visualizing Missingness: vis_miss()",
+    "text": "Visualizing Missingness: vis_miss()\nMy favorite way to look for these patterns is a package called {naniar} written by my friend Nick Tierney. naniar visualizes rows of data as lines in a rectangle. Columns are represented by line sections.\nLet’s take a look at the missing values in the penguins data.\n\n\n\n\n\n\n\n\nWhat I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that some penguins are missing information such as sex.\n\n\n\n\n\n\n\n\nIn this example, reading the combinations from left to right, we can see:\n\n9 penguins had missing values for sex\n2 penguins had missing values in bill_length, bill_depth, flipper_length, body_mass, and sex.\n\nVisualizing the combinations of missing values helps us discover patterns of association in missingness that we don’t expect."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
+    "href": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
+    "title": "What’s Missing with {naniar}",
+    "section": "Continuous Values and Missingness: geom_miss_point()",
+    "text": "Continuous Values and Missingness: geom_miss_point()\nMost of these visualizations use a shadow matrix representation of missing values. This shadow matrix lets you do clever things such as visualize two continuous variables on a plot but include those missing values to assess whether those missing values are MNAR, MAR, or MCAR.\nWhen you are plotting two continuous values, you need to be curious about whether there are biases in the missingness. geom_miss_point() gives us a way to visualize the missing values when we plot.\n\n\n\n\n\n\n\n\nIn this plot, the missing values are represented by red points that are below the zero line for both axes (they are jittered so they don’t all occupy the same line). Specifically, the points on the left side have values for Solar.R but are missing values for Ozone. In this case, the points are distributed across the entire range of Solar.R. Note that this isn’t the case for missing values of Solar.R, which are represented in the lower right of the plot. These missing values are not distributed evenly across Ozone, showing a bias towards lower values of Ozone.\nful when you facet on a categorical variable, to look for conditioned randomness, MAR/MNAR.\n\n\n\n\n\n\n\n\nHere we can see a possible bias in missing values by the month (compare month=6 to month=9)."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
+    "href": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
+    "title": "What’s Missing with {naniar}",
+    "section": "In Conclusion: We Miss You, Missing Values",
+    "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
+  },
+  {
+    "objectID": "snack_template.html",
+    "href": "snack_template.html",
+    "title": "Snack Template: R",
     "section": "",
-    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
+    "text": "One sentence summary here why someone"
   },
   {
-    "objectID": "r_snacks/gtsummary.html#learning-objectives",
-    "href": "r_snacks/gtsummary.html#learning-objectives",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nExplain the major use case of {gtsummary}\nUtilize {gtsummary} features to summarize your cohort\nOutput {gtsummary} tables in a variety of formats"
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html#our-cohort-penguins",
-    "href": "r_snacks/gtsummary.html#our-cohort-penguins",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Our Cohort: Penguins",
-    "text": "Our Cohort: Penguins\nWe’re going to use the palmerpenguins dataset as our example cohort. As a reminder, here’s the first few rows of this dataset."
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html#summary-table-of-penguins",
-    "href": "r_snacks/gtsummary.html#summary-table-of-penguins",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Summary Table of Penguins",
-    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we’re"
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html#comparing-groups",
-    "href": "r_snacks/gtsummary.html#comparing-groups",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Comparing Groups",
-    "text": "Comparing Groups\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:\n\n\n\n\n\n\n\n\nHere you can see we did a chi-squared test to look at combinations of island and species, and we did a Kruskal-Wallis rank sum to compare bill_length_mm across species.\nThis is just the tip of the iceberg for {gtsummary}. You also can output to Microsoft Word for further tweaks.\n{gtsummary} link"
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html#packages-used",
-    "href": "r_snacks/gtsummary.html#packages-used",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Packages Used",
-    "text": "Packages Used"
-  },
-  {
-    "objectID": "python_snacks/wordcloud.html",
-    "href": "python_snacks/wordcloud.html",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "",
-    "text": "A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text by the font size. We show how to make wordclouds via the wordcloud Python module."
-  },
-  {
-    "objectID": "python_snacks/wordcloud.html#show-your-data",
-    "href": "python_snacks/wordcloud.html#show-your-data",
-    "title": "Visualize text frequency with {wordcloud}",
+    "objectID": "snack_template.html#show-your-data",
+    "href": "snack_template.html#show-your-data",
+    "title": "Snack Template: R",
     "section": "Show your data",
-    "text": "Show your data\nWe download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama."
+    "text": "Show your data\nLoad and show your dataset here. In general, it’s easiest to used packaged datasets, but you can also use download.file() if your data is at a specific URL."
   },
   {
-    "objectID": "python_snacks/wordcloud.html#demonstrate-wordcloud",
-    "href": "python_snacks/wordcloud.html#demonstrate-wordcloud",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Demonstrate wordcloud",
-    "text": "Demonstrate wordcloud"
+    "objectID": "snack_template.html#demonstrate-your-thing",
+    "href": "snack_template.html#demonstrate-your-thing",
+    "title": "Snack Template: R",
+    "section": "Demonstrate Your Thing",
+    "text": "Demonstrate Your Thing"
   },
   {
-    "objectID": "python_snacks/wordcloud.html#your-turn",
-    "href": "python_snacks/wordcloud.html#your-turn",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Your turn!",
-    "text": "Your turn!\nWhat happens when you change the max_font_size?"
+    "objectID": "snack_template.html#give-learners-a-chance-to-play",
+    "href": "snack_template.html#give-learners-a-chance-to-play",
+    "title": "Snack Template: R",
+    "section": "Give Learners a Chance to Play",
+    "text": "Give Learners a Chance to Play"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DaSL Data Snacks",
+    "section": "",
+    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLarge Data Work: Intro to parquet files in R\n\n\n\n\n\n\nR\n\n\nTables\n\n\ndatabases\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\n\n\n\nPython\n\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "contributing.html",
@@ -196,80 +196,129 @@
     "text": "Make a Pull Request"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DaSL Data Snacks",
+    "objectID": "python_snacks/wordcloud.html",
+    "href": "python_snacks/wordcloud.html",
+    "title": "Visualize text frequency with {wordcloud}",
     "section": "",
-    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\n\n\n\nPython\n\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\nNo matching items"
+    "text": "A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text by the font size. We show how to make wordclouds via the wordcloud Python module."
   },
   {
-    "objectID": "snack_template.html",
-    "href": "snack_template.html",
-    "title": "Snack Template: R",
-    "section": "",
-    "text": "One sentence summary here why someone"
-  },
-  {
-    "objectID": "snack_template.html#show-your-data",
-    "href": "snack_template.html#show-your-data",
-    "title": "Snack Template: R",
+    "objectID": "python_snacks/wordcloud.html#show-your-data",
+    "href": "python_snacks/wordcloud.html#show-your-data",
+    "title": "Visualize text frequency with {wordcloud}",
     "section": "Show your data",
-    "text": "Show your data\nLoad and show your dataset here. In general, it’s easiest to used packaged datasets, but you can also use download.file() if your data is at a specific URL."
+    "text": "Show your data\nWe download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama."
   },
   {
-    "objectID": "snack_template.html#demonstrate-your-thing",
-    "href": "snack_template.html#demonstrate-your-thing",
-    "title": "Snack Template: R",
-    "section": "Demonstrate Your Thing",
-    "text": "Demonstrate Your Thing"
+    "objectID": "python_snacks/wordcloud.html#demonstrate-wordcloud",
+    "href": "python_snacks/wordcloud.html#demonstrate-wordcloud",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Demonstrate wordcloud",
+    "text": "Demonstrate wordcloud"
   },
   {
-    "objectID": "snack_template.html#give-learners-a-chance-to-play",
-    "href": "snack_template.html#give-learners-a-chance-to-play",
-    "title": "Snack Template: R",
-    "section": "Give Learners a Chance to Play",
-    "text": "Give Learners a Chance to Play"
+    "objectID": "python_snacks/wordcloud.html#your-turn",
+    "href": "python_snacks/wordcloud.html#your-turn",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Your turn!",
+    "text": "Your turn!\nWhat happens when you change the max_font_size?"
   },
   {
-    "objectID": "r_snacks/naniar.html",
-    "href": "r_snacks/naniar.html",
-    "title": "What’s Missing with {naniar}",
+    "objectID": "r_snacks/gtsummary.html",
+    "href": "r_snacks/gtsummary.html",
+    "title": "Make your Table 1 with {gtsummary}",
     "section": "",
-    "text": "Learn about patterns of missing values in your data with the {naniar} package."
+    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
   },
   {
-    "objectID": "r_snacks/naniar.html#our-dataset",
-    "href": "r_snacks/naniar.html#our-dataset",
-    "title": "What’s Missing with {naniar}",
-    "section": "Our Dataset",
-    "text": "Our Dataset"
+    "objectID": "r_snacks/gtsummary.html#need-a-table-1",
+    "href": "r_snacks/gtsummary.html#need-a-table-1",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "",
+    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
   },
   {
-    "objectID": "r_snacks/naniar.html#why-should-we-care",
-    "href": "r_snacks/naniar.html#why-should-we-care",
-    "title": "What’s Missing with {naniar}",
-    "section": "Why Should We Care?",
-    "text": "Why Should We Care?\nAs a data scientist, you need to be aware of missing values and how they impact your analysis. There are methods of dealing with missing values, such as imputation, that are highly dependent on the kinds of missingness in your data. Some modeling methods, like zero-inflated models, have different assumptions for using them properly."
+    "objectID": "r_snacks/gtsummary.html#learning-objectives",
+    "href": "r_snacks/gtsummary.html#learning-objectives",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nExplain the major use case of {gtsummary}\nUtilize {gtsummary} features to summarize your cohort\nOutput {gtsummary} tables in a variety of formats"
   },
   {
-    "objectID": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
-    "href": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
-    "title": "What’s Missing with {naniar}",
-    "section": "Visualizing Missingness: vis_miss()",
-    "text": "Visualizing Missingness: vis_miss()\nMy favorite way to look for these patterns is a package called {naniar} written by my friend Nick Tierney. naniar visualizes rows of data as lines in a rectangle. Columns are represented by line sections.\nLet’s take a look at the missing values in the penguins data.\n\n\n\n\n\n\n\n\nWhat I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that some penguins are missing information such as sex.\n\n\n\n\n\n\n\n\nIn this example, reading the combinations from left to right, we can see:\n\n9 penguins had missing values for sex\n2 penguins had missing values in bill_length, bill_depth, flipper_length, body_mass, and sex.\n\nVisualizing the combinations of missing values helps us discover patterns of association in missingness that we don’t expect."
+    "objectID": "r_snacks/gtsummary.html#our-cohort-penguins",
+    "href": "r_snacks/gtsummary.html#our-cohort-penguins",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Our Cohort: Penguins",
+    "text": "Our Cohort: Penguins\nWe’re going to use the palmerpenguins dataset as our example cohort. As a reminder, here’s the first few rows of this dataset."
   },
   {
-    "objectID": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
-    "href": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
-    "title": "What’s Missing with {naniar}",
-    "section": "Continuous Values and Missingness: geom_miss_point()",
-    "text": "Continuous Values and Missingness: geom_miss_point()\nMost of these visualizations use a shadow matrix representation of missing values. This shadow matrix lets you do clever things such as visualize two continuous variables on a plot but include those missing values to assess whether those missing values are MNAR, MAR, or MCAR.\nWhen you are plotting two continuous values, you need to be curious about whether there are biases in the missingness. geom_miss_point() gives us a way to visualize the missing values when we plot.\n\n\n\n\n\n\n\n\nIn this plot, the missing values are represented by red points that are below the zero line for both axes (they are jittered so they don’t all occupy the same line). Specifically, the points on the left side have values for Solar.R but are missing values for Ozone. In this case, the points are distributed across the entire range of Solar.R. Note that this isn’t the case for missing values of Solar.R, which are represented in the lower right of the plot. These missing values are not distributed evenly across Ozone, showing a bias towards lower values of Ozone.\nful when you facet on a categorical variable, to look for conditioned randomness, MAR/MNAR.\n\n\n\n\n\n\n\n\nHere we can see a possible bias in missing values by the month (compare month=6 to month=9)."
+    "objectID": "r_snacks/gtsummary.html#summary-table-of-penguins",
+    "href": "r_snacks/gtsummary.html#summary-table-of-penguins",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Summary Table of Penguins",
+    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we’re"
   },
   {
-    "objectID": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
-    "href": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
-    "title": "What’s Missing with {naniar}",
-    "section": "In Conclusion: We Miss You, Missing Values",
-    "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
+    "objectID": "r_snacks/gtsummary.html#comparing-groups",
+    "href": "r_snacks/gtsummary.html#comparing-groups",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Comparing Groups",
+    "text": "Comparing Groups\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:\n\n\n\n\n\n\n\n\nHere you can see we did a chi-squared test to look at combinations of island and species, and we did a Kruskal-Wallis rank sum to compare bill_length_mm across species.\nThis is just the tip of the iceberg for {gtsummary}. You also can output to Microsoft Word for further tweaks.\n{gtsummary} link"
+  },
+  {
+    "objectID": "r_snacks/gtsummary.html#packages-used",
+    "href": "r_snacks/gtsummary.html#packages-used",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Packages Used",
+    "text": "Packages Used"
+  },
+  {
+    "objectID": "r_snacks/parquet.html",
+    "href": "r_snacks/parquet.html",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "",
+    "text": "As you continue on with your work as a Data Scientist, you will start encountering parquet files as a way of storing data.\nWhat is a parquet file? It is another way of storing data that is organized in a way that it’s fast to search. In contrast to row-based storage, where the data is stored by row, parquet is column-based: data is stored by column. There are some particular advantages to this storage type:\nThe main drawback is that there is additional technology required to work with parquet files."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#you-dont-load-parquet-files-into-memory",
+    "href": "r_snacks/parquet.html#you-dont-load-parquet-files-into-memory",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "You Don’t Load Parquet Files Into Memory",
+    "text": "You Don’t Load Parquet Files Into Memory\nIn general, you don’t load parquet files into memory to work with them. You tend to work with them through a database query engine. In our case, we’ll use a system called DuckDB. DuckDB is a database query engine that works with a wide variety of data types."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#a-titanic-parquet-file",
+    "href": "r_snacks/parquet.html#a-titanic-parquet-file",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "A Titanic Parquet file",
+    "text": "A Titanic Parquet file\nWe’ve got a folder called data/, and there is a file called titanic.parquet in there.\n\n\n\n\n\n\n\n\nNow that we know what’s in our data/ folder, we can get some info on this file. We’ll use the {nanoparquet} package to get some info. We can get an idea of the size of the data using parquet_info():\n\n\n\n\n\n\n\n\nLet’s get info about the column types in our file with parquet_column_types\n\n\n\n\n\n\n\n\nIn general, nanoparquet is very useful for reading and writing parquet files. But remember, we are going to be interacting them through a database query engine. Enter DuckDB."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#querying-your-data",
+    "href": "r_snacks/parquet.html#querying-your-data",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Querying your Data",
+    "text": "Querying your Data\nTo actually interact with the data, we can connect to the parquet file with the DuckDB package. We first need to start what’s called a database connection so that we can connect to the DuckDB software:\n\n\n\n\n\n\n\n\nNow, we’re going to make a “View”, which is a temporary table in DuckDB to do our queries on.\n\n\n\n\n\n\n\n\nNow, we have our connection and our view, we can start to take a look at the data. We can pass our connection and view with the tbl() function. Here we’re calling head(), followed by collect().\n\n\n\n\n\n\n\n\nWhy do we need to call collect()? DuckDB uses what’s called Lazy Execution: it only calculates a value when you tell it to. Lazy Execution allows DuckDB to make an execution plan: it finds the best strategy for executing the entire query rather than calculate it piece by piece."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#summarizing-the-passengers",
+    "href": "r_snacks/parquet.html#summarizing-the-passengers",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Summarizing the Passengers",
+    "text": "Summarizing the Passengers"
+  },
+  {
+    "objectID": "r_snacks/parquet.html#try-constructing-your-own-query",
+    "href": "r_snacks/parquet.html#try-constructing-your-own-query",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Try Constructing Your Own Query",
+    "text": "Try Constructing Your Own Query\nFind out the mean Age by Pclass."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
+    "href": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "The Tip of the, Er, Iceberg",
+    "text": "The Tip of the, Er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack."
   }
 ]
