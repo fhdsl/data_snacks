@@ -284,41 +284,41 @@
     "href": "r_snacks/parquet.html#you-dont-load-parquet-files-into-memory",
     "title": "Large Data Work: Intro to parquet files in R",
     "section": "You Don’t Load Parquet Files Into Memory",
-    "text": "You Don’t Load Parquet Files Into Memory\nIn general, you don’t load parquet files into memory to work with them. You tend to work with them through a database query engine. In our case, we’ll use a system called DuckDB. DuckDB is a database query engine that works with a wide variety of data types."
+    "text": "You Don’t Load Parquet Files Into Memory\nIn general, you don’t load parquet files into memory to work with them. You tend to work with them through a database query engine. In our case, we’ll use a system called DuckDB. DuckDB is a database query engine that works with a wide variety of data types.\nOther query engines that are important are Snowflake, Google BigQuery, and Amazon RedShift. So you can see that learning how to work with parquet files is important."
   },
   {
     "objectID": "r_snacks/parquet.html#a-titanic-parquet-file",
     "href": "r_snacks/parquet.html#a-titanic-parquet-file",
     "title": "Large Data Work: Intro to parquet files in R",
     "section": "A Titanic Parquet file",
-    "text": "A Titanic Parquet file\nWe’ve got a folder called data/, and there is a file called titanic.parquet (link to data if you want to download) in there. L\n\n\n\n\n\n\n\n\nNow that we know what’s in our data/ folder, we can get some info on this file. We’ll use the {nanoparquet} package to get some info on the file. We can get an idea of the size of the data using parquet_info():\n\n\n\n\n\n\n\n\nLet’s get info about the column types in our file with parquet_column_types\n\n\n\n\n\n\n\n\nIn general, nanoparquet is very useful for reading and writing parquet files. But remember, we are going to be interacting them through a database query engine. Enter DuckDB."
+    "text": "A Titanic Parquet file\nWe’ve got a folder called data/, and there is a file called titanic.parquet (link to data if you want to download) in there.\n\n\n\n\n\n\n\n\nNow that we know what’s in our data/ folder, we can get some info on this file. We’ll use the {nanoparquet} package to get some info on the file. We can get an idea of the size of the data using parquet_info():\n\n\n\n\n\n\n\n\nLet’s get info about the column types in our file with parquet_column_types\n\n\n\n\n\n\n\n\nIn general, nanoparquet is very useful for reading and writing parquet files. But remember, we are going to be interacting them through a database query engine. Enter DuckDB."
   },
   {
     "objectID": "r_snacks/parquet.html#querying-your-data",
     "href": "r_snacks/parquet.html#querying-your-data",
     "title": "Large Data Work: Intro to parquet files in R",
     "section": "Querying your Data",
-    "text": "Querying your Data\nTo actually interact with the data, we can connect to the parquet file with the DuckDB package. We first need to start what’s called a database connection so that we can connect to the DuckDB software:\n\n\n\n\n\n\n\n\nNow, we’re going to make a “View”, which is a temporary table in DuckDB to do our queries on. This also connects our parquet file with the PARQUET_SCAN() function in DuckDB.\nThis is the only SQL we need to write to interact with the data.\n\n\n\n\n\n\n\n\nNow, we have our connection and our view, we can start to take a look at the data. We can pass our connection and view with the tbl() function. Here we’re calling head(), followed by collect().\n\n\n\n\n\n\n\n\nWhy do we need to call collect()? DuckDB uses what’s called Lazy Execution: it only calculates a value when you tell it to. Lazy Execution allows DuckDB to make an execution plan: it finds the best strategy for executing the entire query rather than calculate it piece by piece."
+    "text": "Querying your Data\nTo actually interact with the data, we can connect to the parquet file with the DuckDB package. We first need to start what’s called a database connection so that we can connect to the DuckDB software:\n\n\n\n\n\n\n\n\nNow, we’re going to make a “View”, which is a temporary table in DuckDB to do our queries on. This also connects our parquet file with the PARQUET_SCAN() function in DuckDB.\nThis is the only SQL we need to write to interact with the data. The rest we can do with dplyr commands thanks to a package called duckplyr.\n\n\n\n\n\n\n\n\nNow, we have our connection and our view, we can start to take a look at the data. We can pass our connection and view with the tbl() function. Here we’re calling head(), followed by collect().\n\n\n\n\n\n\n\n\nWhy do we need to call collect()? DuckDB uses what’s called Lazy Execution: it only calculates a value when you tell it to. Lazy Execution allows DuckDB to make an execution plan: it finds the best strategy for executing the entire query rather than calculate it piece by piece."
   },
   {
     "objectID": "r_snacks/parquet.html#summarizing-the-passengers",
     "href": "r_snacks/parquet.html#summarizing-the-passengers",
     "title": "Large Data Work: Intro to parquet files in R",
     "section": "Summarizing the Passengers",
-    "text": "Summarizing the Passengers"
+    "text": "Summarizing the Passengers\nLet’s look at who survived and their average fare. Note that we can remove missing values with the na.rm argument to mean():\n\n\n\n\n\n\n\n\nDepressingly, it seems that those who survived paid more for their fare."
   },
   {
     "objectID": "r_snacks/parquet.html#try-constructing-your-own-query",
     "href": "r_snacks/parquet.html#try-constructing-your-own-query",
     "title": "Large Data Work: Intro to parquet files in R",
     "section": "Try Constructing Your Own Query",
-    "text": "Try Constructing Your Own Query\nFind out the mean Age by Pclass."
+    "text": "Try Constructing Your Own Query\nFind out the mean Age by Pclass (1st, 2nd, 3rd class)."
   },
   {
     "objectID": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
     "href": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
     "title": "Large Data Work: Intro to parquet files in R",
-    "section": "The Tip of the, Er, Iceberg",
-    "text": "The Tip of the, Er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack."
+    "section": "The Tip of the, er, Iceberg",
+    "text": "The Tip of the, er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack."
   }
 ]
