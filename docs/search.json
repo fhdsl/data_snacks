@@ -151,21 +151,14 @@
     "href": "r_snacks/gtsummary.html#summary-table-of-penguins",
     "title": "Make your Table 1 with {gtsummary}",
     "section": "Summary Table of Penguins",
-    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we’re"
+    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we pass our columns into the tbl_summary() function, which is the start of interacting with {gtsummary}:"
   },
   {
     "objectID": "r_snacks/gtsummary.html#comparing-groups",
     "href": "r_snacks/gtsummary.html#comparing-groups",
     "title": "Make your Table 1 with {gtsummary}",
     "section": "Comparing Groups",
-    "text": "Comparing Groups\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:\n\n\n\n\n\n\n\n\nHere you can see we did a chi-squared test to look at combinations of island and species, and we did a Kruskal-Wallis rank sum to compare bill_length_mm across species.\nThis is just the tip of the iceberg for {gtsummary}. You also can output to Microsoft Word for further tweaks.\n{gtsummary} link"
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html#packages-used",
-    "href": "r_snacks/gtsummary.html#packages-used",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Packages Used",
-    "text": "Packages Used"
+    "text": "Comparing Groups\nHere we want to look at the intersection of species by island, as well as the distribution of bill lengths:\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:\n\n\n\n\n\n\n\n\nHere you can see we did a chi-squared test to look at combinations of island and species, and we did a Kruskal-Wallis rank sum to compare bill_length_mm across species.\nThis is just the tip of the iceberg for {gtsummary}. You also can output to Microsoft Word for further tweaks.\n{gtsummary} link"
   },
   {
     "objectID": "python_snacks/wordcloud.html",
