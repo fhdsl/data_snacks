@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Chris Lo">
-<meta name="dcterms.date" content="2024-09-19">
+<meta name="author" content="Ted Laderas">
+<meta name="dcterms.date" content="2024-10-14">
 
-<title>Visualize text frequency with {wordcloud} – DaSL Data Snacks</title>
+<title>Learning R as a SAS user – DaSL Data Snacks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
-<link href="../site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,10 +68,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">DaSL Data Snacks</span>
     </a>
   </div>
@@ -94,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../contributing.html"> 
+    <a class="nav-link" href="./contributing.html"> 
 <span class="menu-text">Contributing</span></a>
   </li>  
   <li class="nav-item compact">
@@ -119,10 +118,10 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Visualize text frequency with {wordcloud}</h1>
+<h1 class="title">Learning R as a SAS user</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Python</div>
-    <div class="quarto-category">Visualization</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">SAS</div>
   </div>
   </div>
 
@@ -133,14 +132,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Chris Lo </p>
+             <p>Ted Laderas </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 19, 2024</p>
+      <p class="date">October 14, 2024</p>
     </div>
   </div>
   
@@ -152,80 +151,116 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text by the font size. We show how to make wordclouds via the <code>wordcloud</code> Python module.</p>
-<section id="show-your-data" class="level2">
-<h2 class="anchored" data-anchor-id="show-your-data">Show your data</h2>
-<p>We download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama.</p>
-<div class="cell">
-<div>
-<div id="pyodide-1">
-
-</div>
-<script type="pyodide-1-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiZnJvbSB3b3JkY2xvdWQgaW1wb3J0IFdvcmRDbG91ZFxuaW1wb3J0IG1hdHBsb3RsaWIucHlwbG90IGFzIHBsdFxuXG53aXRoIG9wZW4oJ3N0YXRlX3VuaW9uX3BhcnQxLnR4dCcsICdyJykgYXMgZmlsZTpcbiAgICB0ZXh0MSA9IGZpbGUucmVhZCgpXG5cbndpdGggb3Blbignc3RhdGVfdW5pb25fcGFydDIudHh0JywgJ3InKSBhcyBmaWxlOlxuICAgIHRleHQyID0gZmlsZS5yZWFkKClcblxudGV4dCA9IHRleHQxICsgdGV4dDJcblxucHJpbnQoXCJIZXJlJ3MgYW4gZXhhbXBsZSBzZWN0aW9uIG9mIHRoZSB0ZXh0OlwiLCB0ZXh0WzYwMzA6NjQwMF0pIn0=
-</script>
-</div>
-</div>
+<section id="useful-packages-coming-from-sas" class="level2">
+<h2 class="anchored" data-anchor-id="useful-packages-coming-from-sas">Useful Packages coming from SAS</h2>
+<ul>
+<li>The sassy ecosystem</li>
+<li>procs</li>
+</ul>
 </section>
-<section id="demonstrate-wordcloud" class="level2">
-<h2 class="anchored" data-anchor-id="demonstrate-wordcloud">Demonstrate wordcloud</h2>
-<div class="cell">
-<div>
-<div id="pyodide-2">
-
-</div>
-<script type="pyodide-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoiIyBHZW5lcmF0ZSBhIHdvcmQgY2xvdWQgaW1hZ2VcbndvcmRjbG91ZCA9IFdvcmRDbG91ZChtYXhfZm9udF9zaXplPTQwKS5nZW5lcmF0ZSh0ZXh0KVxuXG4jIERpc3BsYXkgdGhlIGdlbmVyYXRlZCBpbWFnZTpcbnBsdC5pbXNob3cod29yZGNsb3VkLCBpbnRlcnBvbGF0aW9uPSdiaWxpbmVhcicpXG5wbHQuYXhpcyhcIm9mZlwiKVxucGx0LnNob3coKSJ9
-</script>
-</div>
-</div>
+<section id="useful-articles-and-cheat-sheets" class="level2">
+<h2 class="anchored" data-anchor-id="useful-articles-and-cheat-sheets">Useful Articles and Cheat Sheets</h2>
+<ul>
+<li><a href="https://posit.co/blog/how-to-learn-r-as-a-sas-user/">How to Learn R as a SAS User</a></li>
+<li><a href="https://github.com/brendanjodowd/SAS-R">SAS to R Cheat Sheet (Brendan Dowd)</a></li>
+<li><a href="https://r-guru.com/Compare-with-SAS">Comparing R and SAS Commands (Sunil Gupta)</a></li>
+</ul>
 </section>
-<section id="your-turn" class="level2">
-<h2 class="anchored" data-anchor-id="your-turn">Your turn!</h2>
-<p>What happens when you change the <code>max_font_size</code>?</p>
-<div class="cell" data-exercise="ex_1">
-<div>
-<div id="pyodide-3">
+<section id="useful-tips" class="level2">
+<h2 class="anchored" data-anchor-id="useful-tips">Useful Tips</h2>
+<ul>
+<li>David Bosak (Author of Sassy Packages)</li>
+<li>Gregory Power</li>
+<li>Cynthia Miguel</li>
+<li>Ken Butler</li>
+<li>Thomas Lumley</li>
+<li>Kathleen Galper</li>
+<li>Christopher R</li>
+<li>Brendan O’Dowd (Author of SAS &lt;&gt; R Cheatsheet)</li>
+</ul>
+<section id="data-loading-tips" class="level3">
+<h3 class="anchored" data-anchor-id="data-loading-tips">Data Loading Tips</h3>
+<ul>
+<li>Data does not write itself to disk automatically in R. You have to read/write explicitly. (David Bosak)</li>
+<li>R can read SAS datasets, but not write them. (David Bosak)</li>
+<li>The one that really threw me initially was permanent vs temporary datasets in SAS, and it not being quite the same thing in R (KG). &gt; IIRC, SAS (like SPSS, Stata, et. al) has an idea of “the data in memory” as like, a single rectangular data set. (At least, after the DATA block of code creates it.)</li>
+</ul>
+<blockquote class="blockquote">
+<p>R, on the other hand, has an environment where you can save multiple data frames at once along with other miscellany (custom functions, lists, vectors, etc.)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>This means that in R you have to be more explicit about which data frame to perform operations on. (N)</p>
+</blockquote>
+</section>
+<section id="execution-tips" class="level3">
+<h3 class="anchored" data-anchor-id="execution-tips">Execution Tips</h3>
+<ul>
+<li>You can run one line at a time and see what it does. (KB)</li>
+<li>Ctrl + Return will run a line of code and move the cursor to the next line. Very useful. (DB)</li>
+<li>If you put your cursor on a function and press F1, it will bring up the help for that function. (DB)</li>
+</ul>
+</section>
+<section id="intro-coding-tips" class="level3">
+<h3 class="anchored" data-anchor-id="intro-coding-tips">Intro Coding Tips</h3>
+<ul>
+<li>Any error will stop execution. (DB)</li>
+<li>There is no native log in R, although there are logging packages. (DB)</li>
+<li>In R, a data frame holds tabular data like a SAS dataset. But the foundational data structure is a vector. Make sure you understand it, or you’ll never really understand how R works. (DB)</li>
+<li>You cannot output multiple datasets in a single step (CM)</li>
+<li>Some features of SAS are going to be missed and that’s okay. E.g., the ESTIMATE statement in the modeling PROCS was a lifesaver. You don’t have that here. [SVH]</li>
+</ul>
+<ol start="5" type="1">
+<li>The DATA step is the workhorse of SAS, and the {tidyverse} functions combined with the native pipe (|&gt;) give you tons of great abilities to transform data that approximate the control that you had in SAS.</li>
+</ol>
+</section>
+<section id="missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="missing-values">Missing Values</h3>
+<ul>
+<li>A missing value is usually represented by NA. There are special functions to help deal with it. (DB)</li>
+<li>Check to see how your missing values are handled, e.g.&nbsp;during read/write, aggregating, sorting. In particular be aware that an empty string is different to NA in R. (BOD)</li>
+<li>Also, in R comparisons with NA return NA – I think comparisons with . return some actual result in SAS? Eg 1==NA or 3&lt;NA</li>
+</ul>
+</section>
+<section id="the-multiverse-of-r-packages" class="level3">
+<h3 class="anchored" data-anchor-id="the-multiverse-of-r-packages">The Multiverse of R Packages</h3>
+<ul>
+<li>There are many functions and packages to do the same thing. It will take some research and experimentation to find the one that is most suitable for your needs. (David Bosak)</li>
+<li>In the same vein of customization, you’re essentially locked in to SAS syntax, but in R you could go with base R, tidy, or data.table per your preference (KG) &gt; In many statistical software packages, there’s basically one way to do each thing, because a single team of people developed it and avoided being redundant.</li>
+</ul>
+<blockquote class="blockquote">
+<p>R, in contrast, lets you do the same things using base R or tidyverse or data.table etc. Because it’s more decentralized and anyone can contribute, there’s some redundancy – and that’s ok! You don’t have to know all the ways to do something. Just start with one way that makes sense to you and go from there. (N)</p>
+</blockquote>
+</section>
+<section id="programming-and-macros" class="level3">
+<h3 class="anchored" data-anchor-id="programming-and-macros">Programming and Macros</h3>
+<ul>
+<li>Do-loops and macros are not a thing in R, but there are workarounds (CM)</li>
+<li>You don’t need a semi-colon at the end of each line. (DB)</li>
+<li>There is no macro language in R. But there are variables and control structures that allow you to do similar things. (DB)</li>
+<li>Also understand factors and lists. They will come up all the time. (DB)</li>
+<li>Documentation in R is sometimes good. Sometimes not. (DB)</li>
+<li>Learn the *apply functions because the macro facility does not exist in #rstats. The efficiency you get through macros can be obtained in a different way. (E.g., data sets can be stored in lists and acted upon with lapply().) (SVH)</li>
+<li>Sorting in R uses the system locale by default. (TL)</li>
+</ul>
+</section>
+<section id="performance" class="level3">
+<h3 class="anchored" data-anchor-id="performance">Performance</h3>
+<ul>
+<li>I think they should to try to embrace Apache Arrow through the arrow package so they can get the same kind of performances and features they got from the SAS ecosystem: https://arrow.apache.org/docs/r/ (GP)</li>
+</ul>
+</section>
+<section id="statistical-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-modeling">Statistical Modeling</h3>
+<ul>
+<li>I find modeling (particularly mixed modeling) and getting helpful viz much more intuitive in R. Also great functionality with checking assumptions using DHARMa as opposed to the SAS modeling output (KG)</li>
+<li>The default regression coding for categorical variables is opposite: R has no indicator for the first level, SAS drops the last (TL)</li>
+</ul>
 
-</div>
-<script type="pyodide-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoid29yZGNsb3VkMiA9IFdvcmRDbG91ZChtYXhfZm9udF9zaXplPV9fX19fXykuZ2VuZXJhdGUodGV4dClcblxuIyBEaXNwbGF5IHRoZSBnZW5lcmF0ZWQgaW1hZ2U6XG5wbHQuaW1zaG93KHdvcmRjbG91ZDIsIGludGVycG9sYXRpb249J2JpbGluZWFyJylcbnBsdC5heGlzKFwib2ZmXCIpXG5wbHQuc2hvdygpIn0=
-</script>
-</div>
-</div>
 
-
-<script type="pyodide-data">
-eyJvcHRpb25zIjp7ImluZGV4VVJMIjoiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L3B5b2RpZGUvdjAuMjYuMS9mdWxsLyJ9LCJwYWNrYWdlcyI6eyJwa2dzIjpbInB5b2RpZGVfaHR0cCIsIm1pY3JvcGlwIiwiaXB5dGhvbiIsIm1hdHBsb3RsaWIiLCJ3b3JkY2xvdWQiXX19
-</script>
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJweW9kaWRlLTMiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8zID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0zLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMy1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzMgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzMsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLTIiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8yID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0yLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMi1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzIgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzIsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLTEiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0Iiwic291cmNlIjoidmlld29mIF9weW9kaWRlX2VkaXRvcl8xID0ge1xuICBjb25zdCB7IFB5b2RpZGVFeGVyY2lzZUVkaXRvciwgYjY0RGVjb2RlIH0gPSB3aW5kb3cuX2V4ZXJjaXNlX29qc19ydW50aW1lO1xuXG4gIGNvbnN0IHNjcmlwdENvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS0xLWNvbnRlbnRzXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgYmxvY2sgPSBKU09OLnBhcnNlKGI2NERlY29kZShzY3JpcHRDb250ZW50KSk7XG5cbiAgY29uc3Qgb3B0aW9ucyA9IE9iamVjdC5hc3NpZ24oeyBpZDogYHB5b2RpZGUtMS1jb250ZW50c2AgfSwgYmxvY2suYXR0cik7XG4gIGNvbnN0IGVkaXRvciA9IG5ldyBQeW9kaWRlRXhlcmNpc2VFZGl0b3IoXG4gICAgcHlvZGlkZU9qcy5weW9kaWRlUHJvbWlzZSxcbiAgICBibG9jay5jb2RlLFxuICAgIG9wdGlvbnNcbiAgKTtcblxuICByZXR1cm4gZWRpdG9yLmNvbnRhaW5lcjtcbn1cbl9weW9kaWRlX3ZhbHVlXzEgPSBweW9kaWRlT2pzLnByb2Nlc3MoX3B5b2RpZGVfZWRpdG9yXzEsIHt9KTtcbiJ9LHsiY2VsbE5hbWUiOiJweW9kaWRlLXByZWx1ZGUiLCJpbmxpbmUiOmZhbHNlLCJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJweW9kaWRlT2pzID0ge1xuICBjb25zdCB7XG4gICAgUHlvZGlkZUV2YWx1YXRvcixcbiAgICBQeW9kaWRlRW52aXJvbm1lbnRNYW5hZ2VyLFxuICAgIHNldHVwUHl0aG9uLFxuICAgIHN0YXJ0UHlvZGlkZVdvcmtlcixcbiAgICBiNjREZWNvZGUsXG4gICAgY29sbGFwc2VQYXRoLFxuICB9ID0gd2luZG93Ll9leGVyY2lzZV9vanNfcnVudGltZTtcblxuICBjb25zdCBzdGF0dXNDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctc3RhdHVzXCIpO1xuICBjb25zdCBpbmRpY2F0b3JDb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImV4ZXJjaXNlLWxvYWRpbmctaW5kaWNhdG9yXCIpO1xuICBpbmRpY2F0b3JDb250YWluZXIuY2xhc3NMaXN0LnJlbW92ZShcImQtbm9uZVwiKTtcblxuICBsZXQgc3RhdHVzVGV4dCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoXCJkaXZcIilcbiAgc3RhdHVzVGV4dC5jbGFzc0xpc3QgPSBcImV4ZXJjaXNlLWxvYWRpbmctZGV0YWlsc1wiO1xuICBzdGF0dXNUZXh0ID0gc3RhdHVzQ29udGFpbmVyLmFwcGVuZENoaWxkKHN0YXR1c1RleHQpO1xuICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYEluaXRpYWxpc2VgO1xuXG4gIC8vIEhvaXN0IGluZGljYXRvciBvdXQgZnJvbSBmaW5hbCBzbGlkZSB3aGVuIHJ1bm5pbmcgdW5kZXIgcmV2ZWFsXG4gIGNvbnN0IHJldmVhbFN0YXR1cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIucmV2ZWFsIC5leGVyY2lzZS1sb2FkaW5nLWluZGljYXRvclwiKTtcbiAgaWYgKHJldmVhbFN0YXR1cykge1xuICAgIHJldmVhbFN0YXR1cy5yZW1vdmUoKTtcbiAgICBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiLnJldmVhbCA+IC5zbGlkZXNcIikuYXBwZW5kQ2hpbGQocmV2ZWFsU3RhdHVzKTtcbiAgfVxuXG4gIC8vIFB5b2RpZGUgc3VwcGxlbWVudGFsIGRhdGEgYW5kIG9wdGlvbnNcbiAgY29uc3QgZGF0YUNvbnRlbnQgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKGBzY3JpcHRbdHlwZT1cXFwicHlvZGlkZS1kYXRhXFxcIl1gKS50ZXh0Q29udGVudDtcbiAgY29uc3QgZGF0YSA9IEpTT04ucGFyc2UoYjY0RGVjb2RlKGRhdGFDb250ZW50KSk7XG5cbiAgLy8gR3JhYiBsaXN0IG9mIHJlc291cmNlcyB0byBiZSBkb3dubG9hZGVkXG4gIGNvbnN0IGZpbGVzQ29udGVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoYHNjcmlwdFt0eXBlPVxcXCJ2ZnMtZmlsZVxcXCJdYCkudGV4dENvbnRlbnQ7XG4gIGNvbnN0IGZpbGVzID0gSlNPTi5wYXJzZShiNjREZWNvZGUoZmlsZXNDb250ZW50KSk7XG5cbiAgbGV0IHB5b2RpZGVQcm9taXNlID0gKGFzeW5jICgpID0+IHtcbiAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIFB5b2RpZGVgO1xuICAgIGNvbnN0IHB5b2RpZGUgPSBhd2FpdCBzdGFydFB5b2RpZGVXb3JrZXIoZGF0YS5vcHRpb25zKTtcblxuICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogbWljcm9waXBgO1xuICAgIGF3YWl0IHB5b2RpZGUubG9hZFBhY2thZ2UoXCJtaWNyb3BpcFwiKTtcbiAgICBjb25zdCBtaWNyb3BpcCA9IGF3YWl0IHB5b2RpZGUucHlpbXBvcnQoXCJtaWNyb3BpcFwiKTtcbiAgICBhd2FpdCBkYXRhLnBhY2thZ2VzLnBrZ3MubWFwKChwa2cpID0+ICgpID0+IHtcbiAgICAgIHN0YXR1c1RleHQudGV4dENvbnRlbnQgPSBgRG93bmxvYWRpbmcgcGFja2FnZTogJHtwa2d9YDtcbiAgICAgIHJldHVybiBtaWNyb3BpcC5pbnN0YWxsKHBrZyk7XG4gICAgfSkucmVkdWNlKChjdXIsIG5leHQpID0+IGN1ci50aGVuKG5leHQpLCBQcm9taXNlLnJlc29sdmUoKSk7XG4gICAgYXdhaXQgbWljcm9waXAuZGVzdHJveSgpO1xuXG4gICAgLy8gRG93bmxvYWQgYW5kIGluc3RhbGwgcmVzb3VyY2VzXG4gICAgYXdhaXQgZmlsZXMubWFwKChmaWxlKSA9PiBhc3luYyAoKSA9PiB7XG4gICAgICBjb25zdCBuYW1lID0gZmlsZS5zdWJzdHJpbmcoZmlsZS5sYXN0SW5kZXhPZignLycpICsgMSk7XG4gICAgICBzdGF0dXNUZXh0LnRleHRDb250ZW50ID0gYERvd25sb2FkaW5nIHJlc291cmNlOiAke25hbWV9YDtcbiAgICAgIGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goZmlsZSk7XG4gICAgICBpZiAoIXJlc3BvbnNlLm9rKSB7XG4gICAgICAgIHRocm93IG5ldyBFcnJvcihgQ2FuJ3QgZG93bmxvYWQgXFxgJHtmaWxlfVxcYC4gRXJyb3IgJHtyZXNwb25zZS5zdGF0dXN9OiBcIiR7cmVzcG9uc2Uuc3RhdHVzVGV4dH1cIi5gKTtcbiAgICAgIH1cbiAgICAgIGNvbnN0IGRhdGEgPSBhd2FpdCByZXNwb25zZS5hcnJheUJ1ZmZlcigpO1xuXG4gICAgICAvLyBTdG9yZSBVUkxzIGluIHRoZSBjd2Qgd2l0aG91dCBhbnkgc3ViZGlyZWN0b3J5IHN0cnVjdHVyZVxuICAgICAgaWYgKGZpbGUuaW5jbHVkZXMoXCI6Ly9cIikpIHtcbiAgICAgICAgZmlsZSA9IG5hbWU7XG4gICAgICB9XG5cbiAgICAgIC8vIENvbGxhcHNlIGhpZ2hlciBkaXJlY3Rvcnkgc3RydWN0dXJlXG4gICAgICBmaWxlID0gY29sbGFwc2VQYXRoKGZpbGUpO1xuXG4gICAgICAvLyBDcmVhdGUgZGlyZWN0b3J5IHRyZWUsIGlnbm9yaW5nIFwiZGlyZWN0b3J5IGV4aXN0c1wiIFZGUyBlcnJvcnNcbiAgICAgIGNvbnN0IHBhcnRzID0gZmlsZS5zcGxpdCgnLycpLnNsaWNlKDAsIC0xKTtcbiAgICAgIGxldCBwYXRoID0gJyc7XG4gICAgICB3aGlsZSAocGFydHMubGVuZ3RoID4gMCkge1xuICAgICAgICBwYXRoICs9IHBhcnRzLnNoaWZ0KCkgKyAnLyc7XG4gICAgICAgIHRyeSB7XG4gICAgICAgICAgYXdhaXQgcHlvZGlkZS5GUy5ta2RpcihwYXRoKTtcbiAgICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICAgIGlmIChlLm5hbWUgIT09IFwiRXJybm9FcnJvclwiKSB0aHJvdyBlO1xuICAgICAgICAgIGlmIChlLmVycm5vICE9PSAyMCkge1xuICAgICAgICAgICAgY29uc3QgZXJyb3JUZXh0UHRyID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLl9zdHJlcnJvcihlLmVycm5vKTtcbiAgICAgICAgICAgIGNvbnN0IGVycm9yVGV4dCA9IGF3YWl0IHB5b2RpZGUuX21vZHVsZS5VVEY4VG9TdHJpbmcoZXJyb3JUZXh0UHRyKTtcbiAgICAgICAgICAgIHRocm93IG5ldyBFcnJvcihgRmlsZXN5c3RlbSBFcnJvciAke2UuZXJybm99IFwiJHtlcnJvclRleHR9XCIuYCk7XG4gICAgICAgICAgfVxuICAgICAgICB9XG4gICAgICB9XG5cbiAgICAgIC8vIFdyaXRlIHRoaXMgZmlsZSB0byB0aGUgVkZTXG4gICAgICB0cnkge1xuICAgICAgICByZXR1cm4gYXdhaXQgcHlvZGlkZS5GUy53cml0ZUZpbGUoZmlsZSwgbmV3IFVpbnQ4QXJyYXkoZGF0YSkpO1xuICAgICAgfSBjYXRjaCAoZSkge1xuICAgICAgICBpZiAoZS5uYW1lICE9PSBcIkVycm5vRXJyb3JcIikgdGhyb3cgZTtcbiAgICAgICAgY29uc3QgZXJyb3JUZXh0UHRyID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLl9zdHJlcnJvcihlLmVycm5vKTtcbiAgICAgICAgY29uc3QgZXJyb3JUZXh0ID0gYXdhaXQgcHlvZGlkZS5fbW9kdWxlLlVURjhUb1N0cmluZyhlcnJvclRleHRQdHIpO1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoYEZpbGVzeXN0ZW0gRXJyb3IgJHtlLmVycm5vfSBcIiR7ZXJyb3JUZXh0fVwiLmApO1xuICAgICAgfVxuICAgIH0pLnJlZHVjZSgoY3VyLCBuZXh0KSA9PiBjdXIudGhlbihuZXh0KSwgUHJvbWlzZS5yZXNvbHZlKCkpO1xuXG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGBQeW9kaWRlIGVudmlyb25tZW50IHNldHVwYDtcbiAgICBhd2FpdCBzZXR1cFB5dGhvbihweW9kaWRlKTtcblxuICAgIHN0YXR1c1RleHQucmVtb3ZlKCk7XG4gICAgaWYgKHN0YXR1c0NvbnRhaW5lci5jaGlsZHJlbi5sZW5ndGggPT0gMCkge1xuICAgICAgc3RhdHVzQ29udGFpbmVyLnBhcmVudE5vZGUucmVtb3ZlKCk7XG4gICAgfVxuICAgIHJldHVybiBweW9kaWRlO1xuICB9KSgpLmNhdGNoKChlcnIpID0+IHtcbiAgICBzdGF0dXNUZXh0LnN0eWxlLmNvbG9yID0gXCJ2YXIoLS1leGVyY2lzZS1lZGl0b3ItaGwtZXIsICNBRDAwMDApXCI7XG4gICAgc3RhdHVzVGV4dC50ZXh0Q29udGVudCA9IGVyci5tZXNzYWdlO1xuICAgIC8vaW5kaWNhdG9yQ29udGFpbmVyLnF1ZXJ5U2VsZWN0b3IoXCIuc3Bpbm5lci1ncm93XCIpLmNsYXNzTGlzdC5hZGQoXCJkLW5vbmVcIik7XG4gICAgdGhyb3cgZXJyO1xuICB9KTtcblxuICAvLyBLZWVwIHRyYWNrIG9mIGluaXRpYWwgT0pTIGJsb2NrIHJlbmRlclxuICBjb25zdCByZW5kZXJlZE9qcyA9IHt9O1xuXG4gIGNvbnN0IHByb2Nlc3MgPSBhc3luYyAoY29udGV4dCwgaW5wdXRzKSA9PiB7XG4gICAgY29uc3QgcHlvZGlkZSA9IGF3YWl0IHB5b2RpZGVQcm9taXNlO1xuICAgIGNvbnN0IGV2YWx1YXRvciA9IG5ldyBQeW9kaWRlRXZhbHVhdG9yKHB5b2RpZGUsIGNvbnRleHQpO1xuICAgIGF3YWl0IGV2YWx1YXRvci5wcm9jZXNzKGlucHV0cyk7XG4gICAgcmV0dXJuIGV2YWx1YXRvci5jb250YWluZXI7XG4gIH1cblxuICByZXR1cm4ge1xuICAgIHB5b2RpZGVQcm9taXNlLFxuICAgIHJlbmRlcmVkT2pzLFxuICAgIHByb2Nlc3MsXG4gIH07XG59XG4ifV19
-</script>
-<div id="exercise-loading-indicator" class="exercise-loading-indicator d-none d-flex align-items-center gap-2">
-<div id="exercise-loading-status" class="d-flex gap-2">
-
-</div>
-<div class="spinner-grow spinner-grow-sm">
-
-</div>
-</div>
-<script type="vfs-file">
-WyJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vc2FuZHlhbWFkaGF2YW4vTkxQLW9uLVVTLXByZXNpZGVudGlhbC1zcGVlY2hlcy9yZWZzL2hlYWRzL21hc3Rlci9zdGF0ZV91bmlvbl9wYXJ0MS50eHQiLCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vc2FuZHlhbWFkaGF2YW4vTkxQLW9uLVVTLXByZXNpZGVudGlhbC1zcGVlY2hlcy9yZWZzL2hlYWRzL21hc3Rlci9zdGF0ZV91bmlvbl9wYXJ0Mi50eHQiXQ==
-</script>
+</section>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W119
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../python_snacks";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "..";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
