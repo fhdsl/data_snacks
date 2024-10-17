@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ted Laderas">
-<meta name="dcterms.date" content="2024-10-14">
+<meta name="dcterms.date" content="2024-10-17">
 
 <title>Learning R as a SAS user – DaSL Data Snacks</title>
 <style>
@@ -25,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,21 +68,21 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">DaSL Data Snacks</span>
     </a>
   </div>
@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./contributing.html"> 
+    <a class="nav-link" href="../contributing.html"> 
 <span class="menu-text">Contributing</span></a>
   </li>  
   <li class="nav-item compact">
@@ -109,88 +109,111 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Learning R as a SAS user</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">SAS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Ted Laderas </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 17, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Learning R as a SAS user</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">R</div>
-    <div class="quarto-category">SAS</div>
-  </div>
-  </div>
-
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ted Laderas </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 14, 2024</p>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#useful-packages-coming-from-sas" id="toc-useful-packages-coming-from-sas" class="nav-link active" data-scroll-target="#useful-packages-coming-from-sas">Useful Packages coming from SAS</a></li>
+  <li><a href="#useful-articles-videos-and-cheat-sheets" id="toc-useful-articles-videos-and-cheat-sheets" class="nav-link" data-scroll-target="#useful-articles-videos-and-cheat-sheets">Useful Articles, Videos, and Cheat Sheets</a></li>
+  <li><a href="#useful-tips" id="toc-useful-tips" class="nav-link" data-scroll-target="#useful-tips">Useful Tips</a>
+  <ul class="collapse">
+  <li><a href="#data-loading-tips" id="toc-data-loading-tips" class="nav-link" data-scroll-target="#data-loading-tips">Data Loading Tips</a></li>
+  <li><a href="#execution-tips" id="toc-execution-tips" class="nav-link" data-scroll-target="#execution-tips">Execution Tips</a></li>
+  <li><a href="#intro-coding-tips" id="toc-intro-coding-tips" class="nav-link" data-scroll-target="#intro-coding-tips">Intro Coding Tips</a></li>
+  <li><a href="#missing-values" id="toc-missing-values" class="nav-link" data-scroll-target="#missing-values">Missing Values</a></li>
+  <li><a href="#the-multiverse-of-r-packages" id="toc-the-multiverse-of-r-packages" class="nav-link" data-scroll-target="#the-multiverse-of-r-packages">The Multiverse of R Packages</a></li>
+  <li><a href="#programming-and-macros" id="toc-programming-and-macros" class="nav-link" data-scroll-target="#programming-and-macros">Programming and Macros</a></li>
+  <li><a href="#performance" id="toc-performance" class="nav-link" data-scroll-target="#performance">Performance</a></li>
+  <li><a href="#statistical-modeling" id="toc-statistical-modeling" class="nav-link" data-scroll-target="#statistical-modeling">Statistical Modeling</a></li>
+  </ul></li>
+  <li><a href="#thanks-everyone" id="toc-thanks-everyone" class="nav-link" data-scroll-target="#thanks-everyone">Thanks Everyone!</a></li>
+  </ul>
+</nav>
     </div>
-  </div>
-  
-    
-  </div>
-  
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
-</header>
 
 
+
+<p>There are a number of learners in the Intro to R course I’m teaching at Fred Hutch that are coming to R from SAS. I want to make them more comfortable in their learning journey.</p>
+<p>I previously mentored a group as part of Posit Academy who also came from SAS. They were basically being forced to learn R because their employer did not want to pay for a SAS license.</p>
+<p>So whether you’re a reluctant or interested learner of R coming from SAS, this article is full of tips, software, cheatsheets, and videos to aid you in learning R.</p>
+<p>Thanks all who contributed to this!</p>
 <section id="useful-packages-coming-from-sas" class="level2">
 <h2 class="anchored" data-anchor-id="useful-packages-coming-from-sas">Useful Packages coming from SAS</h2>
-<ul>
-<li>The sassy ecosystem</li>
-<li>procs</li>
-</ul>
+<p>When I asked about what helped SAS users, one of the first things that came up was the Sassy system of packages: <a href="https://r-sassy.org/" class="uri">https://r-sassy.org/</a>. These packages replicate SAS outputs that SAS users may be used to, including basic procedures such as <code>proc freq</code>.</p>
+<p>In the words of David Bosak, the developer of Sassy:</p>
+<blockquote class="blockquote">
+<p>R has great strengths in statistics, data wrangling, and graphics. However, there are still weaknesses in other areas. Some tasks, such as creating a log, formatting values, managing datasets, and creating a report, are much more difficult than they should be. The sassy system was developed to improve R in these areas. The system leverages concepts from SAS® software that make programming in R faster and easier for everyone.</p>
+</blockquote>
+<p>Look out for a future data snack with the <a href="https://procs.r-sassy.org/index.html"><code>{procs}</code></a> package.</p>
+<p>(Thanks to David for contributing lots of tips below!)</p>
 </section>
-<section id="useful-articles-and-cheat-sheets" class="level2">
-<h2 class="anchored" data-anchor-id="useful-articles-and-cheat-sheets">Useful Articles and Cheat Sheets</h2>
-<ul>
-<li><a href="https://posit.co/blog/how-to-learn-r-as-a-sas-user/">How to Learn R as a SAS User</a></li>
-<li><a href="https://github.com/brendanjodowd/SAS-R">SAS to R Cheat Sheet (Brendan Dowd)</a></li>
-<li><a href="https://r-guru.com/Compare-with-SAS">Comparing R and SAS Commands (Sunil Gupta)</a></li>
-</ul>
+<section id="useful-articles-videos-and-cheat-sheets" class="level2">
+<h2 class="anchored" data-anchor-id="useful-articles-videos-and-cheat-sheets">Useful Articles, Videos, and Cheat Sheets</h2>
+<p>Priyanka Gagneja gave a lightning talk comparing procedures from SAS with R which is an excellent intro:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/68OTaahig8g?si=iXwpD74tOlzphdx_&amp;start=206" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>Libby Heeren mentioned this article from Posit called <a href="https://posit.co/blog/how-to-learn-r-as-a-sas-user/">How to Learn R as a SAS User</a>.</p>
+<p>Multiple people mentioned how helpful Brendan O’Dowd’s <a href="https://github.com/brendanjodowd/SAS-R">SAS to R Cheat Sheet (Brendan O’Dowd)</a> was for their learning journey. [BOD]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/brendanjodowd/SAS-R"><img src="images/sas-r.png" class="img-fluid figure-img" alt="Image of the SAS to R Cheatsheet"></a></p>
+<figcaption>Image of the SAS to R Cheatsheet</figcaption>
+</figure>
+</div>
+<p>Finally, Sunil Gupta has a lot of resources about R/SAS, including <a href="https://r-guru.com/Compare-with-SAS">Comparing R and SAS Commands (Sunil Gupta)</a></p>
 </section>
 <section id="useful-tips" class="level2">
 <h2 class="anchored" data-anchor-id="useful-tips">Useful Tips</h2>
-<ul>
-<li>David Bosak (Author of Sassy Packages)</li>
-<li>Gregory Power</li>
-<li>Cynthia Miguel</li>
-<li>Ken Butler</li>
-<li>Thomas Lumley</li>
-<li>Kathleen Galper</li>
-<li>Christopher R</li>
-<li>Brendan O’Dowd (Author of SAS &lt;&gt; R Cheatsheet)</li>
-</ul>
+<p>Thanks to everyone who contributed tips, videos, and websites. I’ve included their information below. If there was a tip that wasn’t attributed correctly, please let me know and I’ll fix it.</p>
+<p>I’ve tried to organize these tips according to theme and from beginner to more knowledgable.</p>
 <section id="data-loading-tips" class="level3">
 <h3 class="anchored" data-anchor-id="data-loading-tips">Data Loading Tips</h3>
 <ul>
-<li>Data does not write itself to disk automatically in R. You have to read/write explicitly. (David Bosak)</li>
-<li>R can read SAS datasets, but not write them. (David Bosak)</li>
-<li>The one that really threw me initially was permanent vs temporary datasets in SAS, and it not being quite the same thing in R (KG). &gt; IIRC, SAS (like SPSS, Stata, et. al) has an idea of “the data in memory” as like, a single rectangular data set. (At least, after the DATA block of code creates it.)</li>
+<li>Data does not write itself to disk automatically in R. You have to read/write explicitly. (DB)</li>
+<li>R can read SAS datasets, but not write them. (DB)</li>
+<li>The one that really threw me initially was permanent vs temporary datasets in SAS, and it not being quite the same thing in R (KG).</li>
+<li>IIRC, SAS (like SPSS, Stata, et. al) has an idea of “the data in memory” as like, a single rectangular data set. (At least, after the DATA block of code creates it.) R, on the other hand, has an environment where you can save multiple data frames at once along with other miscellany (custom functions, lists, vectors, etc.) This means that in R you have to be more explicit about which data frame to perform operations on. (N)</li>
 </ul>
-<blockquote class="blockquote">
-<p>R, on the other hand, has an environment where you can save multiple data frames at once along with other miscellany (custom functions, lists, vectors, etc.)</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>This means that in R you have to be more explicit about which data frame to perform operations on. (N)</p>
-</blockquote>
 </section>
 <section id="execution-tips" class="level3">
 <h3 class="anchored" data-anchor-id="execution-tips">Execution Tips</h3>
@@ -198,38 +221,34 @@ ul.task-list li input[type="checkbox"] {
 <li>You can run one line at a time and see what it does. (KB)</li>
 <li>Ctrl + Return will run a line of code and move the cursor to the next line. Very useful. (DB)</li>
 <li>If you put your cursor on a function and press F1, it will bring up the help for that function. (DB)</li>
+<li>Any error will stop execution. (DB)</li>
+<li>There is no native log in R, although there are logging packages. (DB)</li>
 </ul>
 </section>
 <section id="intro-coding-tips" class="level3">
 <h3 class="anchored" data-anchor-id="intro-coding-tips">Intro Coding Tips</h3>
 <ul>
-<li>Any error will stop execution. (DB)</li>
-<li>There is no native log in R, although there are logging packages. (DB)</li>
 <li>In R, a data frame holds tabular data like a SAS dataset. But the foundational data structure is a vector. Make sure you understand it, or you’ll never really understand how R works. (DB)</li>
 <li>You cannot output multiple datasets in a single step (CM)</li>
 <li>Some features of SAS are going to be missed and that’s okay. E.g., the ESTIMATE statement in the modeling PROCS was a lifesaver. You don’t have that here. [SVH]</li>
+<li>The DATA step is the workhorse of SAS, and the {tidyverse} functions combined with the native pipe (|&gt;) give you tons of great abilities to transform data that approximate the control that you had in SAS. [SVH]</li>
 </ul>
-<ol start="5" type="1">
-<li>The DATA step is the workhorse of SAS, and the {tidyverse} functions combined with the native pipe (|&gt;) give you tons of great abilities to transform data that approximate the control that you had in SAS.</li>
-</ol>
 </section>
 <section id="missing-values" class="level3">
 <h3 class="anchored" data-anchor-id="missing-values">Missing Values</h3>
 <ul>
-<li>A missing value is usually represented by NA. There are special functions to help deal with it. (DB)</li>
+<li>A missing value is usually represented by <code>NA</code>. There are special functions to help deal with it. (DB)</li>
 <li>Check to see how your missing values are handled, e.g.&nbsp;during read/write, aggregating, sorting. In particular be aware that an empty string is different to NA in R. (BOD)</li>
-<li>Also, in R comparisons with NA return NA – I think comparisons with . return some actual result in SAS? Eg 1==NA or 3&lt;NA</li>
+<li>Also, in R comparisons with <code>NA</code> return <code>NA</code> – I think comparisons with <code>.</code> return some actual result in SAS? Eg <code>1==NA</code> or <code>3&lt;NA</code></li>
 </ul>
 </section>
 <section id="the-multiverse-of-r-packages" class="level3">
 <h3 class="anchored" data-anchor-id="the-multiverse-of-r-packages">The Multiverse of R Packages</h3>
 <ul>
 <li>There are many functions and packages to do the same thing. It will take some research and experimentation to find the one that is most suitable for your needs. (David Bosak)</li>
-<li>In the same vein of customization, you’re essentially locked in to SAS syntax, but in R you could go with base R, tidy, or data.table per your preference (KG) &gt; In many statistical software packages, there’s basically one way to do each thing, because a single team of people developed it and avoided being redundant.</li>
+<li>In the same vein of customization, you’re essentially locked in to SAS syntax, but in R you could go with base R, tidy, or data.table per your preference (KG)</li>
+<li>In many statistical software packages, there’s basically one way to do each thing, because a single team of people developed it and avoided being redundant. R, in contrast, lets you do the same things using base R or tidyverse or data.table etc. Because it’s more decentralized and anyone can contribute, there’s some redundancy – and that’s ok! You don’t have to know all the ways to do something. Just start with one way that makes sense to you and go from there. (N)</li>
 </ul>
-<blockquote class="blockquote">
-<p>R, in contrast, lets you do the same things using base R or tidyverse or data.table etc. Because it’s more decentralized and anyone can contribute, there’s some redundancy – and that’s ok! You don’t have to know all the ways to do something. Just start with one way that makes sense to you and go from there. (N)</p>
-</blockquote>
 </section>
 <section id="programming-and-macros" class="level3">
 <h3 class="anchored" data-anchor-id="programming-and-macros">Programming and Macros</h3>
@@ -255,12 +274,41 @@ ul.task-list li input[type="checkbox"] {
 <li>I find modeling (particularly mixed modeling) and getting helpful viz much more intuitive in R. Also great functionality with checking assumptions using DHARMa as opposed to the SAS modeling output (KG)</li>
 <li>The default regression coding for categorical variables is opposite: R has no indicator for the first level, SAS drops the last (TL)</li>
 </ul>
+</section>
+</section>
+<section id="thanks-everyone" class="level2">
+<h2 class="anchored" data-anchor-id="thanks-everyone">Thanks Everyone!</h2>
+<p>Thanks to all the replies on Mastodon and LinkedIn. Super helpful. I’ve tried to give credit where I could.</p>
+<ul>
+<li><a href="https://www.linkedin.com/in/david-bosak-724b3911/">David Bosak</a> (DB) (Author of Sassy Packages)</li>
+<li><a href="https://vis.social/@DataAngler">Sam Van Horne</a> (SVH)</li>
+<li><a href="https://www.linkedin.com/in/jessmhoehner">Jessica Hoehner</a> (JH)</li>
+<li><a href="https://www.linkedin.com/in/gregorywpower">Gregory Power</a> (GP)</li>
+<li><a href="https://www.linkedin.com/in/priyanka-gagneja">Priyanka Gagneja</a> (PG)</li>
+<li><a href="https://www.linkedin.com/in/libbyheeren">Libby Heeren</a> (LH)</li>
+<li><a href="https://www.linkedin.com/in/cynthia-miguel">Cynthia Miguel</a> (CM)</li>
+<li><a href="https://www.linkedin.com/in/ken-butler-41688150/">Ken Butler</a> (KB)</li>
+<li><a href="https://www.linkedin.com/in/sassavvy">Sunil Gupta</a> (SG)</li>
+<li><a href="https://fediscience.org/@tslumley">Thomas Lumley</a> (TL)</li>
+<li><a href="https://www.linkedin.com/in/kathleen-galper-a38808172">Kathleen Galper</a> (KG)</li>
+<li><a href="https://www.linkedin.com/in/christopher-b-7246942">Christopher B</a> (CB)</li>
+<li><a href="https://tech.lgbt/@bidoof29">Nate</a> (N)</li>
+<li><a href="https://www.linkedin.com/in/brendanjodowd">Brendan O’Dowd</a> (Author of SAS &lt;&gt; R Cheatsheet) (BOD)</li>
+</ul>
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{laderas2024,
+  author = {Laderas, Ted},
+  title = {Learning {R} as a {SAS} User},
+  date = {2024-10-17},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-laderas2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Laderas, Ted. 2024. <span>“Learning R as a SAS User.”</span> October 17,
+2024.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
