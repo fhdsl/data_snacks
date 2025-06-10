@@ -2,6 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
+      "/r_snacks/mermaid.html",
+      "/r_snacks/reactable.html",
+      "/r_snacks/duckdb_sql.html",
       "/r_snacks/sas2r.html",
       "/r_snacks/janitor.html",
       "/r_snacks/parquet.html",

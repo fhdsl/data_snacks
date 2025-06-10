@@ -1,66 +1,31 @@
 [
   {
-    "objectID": "r_snacks/patchwork.html",
-    "href": "r_snacks/patchwork.html",
-    "title": "Compose Plots with {patchwork}",
+    "objectID": "snack_template.html",
+    "href": "snack_template.html",
+    "title": "Snack Template: R",
     "section": "",
-    "text": "Learn more about composing plots together with a package with straightforward syntax."
+    "text": "One sentence summary here why someone"
   },
   {
-    "objectID": "r_snacks/patchwork.html#learning-objectives",
-    "href": "r_snacks/patchwork.html#learning-objectives",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Learning Objectives",
-    "text": "Learning Objectives\nAfter working with this Data Snack you should be able to:\n\nExplain how the {patchwork} package lets you compose plots together\nUtilize {patchwork} to compose multiple plots in various layouts"
+    "objectID": "snack_template.html#show-your-data",
+    "href": "snack_template.html#show-your-data",
+    "title": "Snack Template: R",
+    "section": "Show your data",
+    "text": "Show your data\nLoad and show your dataset here. In general, it’s easiest to used packaged datasets, but you can also use download.file() if your data is at a specific URL."
   },
   {
-    "objectID": "r_snacks/patchwork.html#what-is-patchwork",
-    "href": "r_snacks/patchwork.html#what-is-patchwork",
-    "title": "Compose Plots with {patchwork}",
-    "section": "What is {patchwork}?",
-    "text": "What is {patchwork}?\nThe {patchwork} package solves a problem that many of us have:\n\nhow do we compose multiple plots together into a single figure?"
+    "objectID": "snack_template.html#demonstrate-your-thing",
+    "href": "snack_template.html#demonstrate-your-thing",
+    "title": "Snack Template: R",
+    "section": "Demonstrate Your Thing",
+    "text": "Demonstrate Your Thing"
   },
   {
-    "objectID": "r_snacks/patchwork.html#penguins-data",
-    "href": "r_snacks/patchwork.html#penguins-data",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Penguins Data",
-    "text": "Penguins Data\nJust a quick reminder of the penguins data:"
-  },
-  {
-    "objectID": "r_snacks/patchwork.html#lets-start-with-two-plots",
-    "href": "r_snacks/patchwork.html#lets-start-with-two-plots",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Let’s start with two plots",
-    "text": "Let’s start with two plots\nLet’s make two different views of the palmerpenguins data. The first is a bar plot of the penguin species:\n\n\n\n\n\n\n\n\nLet’s do a histogram of penguin bill_length_mm, colored by species:"
-  },
-  {
-    "objectID": "r_snacks/patchwork.html#side-by-side-and-stacked",
-    "href": "r_snacks/patchwork.html#side-by-side-and-stacked",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Side by side and Stacked",
-    "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n\n\n\n\n\n\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:"
-  },
-  {
-    "objectID": "r_snacks/patchwork.html#plot-labeling",
-    "href": "r_snacks/patchwork.html#plot-labeling",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Plot Labeling",
-    "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
-  },
-  {
-    "objectID": "r_snacks/patchwork.html#try-it-out",
-    "href": "r_snacks/patchwork.html#try-it-out",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Try it out!",
-    "text": "Try it out!\nTry out a different combination of plots, such as one plot on top and another on the bottom. Or make your own penguins plot and compose them."
-  },
-  {
-    "objectID": "r_snacks/patchwork.html#go-further",
-    "href": "r_snacks/patchwork.html#go-further",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Go Further",
-    "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
+    "objectID": "snack_template.html#give-learners-a-chance-to-play",
+    "href": "snack_template.html#give-learners-a-chance-to-play",
+    "title": "Snack Template: R",
+    "section": "Give Learners a Chance to Play",
+    "text": "Give Learners a Chance to Play"
   },
   {
     "objectID": "r_snacks/parquet.html",
@@ -117,6 +82,48 @@
     "title": "Large Data Work: Intro to parquet files in R",
     "section": "The Tip of the, er, Iceberg",
     "text": "The Tip of the, er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack.\nThanks to Francois Michonneau for the DuckDB Tutorial."
+  },
+  {
+    "objectID": "r_snacks/mermaid.html",
+    "href": "r_snacks/mermaid.html",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "",
+    "text": "There are many times when I am reading about a long and convoluted process in a paper and I think “y’know, Mermaid exists”.\nMermaid.js is a diagramming engine written in JavaScript that builds diagrams from a relatively simple text format. The nice thing about mermaid is that it exists as a JavaScript plugin that can be included into your webpage.\nI use the flowchart diagram the most within my Quarto documents. Here’s an example of a two-branch process.\ngraph TD\n  A[Start] --&gt; B[End 1]\n  A --bad path--&gt; C[End 2]\nAnd here’s the code I used to generate the above diagram:\nSome notes on this code:"
+  },
+  {
+    "objectID": "r_snacks/mermaid.html#diagrammer",
+    "href": "r_snacks/mermaid.html#diagrammer",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "DiagrammeR",
+    "text": "DiagrammeR\nWe can play with Mermaid Diagrams using the DiagrammeR package. We can cut and paste our graph as a string to the DiagrammeR function:"
+  },
+  {
+    "objectID": "r_snacks/mermaid.html#subgraphs",
+    "href": "r_snacks/mermaid.html#subgraphs",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Subgraphs",
+    "text": "Subgraphs\nThe key with Mermaid is that you usually don’t have control over the layout. You are specifying conditions that the layout diagram must fulfill.\nYou have a little more control through the use of subgraphs. You can wrap a set of nodes in subgraph &lt;name&gt;, where &lt;name&gt; is your name for the subgraph, and end."
+  },
+  {
+    "objectID": "r_snacks/mermaid.html#styling",
+    "href": "r_snacks/mermaid.html#styling",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Styling",
+    "text": "Styling\nYou can attach a style to either a node or a relationship."
+  },
+  {
+    "objectID": "r_snacks/mermaid.html#try-it-out",
+    "href": "r_snacks/mermaid.html#try-it-out",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Try it Out!",
+    "text": "Try it Out!"
+  },
+  {
+    "objectID": "r_snacks/mermaid.html#resources",
+    "href": "r_snacks/mermaid.html#resources",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Resources",
+    "text": "Resources\n\n[Mermaid Live]"
   },
   {
     "objectID": "r_snacks/gtsummary.html",
@@ -189,13 +196,6 @@
     "text": "Your turn!\nWhat happens when you change the max_font_size?"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DaSL Data Snacks",
-    "section": "",
-    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearning R as a SAS user\n\n\n\n\n\n\nR\n\n\nSAS\n\n\n\n\n\n\n\n\n\nOct 17, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n{janitor}: The Power of Crosstables\n\n\n\n\n\n\nR\n\n\ntables\n\n\nEDA\n\n\n\n\n\n\n\n\n\nOct 8, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nLarge Data Work: Intro to parquet files in R\n\n\n\n\n\n\nR\n\n\nTables\n\n\ndatabases\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\n\n\n\nPython\n\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\n\n\n\nR\n\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\n\n\n\nR\n\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "contributing.html",
     "href": "contributing.html",
     "title": "Contributing",
@@ -252,67 +252,123 @@
     "text": "Make a Pull Request"
   },
   {
-    "objectID": "r_snacks/sas2r.html",
-    "href": "r_snacks/sas2r.html",
-    "title": "Learning R as a SAS user",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DaSL Data Snacks",
     "section": "",
-    "text": "There are a number of learners in the Intro to R course I’m teaching at Fred Hutch that are coming to R from SAS. I want to make them more comfortable in their learning journey.\nI previously mentored a group as part of Posit Academy who also came from SAS. They were basically being forced to learn R because their employer did not want to pay for a SAS license.\nSo whether you’re a reluctant or interested learner of R coming from SAS, this article is full of tips, software, cheatsheets, and videos to aid you in learning R.\nThanks all who contributed to this!"
+    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMermaid and DiagrammeR - Amazing for Diagrams\n\n\n\nR\n\nDiagrams\n\nPython\n\nquarto\n\n\n\n\n\n\n\n\n\nFeb 2, 2025\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nReactable: Interactive Tables\n\n\n\nR\n\nTables\n\n\n\n\n\n\n\n\n\nFeb 2, 2025\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhy SQL will Never Die\n\n\n\nR\n\nTables\n\ndatabases\n\nbigdata\n\n\n\n\n\n\n\n\n\nNov 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nLearning R as a SAS user\n\n\n\nR\n\nSAS\n\n\n\n\n\n\n\n\n\nOct 17, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n{janitor}: The Power of Crosstables\n\n\n\nR\n\ntables\n\nEDA\n\n\n\n\n\n\n\n\n\nOct 8, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nLarge Data Work: Intro to parquet files in R\n\n\n\nR\n\nTables\n\ndatabases\n\nbigdata\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\nR\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\nPython\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\nR\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\nR\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "r_snacks/sas2r.html#useful-packages-coming-from-sas",
-    "href": "r_snacks/sas2r.html#useful-packages-coming-from-sas",
-    "title": "Learning R as a SAS user",
-    "section": "Useful Packages coming from SAS",
-    "text": "Useful Packages coming from SAS\nWhen I asked about what helped SAS users, one of the first things that came up was the Sassy system of packages: https://r-sassy.org/. These packages replicate SAS outputs that SAS users may be used to, including basic procedures such as proc freq.\nIn the words of David Bosak, the developer of Sassy:\n\nR has great strengths in statistics, data wrangling, and graphics. However, there are still weaknesses in other areas. Some tasks, such as creating a log, formatting values, managing datasets, and creating a report, are much more difficult than they should be. The sassy system was developed to improve R in these areas. The system leverages concepts from SAS® software that make programming in R faster and easier for everyone.\n\nLook out for a future data snack with the {procs} package.\n(Thanks to David for contributing lots of tips below!)"
-  },
-  {
-    "objectID": "r_snacks/sas2r.html#useful-articles-videos-and-cheat-sheets",
-    "href": "r_snacks/sas2r.html#useful-articles-videos-and-cheat-sheets",
-    "title": "Learning R as a SAS user",
-    "section": "Useful Articles, Videos, and Cheat Sheets",
-    "text": "Useful Articles, Videos, and Cheat Sheets\nPriyanka Gagneja gave a lightning talk comparing procedures from SAS with R which is an excellent intro:\n\n\nLibby Heeren mentioned this article from Posit called How to Learn R as a SAS User.\nMultiple people mentioned how helpful Brendan O’Dowd’s SAS to R Cheat Sheet (Brendan O’Dowd) was for their learning journey. [BOD]\n\n\n\nImage of the SAS to R Cheatsheet\n\n\nThe Bayer Oncology group has complied their own guide to SAS/R equivalents: SAS and R. [MK]\nTranslate SAS to R by Andy Murtha has more examples of SAS equivalents in R. [AM]\nFinally, Sunil Gupta has a lot of resources about R/SAS, including Comparing R and SAS Commands (Sunil Gupta)"
-  },
-  {
-    "objectID": "r_snacks/sas2r.html#useful-tips",
-    "href": "r_snacks/sas2r.html#useful-tips",
-    "title": "Learning R as a SAS user",
-    "section": "Useful Tips",
-    "text": "Useful Tips\nThanks to everyone who contributed tips, videos, and websites. I’ve included their information below. If there was a tip that wasn’t attributed correctly, please let me know and I’ll fix it.\nI’ve tried to organize these tips according to theme and from beginner to more knowledgable.\n\nData Loading Tips\n\nData does not write itself to disk automatically in R. You have to read/write explicitly. (DB)\nR can read SAS datasets, but not write them. (DB)\nThe one that really threw me initially was permanent vs temporary datasets in SAS, and it not being quite the same thing in R (KG).\nIIRC, SAS (like SPSS, Stata, et. al) has an idea of “the data in memory” as like, a single rectangular data set. (At least, after the DATA block of code creates it.) R, on the other hand, has an environment where you can save multiple data frames at once along with other miscellany (custom functions, lists, vectors, etc.) This means that in R you have to be more explicit about which data frame to perform operations on. (N)\n\n\n\nExecution Tips\n\nYou can run one line at a time and see what it does. (KB)\nCtrl + Return will run a line of code and move the cursor to the next line. Very useful. (DB)\nIf you put your cursor on a function and press F1, it will bring up the help for that function. (DB)\nAny error will stop execution. (DB)\nThere is no native log in R, although there are logging packages. (DB)\n\n\n\nIntro Coding Tips\n\nIn R, a data frame holds tabular data like a SAS dataset. But the foundational data structure is a vector. Make sure you understand it, or you’ll never really understand how R works. (DB)\nYou cannot output multiple datasets in a single step (CM)\nSome features of SAS are going to be missed and that’s okay. E.g., the ESTIMATE statement in the modeling PROCS was a lifesaver. You don’t have that here. [SVH]\nThe DATA step is the workhorse of SAS, and the {tidyverse} functions combined with the native pipe (|&gt;) give you tons of great abilities to transform data that approximate the control that you had in SAS. [SVH]\nI like filter(!duplicated([yourvariable])) as an equivalent to SAS’ first() function. [TC]\n\n\n\nMissing Values\n\nA missing value is usually represented by NA. There are special functions to help deal with it. (DB)\nCheck to see how your missing values are handled, e.g. during read/write, aggregating, sorting. In particular be aware that an empty string is different to NA in R. (BOD)\nAlso, in R comparisons with NA return NA – I think comparisons with . return some actual result in SAS? Eg 1==NA or 3&lt;NA\n\n\n\nThe Multiverse of R Packages\n\nThere are many functions and packages to do the same thing. It will take some research and experimentation to find the one that is most suitable for your needs. (David Bosak)\nIn the same vein of customization, you’re essentially locked in to SAS syntax, but in R you could go with base R, tidy, or data.table per your preference (KG)\nIn many statistical software packages, there’s basically one way to do each thing, because a single team of people developed it and avoided being redundant. R, in contrast, lets you do the same things using base R or tidyverse or data.table etc. Because it’s more decentralized and anyone can contribute, there’s some redundancy – and that’s ok! You don’t have to know all the ways to do something. Just start with one way that makes sense to you and go from there. (N)\n\n\n\nProgramming and Macros\n\nDo-loops and macros are not a thing in R, but there are workarounds (CM)\nYou don’t need a semi-colon at the end of each line. (DB)\nThere is no macro language in R. But there are variables and control structures that allow you to do similar things. (DB)\nAlso understand factors and lists. They will come up all the time. (DB)\nDocumentation in R is sometimes good. Sometimes not. (DB)\nLearn the *apply functions because the macro facility does not exist in #rstats. The efficiency you get through macros can be obtained in a different way. (E.g., data sets can be stored in lists and acted upon with lapply().) (SVH)\nSorting in R uses the system locale by default. (TL)\n\n\n\nPerformance\n\nI think they should to try to embrace Apache Arrow through the arrow package so they can get the same kind of performances and features they got from the SAS ecosystem: https://arrow.apache.org/docs/r/ (GP)\n\n\n\nStatistical Modeling\n\nI find modeling (particularly mixed modeling) and getting helpful viz much more intuitive in R. Also great functionality with checking assumptions using DHARMa as opposed to the SAS modeling output (KG)\nThe default regression coding for categorical variables is opposite: R has no indicator for the first level, SAS drops the last (TL)"
-  },
-  {
-    "objectID": "r_snacks/sas2r.html#thanks-everyone",
-    "href": "r_snacks/sas2r.html#thanks-everyone",
-    "title": "Learning R as a SAS user",
-    "section": "Thanks Everyone!",
-    "text": "Thanks Everyone!\nThanks to all the replies on Mastodon and LinkedIn. Super helpful. I’ve tried to give credit where I could.\n\nDavid Bosak (DB) (Author of Sassy Packages)\nSam Van Horne (SVH)\nJessica Hoehner (JH)\nGregory Power (GP)\nPriyanka Gagneja (PG)\nTony Collechia (TC)\nMatthew Kumar [MK]\nLibby Heeren (LH)\nCynthia Miguel (CM)\nKen Butler (KB)\nSunil Gupta (SG)\nThomas Lumley (TL)\nAndy Murtha [AM]\nKathleen Galper (KG)\nChristopher B (CB)\nNate (N)\nBrendan O’Dowd (Author of SAS &lt;&gt; R Cheatsheet) (BOD)"
-  },
-  {
-    "objectID": "snack_template.html",
-    "href": "snack_template.html",
-    "title": "Snack Template: R",
+    "objectID": "r_snacks/duckdb_sql.html",
+    "href": "r_snacks/duckdb_sql.html",
+    "title": "Why SQL will Never Die",
     "section": "",
-    "text": "One sentence summary here why someone"
+    "text": "I had an analyst learning R ask me whether their SQL (Structured Query Language) skills are still going to be valued down the line. I’m writing this to reassure them that SQL will always be relevant to data analysts and to demonstrate to you why it will always be useful.\nPart of the reason why is that most modern database systems such as DuckDB and Snowflake have SQL built into them. So many people think in SQL, and it is a remarkably expressive language to build queries in."
   },
   {
-    "objectID": "snack_template.html#show-your-data",
-    "href": "snack_template.html#show-your-data",
-    "title": "Snack Template: R",
-    "section": "Show your data",
-    "text": "Show your data\nLoad and show your dataset here. In general, it’s easiest to used packaged datasets, but you can also use download.file() if your data is at a specific URL."
+    "objectID": "r_snacks/duckdb_sql.html#a-quick-note",
+    "href": "r_snacks/duckdb_sql.html#a-quick-note",
+    "title": "Why SQL will Never Die",
+    "section": "A Quick Note",
+    "text": "A Quick Note\nI have used databases for a long time, but I got a C in my databases class. Your mileage may vary from my comparisons."
   },
   {
-    "objectID": "snack_template.html#demonstrate-your-thing",
-    "href": "snack_template.html#demonstrate-your-thing",
-    "title": "Snack Template: R",
-    "section": "Demonstrate Your Thing",
-    "text": "Demonstrate Your Thing"
+    "objectID": "r_snacks/duckdb_sql.html#setup",
+    "href": "r_snacks/duckdb_sql.html#setup",
+    "title": "Why SQL will Never Die",
+    "section": "Setup",
+    "text": "Setup\nWe’ll use DuckDB to connect to a dataset.\n\n\n\n\n\n\n\n\nWe’ll start by connecting to the DuckDB system and write the penguins table as a view called penguins_view. This is the table view that we’ll query with both dbplyr/duckdbplyr and duckdb:\n\n\n\n\n\n\n\n\nWe can confirm that we loaded our data with the following statement:\n\n\n\n\n\n\n\n\nWe encountered collect() when we investigated parquet files."
   },
   {
-    "objectID": "snack_template.html#give-learners-a-chance-to-play",
-    "href": "snack_template.html#give-learners-a-chance-to-play",
-    "title": "Snack Template: R",
-    "section": "Give Learners a Chance to Play",
-    "text": "Give Learners a Chance to Play"
+    "objectID": "r_snacks/duckdb_sql.html#tbl-vs-dbgetquery",
+    "href": "r_snacks/duckdb_sql.html#tbl-vs-dbgetquery",
+    "title": "Why SQL will Never Die",
+    "section": "tbl() vs dbGetQuery()",
+    "text": "tbl() vs dbGetQuery()\nWhen we query the table in DuckDB, we have two main options. We can treat the table like a data source using tbl(), which means we can pipe it to dplyr() functions:\ntbl(con, \"penguins_view\")\nOr we can directly query the table using SQL statements and the dbGetQuery() function, such as the following:\ndbGetQuery(con, \"SELECT * from penguins_view\")\nBoth of these methods get us where we want to go. The main difference is how we query and manipulate the data."
+  },
+  {
+    "objectID": "r_snacks/duckdb_sql.html#sql-is-easy-to-read-and-understand",
+    "href": "r_snacks/duckdb_sql.html#sql-is-easy-to-read-and-understand",
+    "title": "Why SQL will Never Die",
+    "section": "SQL is Easy to Read and Understand",
+    "text": "SQL is Easy to Read and Understand\nIf you look at the definition of the Structured Query Language (SQL), and data science frameworks such as pandas or the {tidyverse}, you will notice that both of these frameworks borrow terminology heavily from SQL.\nFor example, the select() statement in tidyverse lets you select columns:\n\n\n\n\n\n\n\n\nHere’s the equivalent in SQL. Our statement is in quotes below:"
+  },
+  {
+    "objectID": "r_snacks/duckdb_sql.html#filtering",
+    "href": "r_snacks/duckdb_sql.html#filtering",
+    "title": "Why SQL will Never Die",
+    "section": "Filtering",
+    "text": "Filtering\nLet’s compare how we filter.\n\nSQLdplyr\n\n\nWe use WHERE in SQL to specify our filters.\n\n\n\n\n\n\n\n\n\n\nIn dplyr, we use filter():"
+  },
+  {
+    "objectID": "r_snacks/duckdb_sql.html#joining-tables",
+    "href": "r_snacks/duckdb_sql.html#joining-tables",
+    "title": "Why SQL will Never Die",
+    "section": "Joining Tables",
+    "text": "Joining Tables\nOne of the biggest advantages of using SQL is that you can shape the Query Plan. Good SQL writers can optimize a query so that it will execute faster.\nWhere SQL excels is in the joining of multiple tables at once, and with multiple criteria.\n\n\nQuery Optimizers\nMost modern database systems include a query optimizer - routines that look at your overall query plan and tries to find the most efficient way to execute them."
+  },
+  {
+    "objectID": "r_snacks/duckdb_sql.html#indexing",
+    "href": "r_snacks/duckdb_sql.html#indexing",
+    "title": "Why SQL will Never Die",
+    "section": "Indexing",
+    "text": "Indexing\nOne of the fundamental things we can do in SQL that we can’t do in dplyr is creating indexes on table columns for faster searching."
+  },
+  {
+    "objectID": "r_snacks/duckdb_sql.html#subqueries-and-temporary-tables",
+    "href": "r_snacks/duckdb_sql.html#subqueries-and-temporary-tables",
+    "title": "Why SQL will Never Die",
+    "section": "Subqueries and Temporary Tables",
+    "text": "Subqueries and Temporary Tables\nI think one of the strongest arguments for learning SQL is because of subqueries and temporary tables."
+  },
+  {
+    "objectID": "r_snacks/duckdb_sql.html#resources",
+    "href": "r_snacks/duckdb_sql.html#resources",
+    "title": "Why SQL will Never Die",
+    "section": "Resources",
+    "text": "Resources\n\nOptimizing SQL Performance: A Comprehensive Guide"
+  },
+  {
+    "objectID": "r_snacks/janitor.html",
+    "href": "r_snacks/janitor.html",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "",
+    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
+  },
+  {
+    "objectID": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
+    "href": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "",
+    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
+  },
+  {
+    "objectID": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
+    "href": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "Crosstabs with janitor::tabyl()",
+    "text": "Crosstabs with janitor::tabyl()\nThere is a lot of power in counting things, especially in the crosstable, where we ask questions of association between variables. I want to highlight the power of crosstables.\nYou might be familiar with table(x, y) as a way to build your crosstables. I’d like to point one of the wonders of the {janitor} package: janitor::tabyl(). This function can be directly plugged into a tidy workflow.\nFor example, instead of table(cereals$shelf) we can write\n\n\n\n\n\n\n\n\nA couple of things that tabyl() does well: for single variables, it gives the counts and percentages, which can be extremely useful.\nFrom reading the description, we know that manufacturer (if you are using the data from kaggle, I recoded mfr to be manufacturer) and type are two categorical variables in the data. We may want to know whether the manufacturers are evenly distributed in terms of cereal type.\nIt’s harder to see the picture because of the counts, though we do notice some things (General Mills and Kelloggs don’t have any hot cereals). We can look at proportions by using janitor::adorn_percentages, which will show us the row percentages in our cross table.\n\n\n\n\n\n\n\n\nUsing adorn_totals(denominator=\"row\"), we can see the percentage of hot and cold cereals for each manufacturer. Note that by using adorn_percentages() and adorn_n() we can get both the counts and percentages.\nA couple things become more obvious from the crosstab. There is only one manufacturer (A) that makes only hot cereals. The majority make cold cereals other than Nabisco and Quaker Oats."
+  },
+  {
+    "objectID": "r_snacks/janitor.html#shelf-height-and-marketing",
+    "href": "r_snacks/janitor.html#shelf-height-and-marketing",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "Shelf Height and Marketing",
+    "text": "Shelf Height and Marketing\nWhat about the distribution of cereals among the shelf height (1=lowest shelf and 3=highest)? According to this article:\n\nIn a two-part study, researchers confirmed that the cereals targeting children are placed about 23 inches off the ground and those aimed at adults 48 inches high. After studying 65 cereals and 86 “spokes-characters” they found the cereals on the top shelves have characters staring straight ahead or slightly up to make eye contact with adults. For the lower boxes with cartoon characters with large inviting eyes, the gaze is focused slightly downward, to create eye contact with children.\n\nWe know that a lot of cereals that are marketed towards kids are on the second shelf, and a lot of value cereals are on the first shelf, and the more “adult cereals” are on the top shelf. Can we use crosstables to visualize the distribution of cereals?\n\n\n\n\n\n\n\n\nSo now we have an idea that kid-marketed cereals are on the second shelf. Can we check this? One idea to check this is to see which cereals that have breakfast cereal mascots. Then we can do a crosstab of cereals that have mascots versus shelf level."
+  },
+  {
+    "objectID": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
+    "href": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "Which shelves have cereal mascots?",
+    "text": "Which shelves have cereal mascots?\nWe can do this by merging a CSV file I built from scraping a whiteclouds article about cereal mascots. If you’re interested in how I made this, the recipe is here. You can also download the mascot.csv file there as well. I didn’t clean it too much (note that some of the cereals have some notes in parentheses), but I’m mostly interested to see if there’s a match in our cereals dataset.\nI changed cereal names to match where necessary in the mascots data.frame so that merging the two frames will produce correct results.\n\n\n\n\n\n\n\n\nWe’ll need to do some data cleaning here, mostly renaming cereal names so they will match up with our cereals dataset:\n\n\n\n\n\n\n\n\nAs a quick check, let’s take a look at the 2nd shelf to see if we missed any potential cereal mascots.\n\n\n\n\n\n\n\n\nLooks ok. Note that there’s duplicate rows for cereals, because mascots can change over time (some cereals have multiple mascots).\nOk, now that we’re satisfied, we can start to answer our question about cereal mascots and shelves. In order to produce our cross tab, we’ll need to remove duplicate cereals (because they can have multiple mascots) before we make the cross-tab. I’ll do that using distinct() after I remove the mascot column:\n\n\n\n\n\n\n\n\nAnd wow! Summarizing the data in this way makes one thing very obvious: there are no cereals that have mascots on the 3rd shelf. So yes, our quick EDA shows that cereal manufacturers are targeting children on the 1st and 2nd shelves.\nIf we dive deeper, we can see that General Mills and Kellogg’s are the brands that have the most cereal mascots (40% and 40% of all cereal mascots in the dataset). Note we’re using column totals this time for the dataset."
+  },
+  {
+    "objectID": "r_snacks/janitor.html#what-did-we-learn",
+    "href": "r_snacks/janitor.html#what-did-we-learn",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "What did we learn?",
+    "text": "What did we learn?\nWe learned about the power of crosstables to highlight patterns of association in the data. By merging in a data.frame of cereal mascots, we were able to show that the marketing to childen using these mascots at their eye level was real."
   },
   {
     "objectID": "r_snacks/naniar.html",
@@ -357,45 +413,101 @@
     "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
   },
   {
-    "objectID": "r_snacks/janitor.html",
-    "href": "r_snacks/janitor.html",
-    "title": "{janitor}: The Power of Crosstables",
+    "objectID": "r_snacks/patchwork.html",
+    "href": "r_snacks/patchwork.html",
+    "title": "Compose Plots with {patchwork}",
     "section": "",
-    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
+    "text": "Learn more about composing plots together with a package with straightforward syntax."
   },
   {
-    "objectID": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
-    "href": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
-    "title": "{janitor}: The Power of Crosstables",
+    "objectID": "r_snacks/patchwork.html#learning-objectives",
+    "href": "r_snacks/patchwork.html#learning-objectives",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nAfter working with this Data Snack you should be able to:\n\nExplain how the {patchwork} package lets you compose plots together\nUtilize {patchwork} to compose multiple plots in various layouts"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#what-is-patchwork",
+    "href": "r_snacks/patchwork.html#what-is-patchwork",
+    "title": "Compose Plots with {patchwork}",
+    "section": "What is {patchwork}?",
+    "text": "What is {patchwork}?\nThe {patchwork} package solves a problem that many of us have:\n\nhow do we compose multiple plots together into a single figure?"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#penguins-data",
+    "href": "r_snacks/patchwork.html#penguins-data",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Penguins Data",
+    "text": "Penguins Data\nJust a quick reminder of the penguins data:"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#lets-start-with-two-plots",
+    "href": "r_snacks/patchwork.html#lets-start-with-two-plots",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Let’s start with two plots",
+    "text": "Let’s start with two plots\nLet’s make two different views of the palmerpenguins data. The first is a bar plot of the penguin species:\n\n\n\n\n\n\n\n\nLet’s do a histogram of penguin bill_length_mm, colored by species:"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#side-by-side-and-stacked",
+    "href": "r_snacks/patchwork.html#side-by-side-and-stacked",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Side by side and Stacked",
+    "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n\n\n\n\n\n\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#plot-labeling",
+    "href": "r_snacks/patchwork.html#plot-labeling",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Plot Labeling",
+    "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#try-it-out",
+    "href": "r_snacks/patchwork.html#try-it-out",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Try it out!",
+    "text": "Try it out!\nTry out a different combination of plots, such as one plot on top and another on the bottom. Or make your own penguins plot and compose them."
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#go-further",
+    "href": "r_snacks/patchwork.html#go-further",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Go Further",
+    "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
+  },
+  {
+    "objectID": "r_snacks/sas2r.html",
+    "href": "r_snacks/sas2r.html",
+    "title": "Learning R as a SAS user",
     "section": "",
-    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
+    "text": "There are a number of learners in the Intro to R course I’m teaching at Fred Hutch that are coming to R from SAS. I want to make them more comfortable in their learning journey.\nI previously mentored a group as part of Posit Academy who also came from SAS. They were basically being forced to learn R because their employer did not want to pay for a SAS license.\nSo whether you’re a reluctant or interested learner of R coming from SAS, this article is full of tips, software, cheatsheets, and videos to aid you in learning R.\nThanks all who contributed to this!"
   },
   {
-    "objectID": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
-    "href": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "Crosstabs with janitor::tabyl()",
-    "text": "Crosstabs with janitor::tabyl()\nThere is a lot of power in counting things, especially in the crosstable, where we ask questions of association between variables. I want to highlight the power of crosstables.\nYou might be familiar with table(x, y) as a way to build your crosstables. I’d like to point one of the wonders of the {janitor} package: janitor::tabyl(). This function can be directly plugged into a tidy workflow.\nFor example, instead of table(cereals$shelf) we can write\n\n\n\n\n\n\n\n\nA couple of things that tabyl() does well: for single variables, it gives the counts and percentages, which can be extremely useful.\nFrom reading the description, we know that manufacturer (if you are using the data from kaggle, I recoded mfr to be manufacturer) and type are two categorical variables in the data. We may want to know whether the manufacturers are evenly distributed in terms of cereal type.\nIt’s harder to see the picture because of the counts, though we do notice some things (General Mills and Kelloggs don’t have any hot cereals). We can look at proportions by using janitor::adorn_percentages, which will show us the row percentages in our cross table.\n\n\n\n\n\n\n\n\nUsing adorn_totals(denominator=\"row\"), we can see the percentage of hot and cold cereals for each manufacturer. Note that by using adorn_percentages() and adorn_n() we can get both the counts and percentages.\nA couple things become more obvious from the crosstab. There is only one manufacturer (A) that makes only hot cereals. The majority make cold cereals other than Nabisco and Quaker Oats."
+    "objectID": "r_snacks/sas2r.html#useful-packages-coming-from-sas",
+    "href": "r_snacks/sas2r.html#useful-packages-coming-from-sas",
+    "title": "Learning R as a SAS user",
+    "section": "Useful Packages coming from SAS",
+    "text": "Useful Packages coming from SAS\nWhen I asked about what helped SAS users, one of the first things that came up was the Sassy system of packages: https://r-sassy.org/. These packages replicate SAS outputs that SAS users may be used to, including basic procedures such as proc freq.\nIn the words of David Bosak, the developer of Sassy:\n\nR has great strengths in statistics, data wrangling, and graphics. However, there are still weaknesses in other areas. Some tasks, such as creating a log, formatting values, managing datasets, and creating a report, are much more difficult than they should be. The sassy system was developed to improve R in these areas. The system leverages concepts from SAS® software that make programming in R faster and easier for everyone.\n\nLook out for a future data snack with the {procs} package.\n(Thanks to David for contributing lots of tips below!)"
   },
   {
-    "objectID": "r_snacks/janitor.html#shelf-height-and-marketing",
-    "href": "r_snacks/janitor.html#shelf-height-and-marketing",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "Shelf Height and Marketing",
-    "text": "Shelf Height and Marketing\nWhat about the distribution of cereals among the shelf height (1=lowest shelf and 3=highest)? According to this article:\n\nIn a two-part study, researchers confirmed that the cereals targeting children are placed about 23 inches off the ground and those aimed at adults 48 inches high. After studying 65 cereals and 86 “spokes-characters” they found the cereals on the top shelves have characters staring straight ahead or slightly up to make eye contact with adults. For the lower boxes with cartoon characters with large inviting eyes, the gaze is focused slightly downward, to create eye contact with children.\n\nWe know that a lot of cereals that are marketed towards kids are on the second shelf, and a lot of value cereals are on the first shelf, and the more “adult cereals” are on the top shelf. Can we use crosstables to visualize the distribution of cereals?\n\n\n\n\n\n\n\n\nSo now we have an idea that kid-marketed cereals are on the second shelf. Can we check this? One idea to check this is to see which cereals that have breakfast cereal mascots. Then we can do a crosstab of cereals that have mascots versus shelf level."
+    "objectID": "r_snacks/sas2r.html#useful-articles-videos-and-cheat-sheets",
+    "href": "r_snacks/sas2r.html#useful-articles-videos-and-cheat-sheets",
+    "title": "Learning R as a SAS user",
+    "section": "Useful Articles, Videos, and Cheat Sheets",
+    "text": "Useful Articles, Videos, and Cheat Sheets\nPriyanka Gagneja gave a lightning talk comparing procedures from SAS with R which is an excellent intro:\n\n\nLibby Heeren mentioned this article from Posit called How to Learn R as a SAS User.\nMultiple people mentioned how helpful Brendan O’Dowd’s SAS to R Cheat Sheet (Brendan O’Dowd) was for their learning journey. [BOD]\n\n\n\nImage of the SAS to R Cheatsheet\n\n\nThe Bayer Oncology group has complied their own guide to SAS/R equivalents: SAS and R. [MK]\nTranslate SAS to R by Andy Murtha has more examples of SAS equivalents in R. [AM]\nFinally, Sunil Gupta has a lot of resources about R/SAS, including Comparing R and SAS Commands (Sunil Gupta)"
   },
   {
-    "objectID": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
-    "href": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "Which shelves have cereal mascots?",
-    "text": "Which shelves have cereal mascots?\nWe can do this by merging a CSV file I built from scraping a whiteclouds article about cereal mascots. If you’re interested in how I made this, the recipe is here. You can also download the mascot.csv file there as well. I didn’t clean it too much (note that some of the cereals have some notes in parentheses), but I’m mostly interested to see if there’s a match in our cereals dataset.\nI changed cereal names to match where necessary in the mascots data.frame so that merging the two frames will produce correct results.\n\n\n\n\n\n\n\n\nWe’ll need to do some data cleaning here, mostly renaming cereal names so they will match up with our cereals dataset:\n\n\n\n\n\n\n\n\nAs a quick check, let’s take a look at the 2nd shelf to see if we missed any potential cereal mascots.\n\n\n\n\n\n\n\n\nLooks ok. Note that there’s duplicate rows for cereals, because mascots can change over time (some cereals have multiple mascots).\nOk, now that we’re satisfied, we can start to answer our question about cereal mascots and shelves. In order to produce our cross tab, we’ll need to remove duplicate cereals (because they can have multiple mascots) before we make the cross-tab. I’ll do that using distinct() after I remove the mascot column:\n\n\n\n\n\n\n\n\nAnd wow! Summarizing the data in this way makes one thing very obvious: there are no cereals that have mascots on the 3rd shelf. So yes, our quick EDA shows that cereal manufacturers are targeting children on the 1st and 2nd shelves.\nIf we dive deeper, we can see that General Mills and Kellogg’s are the brands that have the most cereal mascots (40% and 40% of all cereal mascots in the dataset). Note we’re using column totals this time for the dataset."
+    "objectID": "r_snacks/sas2r.html#useful-tips",
+    "href": "r_snacks/sas2r.html#useful-tips",
+    "title": "Learning R as a SAS user",
+    "section": "Useful Tips",
+    "text": "Useful Tips\nThanks to everyone who contributed tips, videos, and websites. I’ve included their information below. If there was a tip that wasn’t attributed correctly, please let me know and I’ll fix it.\nI’ve tried to organize these tips according to theme and from beginner to more knowledgable.\n\nData Loading Tips\n\nData does not write itself to disk automatically in R. You have to read/write explicitly. (DB)\nR can read SAS datasets, but not write them. (DB)\nThe one that really threw me initially was permanent vs temporary datasets in SAS, and it not being quite the same thing in R (KG).\nIIRC, SAS (like SPSS, Stata, et. al) has an idea of “the data in memory” as like, a single rectangular data set. (At least, after the DATA block of code creates it.) R, on the other hand, has an environment where you can save multiple data frames at once along with other miscellany (custom functions, lists, vectors, etc.) This means that in R you have to be more explicit about which data frame to perform operations on. (N)\n\n\n\nExecution Tips\n\nYou can run one line at a time and see what it does. (KB)\nCtrl + Return will run a line of code and move the cursor to the next line. Very useful. (DB)\nIf you put your cursor on a function and press F1, it will bring up the help for that function. (DB)\nAny error will stop execution. (DB)\nThere is no native log in R, although there are logging packages. (DB)\n\n\n\nIntro Coding Tips\n\nIn R, a data frame holds tabular data like a SAS dataset. But the foundational data structure is a vector. Make sure you understand it, or you’ll never really understand how R works. (DB)\nYou cannot output multiple datasets in a single step (CM)\nSome features of SAS are going to be missed and that’s okay. E.g., the ESTIMATE statement in the modeling PROCS was a lifesaver. You don’t have that here. [SVH]\nThe DATA step is the workhorse of SAS, and the {tidyverse} functions combined with the native pipe (|&gt;) give you tons of great abilities to transform data that approximate the control that you had in SAS. [SVH]\nI like filter(!duplicated([yourvariable])) as an equivalent to SAS’ first() function. [TC]\n\n\n\nMissing Values\n\nA missing value is usually represented by NA. There are special functions to help deal with it. (DB)\nCheck to see how your missing values are handled, e.g. during read/write, aggregating, sorting. In particular be aware that an empty string is different to NA in R. (BOD)\nAlso, in R comparisons with NA return NA – I think comparisons with . return some actual result in SAS? Eg 1==NA or 3&lt;NA\n\n\n\nThe Multiverse of R Packages\n\nThere are many functions and packages to do the same thing. It will take some research and experimentation to find the one that is most suitable for your needs. (David Bosak)\nIn the same vein of customization, you’re essentially locked in to SAS syntax, but in R you could go with base R, tidy, or data.table per your preference (KG)\nIn many statistical software packages, there’s basically one way to do each thing, because a single team of people developed it and avoided being redundant. R, in contrast, lets you do the same things using base R or tidyverse or data.table etc. Because it’s more decentralized and anyone can contribute, there’s some redundancy – and that’s ok! You don’t have to know all the ways to do something. Just start with one way that makes sense to you and go from there. (N)\n\n\n\nProgramming and Macros\n\nDo-loops and macros are not a thing in R, but there are workarounds (CM)\nYou don’t need a semi-colon at the end of each line. (DB)\nThere is no macro language in R. But there are variables and control structures that allow you to do similar things. (DB)\nAlso understand factors and lists. They will come up all the time. (DB)\nDocumentation in R is sometimes good. Sometimes not. (DB)\nLearn the *apply functions because the macro facility does not exist in #rstats. The efficiency you get through macros can be obtained in a different way. (E.g., data sets can be stored in lists and acted upon with lapply().) (SVH)\nSorting in R uses the system locale by default. (TL)\n\n\n\nPerformance\n\nI think they should to try to embrace Apache Arrow through the arrow package so they can get the same kind of performances and features they got from the SAS ecosystem: https://arrow.apache.org/docs/r/ (GP)\n\n\n\nStatistical Modeling\n\nI find modeling (particularly mixed modeling) and getting helpful viz much more intuitive in R. Also great functionality with checking assumptions using DHARMa as opposed to the SAS modeling output (KG)\nThe default regression coding for categorical variables is opposite: R has no indicator for the first level, SAS drops the last (TL)"
   },
   {
-    "objectID": "r_snacks/janitor.html#what-did-we-learn",
-    "href": "r_snacks/janitor.html#what-did-we-learn",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "What did we learn?",
-    "text": "What did we learn?\nWe learned about the power of crosstables to highlight patterns of association in the data. By merging in a data.frame of cereal mascots, we were able to show that the marketing to childen using these mascots at their eye level was real."
+    "objectID": "r_snacks/sas2r.html#thanks-everyone",
+    "href": "r_snacks/sas2r.html#thanks-everyone",
+    "title": "Learning R as a SAS user",
+    "section": "Thanks Everyone!",
+    "text": "Thanks Everyone!\nThanks to all the replies on Mastodon and LinkedIn. Super helpful. I’ve tried to give credit where I could.\n\nDavid Bosak (DB) (Author of Sassy Packages)\nSam Van Horne (SVH)\nJessica Hoehner (JH)\nGregory Power (GP)\nPriyanka Gagneja (PG)\nTony Collechia (TC)\nMatthew Kumar [MK]\nLibby Heeren (LH)\nCynthia Miguel (CM)\nKen Butler (KB)\nSunil Gupta (SG)\nThomas Lumley (TL)\nAndy Murtha [AM]\nKathleen Galper (KG)\nChristopher B (CB)\nNate (N)\nBrendan O’Dowd (Author of SAS &lt;&gt; R Cheatsheet) (BOD)"
   }
 ]
