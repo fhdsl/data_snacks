@@ -399,25 +399,18 @@
     "text": "Try it Out!"
   },
   {
-    "objectID": "r_snacks/mermaid.html#try-it-out-1",
-    "href": "r_snacks/mermaid.html#try-it-out-1",
-    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
-    "section": "Try it Out!",
-    "text": "Try it Out!"
-  },
-  {
     "objectID": "r_snacks/mermaid.html#subgraphs",
     "href": "r_snacks/mermaid.html#subgraphs",
     "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
     "section": "Subgraphs",
-    "text": "Subgraphs\nThe key with Mermaid is that you usually don’t have control over the layout. You are specifying conditions that the layout diagram must fulfill.\nYou have a little more control through the use of subgraphs. You can wrap a set of nodes in subgraph &lt;name&gt;, where &lt;name&gt; is your name for the subgraph, and end. Mermaid will try to group the nodes in the subgraph together.\nWe can try to group C and E into a subgraph:"
+    "text": "Subgraphs\nThe key with Mermaid is that you usually don’t have control over the layout. You are specifying conditions that the layout diagram must fulfill.\nYou have a little more control through the use of subgraphs. You can wrap a set of nodes in subgraph &lt;name&gt;, where &lt;name&gt; is your name for the subgraph, and end. Mermaid will try to group the nodes in the subgraph together.\nWe can try to group C and E into a subgraph:\n\n\n\n\n\n\n\n\nTry adding in Node D into the subgraph."
   },
   {
     "objectID": "r_snacks/mermaid.html#resources",
     "href": "r_snacks/mermaid.html#resources",
     "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
     "section": "Resources",
-    "text": "Resources\n\n[Mermaid Live]"
+    "text": "Resources\n\nMermaid Live"
   },
   {
     "objectID": "r_snacks/parquet.html",

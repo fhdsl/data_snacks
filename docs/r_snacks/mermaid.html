@@ -193,7 +193,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#diagrammer" id="toc-diagrammer" class="nav-link active" data-scroll-target="#diagrammer"><code>DiagrammeR</code></a></li>
   <li><a href="#try-it-out" id="toc-try-it-out" class="nav-link" data-scroll-target="#try-it-out">Try it Out!</a></li>
-  <li><a href="#try-it-out-1" id="toc-try-it-out-1" class="nav-link" data-scroll-target="#try-it-out-1">Try it Out!</a></li>
   <li><a href="#subgraphs" id="toc-subgraphs" class="nav-link" data-scroll-target="#subgraphs">Subgraphs</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
@@ -227,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{mermaid}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>graph TD</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  A[Start] --&gt; B[End <span class="dv">1</span>]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  A --&gt; C[End <span class="dv">2</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  A --bad path--&gt; C[End <span class="dv">2</span>]</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Some notes on this code:</p>
 <ol type="1">
@@ -252,16 +251,13 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShEaWFncmFtbWVS
 </section>
 <section id="try-it-out" class="level2">
 <h2 class="anchored" data-anchor-id="try-it-out">Try it Out!</h2>
-</section>
-<section id="try-it-out-1" class="level2">
-<h2 class="anchored" data-anchor-id="try-it-out-1">Try it Out!</h2>
 <div class="cell">
 <div>
 <div id="webr-2" class="exercise-cell">
 
 </div>
 <script type="webr-2-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShEaWFncmFtbWVSKVxuXG5EaWFncmFtbWVSKFxuICBcImdyYXBoIFREXG4gICAgQVtTdGFydF0gLS0+IEJbRW5kIDFdXG4gICAgQSAtLT4gQ1tFbmQgMl1cbiAgICBBIC0tPiBFW0VuZCAzXVxuICAgIEMgLS0+IERbSW50ZXJydXB0XVwiXG4gICkifQ==
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShEaWFncmFtbWVSKVxuXG5EaWFncmFtbWVSKFxuICBcImdyYXBoIFREXG4gICAgQVtTdGFydF0gLS0+IEJbRW5kIDFdXG4gICAgQSAtLT4gQ1tJbnRlcnJ1cHRdXG4gICAgQSAtLT4gRVtFbmQgM11cbiAgICBDIC0tPiBEW0VuZCAyXVxuICBcIlxuICApIn0=
 </script>
 </div>
 </div>
@@ -277,15 +273,16 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShEaWFncmFtbWVS
 
 </div>
 <script type="webr-3-contents">
-eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShEaWFncmFtbWVSKVxuXG5EaWFncmFtbWVSKFxuICBcImdyYXBoIFREXG4gICAgQVtTdGFydF0gLS0+IEJbRW5kIDFdXG4gICAgc3ViZ3JhcGggZ1xuICAgICAgQSAtLT4gRVtFbmQgM11cbiAgICAgIEEgLS0+IENbRW5kIDJdXG4gICAgICBDIC0tPiBEW0ludGVycnVwdF1cbiAgICBlbmRcIlxuICApIn0=
+eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShEaWFncmFtbWVSKVxuXG5EaWFncmFtbWVSKFxuIFwiZ3JhcGggVERcbiAgICBBW1N0YXJ0XSAtLT4gQltFbmQgMV1cbiAgICBBIC0tPiBDW0ludGVycnVwdF1cbiAgICBBIC0tPiBFW0VuZCAzXVxuICAgIEMgLS0+IERbRW5kIDJdXG4gICAgc3ViZ3JhcGggc3ViXG4gICAgICBDXG4gICAgICBFXG4gICAgZW5kXG4gIFwiICApIn0=
 </script>
 </div>
 </div>
+<p>Try adding in Node <code>D</code> into the subgraph.</p>
 </section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
-<li>[Mermaid Live]</li>
+<li><a href="https://mermaid.live">Mermaid Live</a></li>
 </ul>
 
 
