@@ -111,6 +111,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link href="../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="../site_libs/d3-3.3.8/d3.min.js"></script>
+<script src="../site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="../site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="../site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="../site_libs/chromatography-0.1/chromatography.js"></script>
+<script src="../site_libs/DiagrammeR-binding-1.0.11/DiagrammeR.js"></script>
 
 
 </head>
@@ -194,6 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#diagrammer" id="toc-diagrammer" class="nav-link active" data-scroll-target="#diagrammer"><code>DiagrammeR</code></a></li>
   <li><a href="#try-it-out" id="toc-try-it-out" class="nav-link" data-scroll-target="#try-it-out">Try it Out!</a></li>
   <li><a href="#subgraphs" id="toc-subgraphs" class="nav-link" data-scroll-target="#subgraphs">Subgraphs</a></li>
+  <li><a href="#adding-links" id="toc-adding-links" class="nav-link" data-scroll-target="#adding-links">Adding Links</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
@@ -279,10 +289,59 @@ eyJhdHRyIjp7ImVkaXQiOnRydWUsImV2YWwiOnRydWV9LCJjb2RlIjoibGlicmFyeShEaWFncmFtbWVS
 </div>
 <p>Try adding in Node <code>D</code> into the subgraph.</p>
 </section>
+<section id="adding-links" class="level2">
+<h2 class="anchored" data-anchor-id="adding-links">Adding Links</h2>
+<p>One of my favorite things to do is to add clickable links to nodes:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js"> graph TD
+    A[Start] --&gt; B[End 1]
+    A --&gt; C[Click Me]
+    A --&gt; E[End 3]
+    C --&gt; D[Click Me 2]
+    subgraph sub
+      C
+      E
+    end
+    click C https://quarto.org
+    click D https://quarto.org/docs/authoring/diagrams.html
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">DiagrammeR</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a> <span class="st">"graph TD</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="st">    A[Start] --&gt; B[End 1]</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; C[Click Me]</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">    A --&gt; E[End 3]</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">    C --&gt; D[Click Me 2]</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">    subgraph sub</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">      C</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">      E</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">    end</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">    click C https://quarto.org</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">    click D https://quarto.org/docs/authoring/diagrams.html</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">  "</span>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-fc88abe3f46ff06e9ace" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-fc88abe3f46ff06e9ace">{"x":{"diagram":"graph TD\n    A[Start] --> B[End 1]\n    A --> C[Click Me]\n    A --> E[End 3]\n    C --> D[Click Me 2]\n    subgraph sub\n      C\n      E\n    end\n    click C https://quarto.org\n    click D https://quarto.org/docs/authoring/diagrams.html\n  "},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
 <section id="resources" class="level2">
 <h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
 <li><a href="https://mermaid.live">Mermaid Live</a></li>
+<li><a href="https://quarto.org/docs/authoring/diagrams.html">Quarto Documentation in Mermaid</a></li>
 </ul>
 
 

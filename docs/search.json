@@ -406,11 +406,18 @@
     "text": "Subgraphs\nThe key with Mermaid is that you usually don’t have control over the layout. You are specifying conditions that the layout diagram must fulfill.\nYou have a little more control through the use of subgraphs. You can wrap a set of nodes in subgraph &lt;name&gt;, where &lt;name&gt; is your name for the subgraph, and end. Mermaid will try to group the nodes in the subgraph together.\nWe can try to group C and E into a subgraph:\n\n\n\n\n\n\n\n\nTry adding in Node D into the subgraph."
   },
   {
+    "objectID": "r_snacks/mermaid.html#adding-links",
+    "href": "r_snacks/mermaid.html#adding-links",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Adding Links",
+    "text": "Adding Links\nOne of my favorite things to do is to add clickable links to nodes:\n\n\n\n\n\n graph TD\n    A[Start] --&gt; B[End 1]\n    A --&gt; C[Click Me]\n    A --&gt; E[End 3]\n    C --&gt; D[Click Me 2]\n    subgraph sub\n      C\n      E\n    end\n    click C https://quarto.org\n    click D https://quarto.org/docs/authoring/diagrams.html\n\n\n\n\n\n\n\n\nlibrary(DiagrammeR)\n\nDiagrammeR(\n \"graph TD\n    A[Start] --&gt; B[End 1]\n    A --&gt; C[Click Me]\n    A --&gt; E[End 3]\n    C --&gt; D[Click Me 2]\n    subgraph sub\n      C\n      E\n    end\n    click C https://quarto.org\n    click D https://quarto.org/docs/authoring/diagrams.html\n  \"  )"
+  },
+  {
     "objectID": "r_snacks/mermaid.html#resources",
     "href": "r_snacks/mermaid.html#resources",
     "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
     "section": "Resources",
-    "text": "Resources\n\nMermaid Live"
+    "text": "Resources\n\nMermaid Live\nQuarto Documentation in Mermaid"
   },
   {
     "objectID": "r_snacks/parquet.html",
