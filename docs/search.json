@@ -28,235 +28,151 @@
     "text": "Give Learners a Chance to Play"
   },
   {
-    "objectID": "r_snacks/parquet.html",
-    "href": "r_snacks/parquet.html",
-    "title": "Large Data Work: Intro to parquet files in R",
+    "objectID": "r_snacks/patchwork.html",
+    "href": "r_snacks/patchwork.html",
+    "title": "Compose Plots with {patchwork}",
     "section": "",
-    "text": "As you continue on with your work as a Data Scientist, you will start encountering parquet files as a way of storing large data. Let’s add to our toolkit.\nWhat is a parquet file? It is another way of storing data that is organized in a way that it’s fast to search. In contrast to row-based storage, where the data is stored by row, parquet is column-based: data is stored by column. There are some particular advantages to this storage type:\nThe main drawback is that there is additional technology required to work with parquet files. We’ll use the nanoparquet, duckdb, and duckplyr packages to interact with them using a tidy workflow."
+    "text": "Learn more about composing plots together with a package with straightforward syntax."
   },
   {
-    "objectID": "r_snacks/parquet.html#you-dont-load-parquet-files-into-memory",
-    "href": "r_snacks/parquet.html#you-dont-load-parquet-files-into-memory",
-    "title": "Large Data Work: Intro to parquet files in R",
-    "section": "You Don’t Load Parquet Files Into Memory",
-    "text": "You Don’t Load Parquet Files Into Memory\nIn general, you don’t load parquet files into memory to work with them. You tend to work with them through a database query engine. In our case, we’ll use a system called DuckDB. DuckDB is a database query engine that works with a wide variety of data types.\nOther query engines that are important are Snowflake, Google BigQuery, and Amazon RedShift. So you can see that learning how to work with parquet files is important."
-  },
-  {
-    "objectID": "r_snacks/parquet.html#a-titanic-parquet-file",
-    "href": "r_snacks/parquet.html#a-titanic-parquet-file",
-    "title": "Large Data Work: Intro to parquet files in R",
-    "section": "A Titanic Parquet file",
-    "text": "A Titanic Parquet file\nWe’ve got a folder called data/, and there is a file called titanic.parquet (link to data if you want to download) in there.\n\n\n\n\n\n\n\n\nNow that we know what’s in our data/ folder, we can get some info on this file. We’ll use the {nanoparquet} package to get some info on the file. We can get an idea of the size of the data using parquet_info():\n\n\n\n\n\n\n\n\nLet’s get info about the column types in our file with parquet_column_types\n\n\n\n\n\n\n\n\nIn general, nanoparquet is very useful for reading and writing parquet files. But remember, we are going to be interacting with the files through a database query engine. Enter DuckDB."
-  },
-  {
-    "objectID": "r_snacks/parquet.html#querying-your-data",
-    "href": "r_snacks/parquet.html#querying-your-data",
-    "title": "Large Data Work: Intro to parquet files in R",
-    "section": "Querying your Data",
-    "text": "Querying your Data\nTo actually interact with the data, we can connect to the parquet file with the DuckDB package. We first need to start what’s called a database connection so that we can connect to the DuckDB software:\n\n\n\n\n\n\n\n\nNow, we’re going to make a “View”, which is a temporary table in DuckDB to do our queries on. This also connects our parquet file into DuckDB with the PARQUET_SCAN() function in DuckDB.\nThis is the only SQL we need to write to interact with the data. The rest we can do with dplyr commands thanks to a package called duckplyr.\n\n\n\n\n\n\n\n\nNow, we have our connection and our view, we can start to take a look at the data. We can pass our connection and view with the tbl() function. Here we’re calling head(), followed by collect().\n\n\n\n\n\n\n\n\nWhy do we need to call collect()? DuckDB uses what’s called Lazy Execution: it only calculates a value when you tell it to. Lazy Execution allows DuckDB to make an execution plan: it finds the best strategy for executing the entire query rather than calculate it piece by piece."
-  },
-  {
-    "objectID": "r_snacks/parquet.html#summarizing-the-passengers",
-    "href": "r_snacks/parquet.html#summarizing-the-passengers",
-    "title": "Large Data Work: Intro to parquet files in R",
-    "section": "Summarizing the Passengers",
-    "text": "Summarizing the Passengers\nLet’s look at who survived and their average fare. Note that we can remove missing values with the na.rm argument to mean():\n\n\n\n\n\n\n\n\nDepressingly, it seems that those who survived paid more for their fare."
-  },
-  {
-    "objectID": "r_snacks/parquet.html#try-constructing-your-own-query",
-    "href": "r_snacks/parquet.html#try-constructing-your-own-query",
-    "title": "Large Data Work: Intro to parquet files in R",
-    "section": "Try Constructing Your Own Query",
-    "text": "Try Constructing Your Own Query\nFind out the mean Age by Pclass (1st, 2nd, 3rd class)."
-  },
-  {
-    "objectID": "r_snacks/parquet.html#explain-it-to-me",
-    "href": "r_snacks/parquet.html#explain-it-to-me",
-    "title": "Large Data Work: Intro to parquet files in R",
-    "section": "Explain it to Me",
-    "text": "Explain it to Me\nYou can see how DuckDB is building the query by asking it to explain(). It will show you the query plan for the search:\n\n\n\n\n\n\n\n\nThis output is a bit difficult to understand, but as you start writing more and more queries, it can be helpful to dive into the query plan."
-  },
-  {
-    "objectID": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
-    "href": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
-    "title": "Large Data Work: Intro to parquet files in R",
-    "section": "The Tip of the, er, Iceberg",
-    "text": "The Tip of the, er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack.\nThanks to Francois Michonneau for the DuckDB Tutorial."
-  },
-  {
-    "objectID": "r_snacks/mermaid.html",
-    "href": "r_snacks/mermaid.html",
-    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
-    "section": "",
-    "text": "There are many times when I am reading about a long and convoluted process in a paper and I think “y’know, Mermaid exists”.\nMermaid.js is a diagramming engine written in JavaScript that builds diagrams from a relatively simple text format. The nice thing about mermaid is that it exists as a JavaScript plugin that can be included into your webpage.\nI use the flowchart diagram the most within my Quarto documents. Here’s an example of a two-branch process.\ngraph TD\n  A[Start] --&gt; B[End 1]\n  A --bad path--&gt; C[End 2]\nAnd here’s the code I used to generate the above diagram:\nSome notes on this code:"
-  },
-  {
-    "objectID": "r_snacks/mermaid.html#diagrammer",
-    "href": "r_snacks/mermaid.html#diagrammer",
-    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
-    "section": "DiagrammeR",
-    "text": "DiagrammeR\nWe can play with Mermaid Diagrams using the DiagrammeR package. We can cut and paste our graph as a string to the DiagrammeR function:"
-  },
-  {
-    "objectID": "r_snacks/mermaid.html#subgraphs",
-    "href": "r_snacks/mermaid.html#subgraphs",
-    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
-    "section": "Subgraphs",
-    "text": "Subgraphs\nThe key with Mermaid is that you usually don’t have control over the layout. You are specifying conditions that the layout diagram must fulfill.\nYou have a little more control through the use of subgraphs. You can wrap a set of nodes in subgraph &lt;name&gt;, where &lt;name&gt; is your name for the subgraph, and end."
-  },
-  {
-    "objectID": "r_snacks/mermaid.html#styling",
-    "href": "r_snacks/mermaid.html#styling",
-    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
-    "section": "Styling",
-    "text": "Styling\nYou can attach a style to either a node or a relationship."
-  },
-  {
-    "objectID": "r_snacks/mermaid.html#try-it-out",
-    "href": "r_snacks/mermaid.html#try-it-out",
-    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
-    "section": "Try it Out!",
-    "text": "Try it Out!"
-  },
-  {
-    "objectID": "r_snacks/mermaid.html#resources",
-    "href": "r_snacks/mermaid.html#resources",
-    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
-    "section": "Resources",
-    "text": "Resources\n\n[Mermaid Live]"
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html",
-    "href": "r_snacks/gtsummary.html",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "",
-    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html#need-a-table-1",
-    "href": "r_snacks/gtsummary.html#need-a-table-1",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "",
-    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
-  },
-  {
-    "objectID": "r_snacks/gtsummary.html#learning-objectives",
-    "href": "r_snacks/gtsummary.html#learning-objectives",
-    "title": "Make your Table 1 with {gtsummary}",
+    "objectID": "r_snacks/patchwork.html#learning-objectives",
+    "href": "r_snacks/patchwork.html#learning-objectives",
+    "title": "Compose Plots with {patchwork}",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nExplain the major use case of {gtsummary}\nUtilize {gtsummary} features to summarize your cohort\nOutput {gtsummary} tables in a variety of formats"
+    "text": "Learning Objectives\nAfter working with this Data Snack you should be able to:\n\nExplain how the {patchwork} package lets you compose plots together\nUtilize {patchwork} to compose multiple plots in various layouts"
   },
   {
-    "objectID": "r_snacks/gtsummary.html#our-cohort-penguins",
-    "href": "r_snacks/gtsummary.html#our-cohort-penguins",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Our Cohort: Penguins",
-    "text": "Our Cohort: Penguins\nWe’re going to use the palmerpenguins dataset as our example cohort. As a reminder, here’s the first few rows of this dataset."
+    "objectID": "r_snacks/patchwork.html#what-is-patchwork",
+    "href": "r_snacks/patchwork.html#what-is-patchwork",
+    "title": "Compose Plots with {patchwork}",
+    "section": "What is {patchwork}?",
+    "text": "What is {patchwork}?\nThe {patchwork} package solves a problem that many of us have:\n\nhow do we compose multiple plots together into a single figure?"
   },
   {
-    "objectID": "r_snacks/gtsummary.html#summary-table-of-penguins",
-    "href": "r_snacks/gtsummary.html#summary-table-of-penguins",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Summary Table of Penguins",
-    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we pass our columns into the tbl_summary() function, which is the start of interacting with {gtsummary}:"
+    "objectID": "r_snacks/patchwork.html#penguins-data",
+    "href": "r_snacks/patchwork.html#penguins-data",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Penguins Data",
+    "text": "Penguins Data\nJust a quick reminder of the penguins data:"
   },
   {
-    "objectID": "r_snacks/gtsummary.html#comparing-groups",
-    "href": "r_snacks/gtsummary.html#comparing-groups",
-    "title": "Make your Table 1 with {gtsummary}",
-    "section": "Comparing Groups",
-    "text": "Comparing Groups\nHere we want to look at the intersection of species by island, as well as the distribution of bill lengths:\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:\n\n\n\n\n\n\n\n\nHere you can see we did a chi-squared test to look at combinations of island and species, and we did a Kruskal-Wallis rank sum to compare bill_length_mm across species.\nThis is just the tip of the iceberg for {gtsummary}. You also can output to Microsoft Word for further tweaks.\n{gtsummary} link"
+    "objectID": "r_snacks/patchwork.html#lets-start-with-two-plots",
+    "href": "r_snacks/patchwork.html#lets-start-with-two-plots",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Let’s start with two plots",
+    "text": "Let’s start with two plots\nLet’s make two different views of the palmerpenguins data. The first is a bar plot of the penguin species:\n\n\n\n\n\n\n\n\nLet’s do a histogram of penguin bill_length_mm, colored by species:"
   },
   {
-    "objectID": "python_snacks/wordcloud.html",
-    "href": "python_snacks/wordcloud.html",
-    "title": "Visualize text frequency with {wordcloud}",
+    "objectID": "r_snacks/patchwork.html#side-by-side-and-stacked",
+    "href": "r_snacks/patchwork.html#side-by-side-and-stacked",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Side by side and Stacked",
+    "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n\n\n\n\n\n\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#plot-labeling",
+    "href": "r_snacks/patchwork.html#plot-labeling",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Plot Labeling",
+    "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#try-it-out",
+    "href": "r_snacks/patchwork.html#try-it-out",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Try it out!",
+    "text": "Try it out!\nTry out a different combination of plots, such as one plot on top and another on the bottom. Or make your own penguins plot and compose them."
+  },
+  {
+    "objectID": "r_snacks/patchwork.html#go-further",
+    "href": "r_snacks/patchwork.html#go-further",
+    "title": "Compose Plots with {patchwork}",
+    "section": "Go Further",
+    "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
+  },
+  {
+    "objectID": "r_snacks/naniar.html",
+    "href": "r_snacks/naniar.html",
+    "title": "What’s Missing with {naniar}",
     "section": "",
-    "text": "A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text by the font size. We show how to make wordclouds via the wordcloud Python module."
+    "text": "Learn about patterns of missing values in your data with the {naniar} package."
   },
   {
-    "objectID": "python_snacks/wordcloud.html#show-your-data",
-    "href": "python_snacks/wordcloud.html#show-your-data",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Show your data",
-    "text": "Show your data\nWe download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama."
+    "objectID": "r_snacks/naniar.html#our-dataset",
+    "href": "r_snacks/naniar.html#our-dataset",
+    "title": "What’s Missing with {naniar}",
+    "section": "Our Dataset",
+    "text": "Our Dataset"
   },
   {
-    "objectID": "python_snacks/wordcloud.html#demonstrate-wordcloud",
-    "href": "python_snacks/wordcloud.html#demonstrate-wordcloud",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Demonstrate wordcloud",
-    "text": "Demonstrate wordcloud"
+    "objectID": "r_snacks/naniar.html#why-should-we-care",
+    "href": "r_snacks/naniar.html#why-should-we-care",
+    "title": "What’s Missing with {naniar}",
+    "section": "Why Should We Care?",
+    "text": "Why Should We Care?\nAs a data scientist, you need to be aware of missing values and how they impact your analysis. There are methods of dealing with missing values, such as imputation, that are highly dependent on the kinds of missingness in your data. Some modeling methods, like zero-inflated models, have different assumptions for using them properly."
   },
   {
-    "objectID": "python_snacks/wordcloud.html#your-turn",
-    "href": "python_snacks/wordcloud.html#your-turn",
-    "title": "Visualize text frequency with {wordcloud}",
-    "section": "Your turn!",
-    "text": "Your turn!\nWhat happens when you change the max_font_size?"
+    "objectID": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
+    "href": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
+    "title": "What’s Missing with {naniar}",
+    "section": "Visualizing Missingness: vis_miss()",
+    "text": "Visualizing Missingness: vis_miss()\nMy favorite way to look for these patterns is a package called {naniar} written by my friend Nick Tierney. naniar visualizes rows of data as lines in a rectangle. Columns are represented by line sections.\nLet’s take a look at the missing values in the penguins data.\n\n\n\n\n\n\n\n\nWhat I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that some penguins are missing information such as sex.\n\n\n\n\n\n\n\n\nIn this example, reading the combinations from left to right, we can see:\n\n9 penguins had missing values for sex\n2 penguins had missing values in bill_length, bill_depth, flipper_length, body_mass, and sex.\n\nVisualizing the combinations of missing values helps us discover patterns of association in missingness that we don’t expect."
   },
   {
-    "objectID": "contributing.html",
-    "href": "contributing.html",
-    "title": "Contributing",
+    "objectID": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
+    "href": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
+    "title": "What’s Missing with {naniar}",
+    "section": "Continuous Values and Missingness: geom_miss_point()",
+    "text": "Continuous Values and Missingness: geom_miss_point()\nMost of these visualizations use a shadow matrix representation of missing values. This shadow matrix lets you do clever things such as visualize two continuous variables on a plot but include those missing values to assess whether those missing values are MNAR, MAR, or MCAR.\nWhen you are plotting two continuous values, you need to be curious about whether there are biases in the missingness. geom_miss_point() gives us a way to visualize the missing values when we plot.\n\n\n\n\n\n\n\n\nIn this plot, the missing values are represented by red points that are below the zero line for both axes (they are jittered so they don’t all occupy the same line). Specifically, the points on the left side have values for Solar.R but are missing values for Ozone. In this case, the points are distributed across the entire range of Solar.R. Note that this isn’t the case for missing values of Solar.R, which are represented in the lower right of the plot. These missing values are not distributed evenly across Ozone, showing a bias towards lower values of Ozone.\nThis is especially helpful when you facet on a categorical variable, to look for conditioned randomness, MAR/MNAR.\n\n\n\n\n\n\n\n\nHere we can see a possible bias in missing values by the month (compare month=6 to month=9)."
+  },
+  {
+    "objectID": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
+    "href": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
+    "title": "What’s Missing with {naniar}",
+    "section": "In Conclusion: We Miss You, Missing Values",
+    "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
+  },
+  {
+    "objectID": "r_snacks/janitor.html",
+    "href": "r_snacks/janitor.html",
+    "title": "{janitor}: The Power of Crosstables",
     "section": "",
-    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
+    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
   },
   {
-    "objectID": "contributing.html#want-to-contribute-a-snack",
-    "href": "contributing.html#want-to-contribute-a-snack",
-    "title": "Contributing",
+    "objectID": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
+    "href": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
+    "title": "{janitor}: The Power of Crosstables",
     "section": "",
-    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
+    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
   },
   {
-    "objectID": "contributing.html#set-up-quarto",
-    "href": "contributing.html#set-up-quarto",
-    "title": "Contributing",
-    "section": "Set Up Quarto",
-    "text": "Set Up Quarto\nWe’re using RStudio to build the website, but you can also work in Visual Studio Code or other IDEs.\nFollow the instructions to set up Quarto for your IDE at quarto.org"
+    "objectID": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
+    "href": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "Crosstabs with janitor::tabyl()",
+    "text": "Crosstabs with janitor::tabyl()\nThere is a lot of power in counting things, especially in the crosstable, where we ask questions of association between variables. I want to highlight the power of crosstables.\nYou might be familiar with table(x, y) as a way to build your crosstables. I’d like to point one of the wonders of the {janitor} package: janitor::tabyl(). This function can be directly plugged into a tidy workflow.\nFor example, instead of table(cereals$shelf) we can write\n\n\n\n\n\n\n\n\nA couple of things that tabyl() does well: for single variables, it gives the counts and percentages, which can be extremely useful.\nFrom reading the description, we know that manufacturer (if you are using the data from kaggle, I recoded mfr to be manufacturer) and type are two categorical variables in the data. We may want to know whether the manufacturers are evenly distributed in terms of cereal type.\nIt’s harder to see the picture because of the counts, though we do notice some things (General Mills and Kelloggs don’t have any hot cereals). We can look at proportions by using janitor::adorn_percentages, which will show us the row percentages in our cross table.\n\n\n\n\n\n\n\n\nUsing adorn_totals(denominator=\"row\"), we can see the percentage of hot and cold cereals for each manufacturer. Note that by using adorn_percentages() and adorn_n() we can get both the counts and percentages.\nA couple things become more obvious from the crosstab. There is only one manufacturer (A) that makes only hot cereals. The majority make cold cereals other than Nabisco and Quaker Oats."
   },
   {
-    "objectID": "contributing.html#fork-our-repo-to-add-a-snack",
-    "href": "contributing.html#fork-our-repo-to-add-a-snack",
-    "title": "Contributing",
-    "section": "Fork Our Repo to Add a Snack",
-    "text": "Fork Our Repo to Add a Snack\nYou’ll want to fork the data_snacks repository to get started: https://github.com/fhdsl/data_snacks/.\nThen create a branch with your edits."
+    "objectID": "r_snacks/janitor.html#shelf-height-and-marketing",
+    "href": "r_snacks/janitor.html#shelf-height-and-marketing",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "Shelf Height and Marketing",
+    "text": "Shelf Height and Marketing\nWhat about the distribution of cereals among the shelf height (1=lowest shelf and 3=highest)? According to this article:\n\nIn a two-part study, researchers confirmed that the cereals targeting children are placed about 23 inches off the ground and those aimed at adults 48 inches high. After studying 65 cereals and 86 “spokes-characters” they found the cereals on the top shelves have characters staring straight ahead or slightly up to make eye contact with adults. For the lower boxes with cartoon characters with large inviting eyes, the gaze is focused slightly downward, to create eye contact with children.\n\nWe know that a lot of cereals that are marketed towards kids are on the second shelf, and a lot of value cereals are on the first shelf, and the more “adult cereals” are on the top shelf. Can we use crosstables to visualize the distribution of cereals?\n\n\n\n\n\n\n\n\nSo now we have an idea that kid-marketed cereals are on the second shelf. Can we check this? One idea to check this is to see which cereals that have breakfast cereal mascots. Then we can do a crosstab of cereals that have mascots versus shelf level."
   },
   {
-    "objectID": "contributing.html#r-snack-template",
-    "href": "contributing.html#r-snack-template",
-    "title": "Contributing",
-    "section": "R Snack Template",
-    "text": "R Snack Template\nAn example of an R Snack is here. Copy this into the r_snacks/ folder to get started.\nAdd a preview image in /r_snacks/images/ to make your post more enticing, and then add it to the image: field in your snack. For example, if your image is /r_snacks/images/my_plot.png, then the front matter should look like this:\n---\ntitle: My Cool Snack\nimage: images/my_plot.png\n[...]\n---"
+    "objectID": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
+    "href": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "Which shelves have cereal mascots?",
+    "text": "Which shelves have cereal mascots?\nWe can do this by merging a CSV file I built from scraping a whiteclouds article about cereal mascots. If you’re interested in how I made this, the recipe is here. You can also download the mascot.csv file there as well. I didn’t clean it too much (note that some of the cereals have some notes in parentheses), but I’m mostly interested to see if there’s a match in our cereals dataset.\nI changed cereal names to match where necessary in the mascots data.frame so that merging the two frames will produce correct results.\n\n\n\n\n\n\n\n\nWe’ll need to do some data cleaning here, mostly renaming cereal names so they will match up with our cereals dataset:\n\n\n\n\n\n\n\n\nAs a quick check, let’s take a look at the 2nd shelf to see if we missed any potential cereal mascots.\n\n\n\n\n\n\n\n\nLooks ok. Note that there’s duplicate rows for cereals, because mascots can change over time (some cereals have multiple mascots).\nOk, now that we’re satisfied, we can start to answer our question about cereal mascots and shelves. In order to produce our cross tab, we’ll need to remove duplicate cereals (because they can have multiple mascots) before we make the cross-tab. I’ll do that using distinct() after I remove the mascot column:\n\n\n\n\n\n\n\n\nAnd wow! Summarizing the data in this way makes one thing very obvious: there are no cereals that have mascots on the 3rd shelf. So yes, our quick EDA shows that cereal manufacturers are targeting children on the 1st and 2nd shelves.\nIf we dive deeper, we can see that General Mills and Kellogg’s are the brands that have the most cereal mascots (40% and 40% of all cereal mascots in the dataset). Note we’re using column totals this time for the dataset."
   },
   {
-    "objectID": "contributing.html#python-snack-template",
-    "href": "contributing.html#python-snack-template",
-    "title": "Contributing",
-    "section": "Python Snack Template",
-    "text": "Python Snack Template\nAn example of a Python Snack is here.\nAdd a preview image in /python_snacks/images/ to make your post more enticing."
-  },
-  {
-    "objectID": "contributing.html#make-sure-the-site-builds",
-    "href": "contributing.html#make-sure-the-site-builds",
-    "title": "Contributing",
-    "section": "Make Sure the Site Builds",
-    "text": "Make Sure the Site Builds\nIn your folder, run:\nquarto preview ."
-  },
-  {
-    "objectID": "contributing.html#make-a-pull-request",
-    "href": "contributing.html#make-a-pull-request",
-    "title": "Contributing",
-    "section": "Make a Pull Request",
-    "text": "Make a Pull Request"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DaSL Data Snacks",
-    "section": "",
-    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMermaid and DiagrammeR - Amazing for Diagrams\n\n\n\nR\n\nDiagrams\n\nPython\n\nquarto\n\n\n\n\n\n\n\n\n\nFeb 2, 2025\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nReactable: Interactive Tables\n\n\n\nR\n\nTables\n\n\n\n\n\n\n\n\n\nFeb 2, 2025\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhy SQL will Never Die\n\n\n\nR\n\nTables\n\ndatabases\n\nbigdata\n\n\n\n\n\n\n\n\n\nNov 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nLearning R as a SAS user\n\n\n\nR\n\nSAS\n\n\n\n\n\n\n\n\n\nOct 17, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n{janitor}: The Power of Crosstables\n\n\n\nR\n\ntables\n\nEDA\n\n\n\n\n\n\n\n\n\nOct 8, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nLarge Data Work: Intro to parquet files in R\n\n\n\nR\n\nTables\n\ndatabases\n\nbigdata\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\nR\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\nPython\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\nR\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\nR\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\nNo matching items"
+    "objectID": "r_snacks/janitor.html#what-did-we-learn",
+    "href": "r_snacks/janitor.html#what-did-we-learn",
+    "title": "{janitor}: The Power of Crosstables",
+    "section": "What did we learn?",
+    "text": "What did we learn?\nWe learned about the power of crosstables to highlight patterns of association in the data. By merging in a data.frame of cereal mascots, we were able to show that the marketing to childen using these mascots at their eye level was real."
   },
   {
     "objectID": "r_snacks/duckdb_sql.html",
@@ -329,151 +245,235 @@
     "text": "Resources\n\nOptimizing SQL Performance: A Comprehensive Guide"
   },
   {
-    "objectID": "r_snacks/janitor.html",
-    "href": "r_snacks/janitor.html",
-    "title": "{janitor}: The Power of Crosstables",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DaSL Data Snacks",
     "section": "",
-    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
+    "text": "This is a collection of cool data tricks with R and Python from the Fred Hutch Data Science Lab. We leverage a technology called quarto-live to give you runnable R and Python examples in your browser, no installation needed. So you can immediately start experimenting with the new tips and tricks.\nThink of these snacks like experiments - they may grow into something bigger, or they may just stay as little nuggets of data science.\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Author\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMermaid and DiagrammeR - Amazing for Diagrams\n\n\n\nR\n\nDiagrams\n\nPython\n\nquarto\n\n\n\n\n\n\n\n\n\nFeb 2, 2025\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhy SQL will Never Die\n\n\n\nR\n\nTables\n\ndatabases\n\nbigdata\n\n\n\n\n\n\n\n\n\nNov 4, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nLearning R as a SAS user\n\n\n\nR\n\nSAS\n\n\n\n\n\n\n\n\n\nOct 17, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\n{janitor}: The Power of Crosstables\n\n\n\nR\n\ntables\n\nEDA\n\n\n\n\n\n\n\n\n\nOct 8, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nLarge Data Work: Intro to parquet files in R\n\n\n\nR\n\nTables\n\ndatabases\n\nbigdata\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s Missing with {naniar}\n\n\n\nR\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 22, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nVisualize text frequency with {wordcloud}\n\n\n\nPython\n\nVisualization\n\n\n\n\n\n\n\n\n\nSep 19, 2024\n\n\nChris Lo\n\n\n\n\n\n\n\n\n\n\n\n\nCompose Plots with {patchwork}\n\n\n\nR\n\ngraphics\n\n\n\n\n\n\n\n\n\nSep 13, 2024\n\n\nTed Laderas\n\n\n\n\n\n\n\n\n\n\n\n\nMake your Table 1 with {gtsummary}\n\n\n\nR\n\nTables\n\n\n\n\n\n\n\n\n\nSep 4, 2024\n\n\nTed Laderas\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
-    "href": "r_snacks/janitor.html#one-of-my-favorite-tools-janitor-and-crosstables",
-    "title": "{janitor}: The Power of Crosstables",
+    "objectID": "contributing.html",
+    "href": "contributing.html",
+    "title": "Contributing",
     "section": "",
-    "text": "One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don’t exist), and highlight the strength of association of one variable with another.\nLet’s start out with the 80 cereals dataset (available here). Looking at the description, we know there should be at least 3 categorical variables (manufacturer, type, and shelf). Let’s keep that in mind when we start looking at the data.\n\n\n\n\n\n\n\n\nDoing a bit of cleaning here, relabeling the manufacturers with their actual names."
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
   },
   {
-    "objectID": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
-    "href": "r_snacks/janitor.html#crosstabs-with-janitortabyl",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "Crosstabs with janitor::tabyl()",
-    "text": "Crosstabs with janitor::tabyl()\nThere is a lot of power in counting things, especially in the crosstable, where we ask questions of association between variables. I want to highlight the power of crosstables.\nYou might be familiar with table(x, y) as a way to build your crosstables. I’d like to point one of the wonders of the {janitor} package: janitor::tabyl(). This function can be directly plugged into a tidy workflow.\nFor example, instead of table(cereals$shelf) we can write\n\n\n\n\n\n\n\n\nA couple of things that tabyl() does well: for single variables, it gives the counts and percentages, which can be extremely useful.\nFrom reading the description, we know that manufacturer (if you are using the data from kaggle, I recoded mfr to be manufacturer) and type are two categorical variables in the data. We may want to know whether the manufacturers are evenly distributed in terms of cereal type.\nIt’s harder to see the picture because of the counts, though we do notice some things (General Mills and Kelloggs don’t have any hot cereals). We can look at proportions by using janitor::adorn_percentages, which will show us the row percentages in our cross table.\n\n\n\n\n\n\n\n\nUsing adorn_totals(denominator=\"row\"), we can see the percentage of hot and cold cereals for each manufacturer. Note that by using adorn_percentages() and adorn_n() we can get both the counts and percentages.\nA couple things become more obvious from the crosstab. There is only one manufacturer (A) that makes only hot cereals. The majority make cold cereals other than Nabisco and Quaker Oats."
-  },
-  {
-    "objectID": "r_snacks/janitor.html#shelf-height-and-marketing",
-    "href": "r_snacks/janitor.html#shelf-height-and-marketing",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "Shelf Height and Marketing",
-    "text": "Shelf Height and Marketing\nWhat about the distribution of cereals among the shelf height (1=lowest shelf and 3=highest)? According to this article:\n\nIn a two-part study, researchers confirmed that the cereals targeting children are placed about 23 inches off the ground and those aimed at adults 48 inches high. After studying 65 cereals and 86 “spokes-characters” they found the cereals on the top shelves have characters staring straight ahead or slightly up to make eye contact with adults. For the lower boxes with cartoon characters with large inviting eyes, the gaze is focused slightly downward, to create eye contact with children.\n\nWe know that a lot of cereals that are marketed towards kids are on the second shelf, and a lot of value cereals are on the first shelf, and the more “adult cereals” are on the top shelf. Can we use crosstables to visualize the distribution of cereals?\n\n\n\n\n\n\n\n\nSo now we have an idea that kid-marketed cereals are on the second shelf. Can we check this? One idea to check this is to see which cereals that have breakfast cereal mascots. Then we can do a crosstab of cereals that have mascots versus shelf level."
-  },
-  {
-    "objectID": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
-    "href": "r_snacks/janitor.html#which-shelves-have-cereal-mascots",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "Which shelves have cereal mascots?",
-    "text": "Which shelves have cereal mascots?\nWe can do this by merging a CSV file I built from scraping a whiteclouds article about cereal mascots. If you’re interested in how I made this, the recipe is here. You can also download the mascot.csv file there as well. I didn’t clean it too much (note that some of the cereals have some notes in parentheses), but I’m mostly interested to see if there’s a match in our cereals dataset.\nI changed cereal names to match where necessary in the mascots data.frame so that merging the two frames will produce correct results.\n\n\n\n\n\n\n\n\nWe’ll need to do some data cleaning here, mostly renaming cereal names so they will match up with our cereals dataset:\n\n\n\n\n\n\n\n\nAs a quick check, let’s take a look at the 2nd shelf to see if we missed any potential cereal mascots.\n\n\n\n\n\n\n\n\nLooks ok. Note that there’s duplicate rows for cereals, because mascots can change over time (some cereals have multiple mascots).\nOk, now that we’re satisfied, we can start to answer our question about cereal mascots and shelves. In order to produce our cross tab, we’ll need to remove duplicate cereals (because they can have multiple mascots) before we make the cross-tab. I’ll do that using distinct() after I remove the mascot column:\n\n\n\n\n\n\n\n\nAnd wow! Summarizing the data in this way makes one thing very obvious: there are no cereals that have mascots on the 3rd shelf. So yes, our quick EDA shows that cereal manufacturers are targeting children on the 1st and 2nd shelves.\nIf we dive deeper, we can see that General Mills and Kellogg’s are the brands that have the most cereal mascots (40% and 40% of all cereal mascots in the dataset). Note we’re using column totals this time for the dataset."
-  },
-  {
-    "objectID": "r_snacks/janitor.html#what-did-we-learn",
-    "href": "r_snacks/janitor.html#what-did-we-learn",
-    "title": "{janitor}: The Power of Crosstables",
-    "section": "What did we learn?",
-    "text": "What did we learn?\nWe learned about the power of crosstables to highlight patterns of association in the data. By merging in a data.frame of cereal mascots, we were able to show that the marketing to childen using these mascots at their eye level was real."
-  },
-  {
-    "objectID": "r_snacks/naniar.html",
-    "href": "r_snacks/naniar.html",
-    "title": "What’s Missing with {naniar}",
+    "objectID": "contributing.html#want-to-contribute-a-snack",
+    "href": "contributing.html#want-to-contribute-a-snack",
+    "title": "Contributing",
     "section": "",
-    "text": "Learn about patterns of missing values in your data with the {naniar} package."
+    "text": "We always welcome contributions! Please note that we follow the WILDS contributor guide in terms of reviewing contributions.\nWhat makes a good snack? A good snack is about something that makes your day to day life easier. This could be a single function, or an entire package."
   },
   {
-    "objectID": "r_snacks/naniar.html#our-dataset",
-    "href": "r_snacks/naniar.html#our-dataset",
-    "title": "What’s Missing with {naniar}",
-    "section": "Our Dataset",
-    "text": "Our Dataset"
+    "objectID": "contributing.html#set-up-quarto",
+    "href": "contributing.html#set-up-quarto",
+    "title": "Contributing",
+    "section": "Set Up Quarto",
+    "text": "Set Up Quarto\nWe’re using RStudio to build the website, but you can also work in Visual Studio Code or other IDEs.\nFollow the instructions to set up Quarto for your IDE at quarto.org"
   },
   {
-    "objectID": "r_snacks/naniar.html#why-should-we-care",
-    "href": "r_snacks/naniar.html#why-should-we-care",
-    "title": "What’s Missing with {naniar}",
-    "section": "Why Should We Care?",
-    "text": "Why Should We Care?\nAs a data scientist, you need to be aware of missing values and how they impact your analysis. There are methods of dealing with missing values, such as imputation, that are highly dependent on the kinds of missingness in your data. Some modeling methods, like zero-inflated models, have different assumptions for using them properly."
+    "objectID": "contributing.html#fork-our-repo-to-add-a-snack",
+    "href": "contributing.html#fork-our-repo-to-add-a-snack",
+    "title": "Contributing",
+    "section": "Fork Our Repo to Add a Snack",
+    "text": "Fork Our Repo to Add a Snack\nYou’ll want to fork the data_snacks repository to get started: https://github.com/fhdsl/data_snacks/.\nThen create a branch with your edits."
   },
   {
-    "objectID": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
-    "href": "r_snacks/naniar.html#visualizing-missingness-vis_miss",
-    "title": "What’s Missing with {naniar}",
-    "section": "Visualizing Missingness: vis_miss()",
-    "text": "Visualizing Missingness: vis_miss()\nMy favorite way to look for these patterns is a package called {naniar} written by my friend Nick Tierney. naniar visualizes rows of data as lines in a rectangle. Columns are represented by line sections.\nLet’s take a look at the missing values in the penguins data.\n\n\n\n\n\n\n\n\nWhat I like about this visual representation is that it lets you see the association of missing values as holes in the visualization, as well as percent missing values in each variable. In this example, you can see that some penguins are missing information such as sex.\n\n\n\n\n\n\n\n\nIn this example, reading the combinations from left to right, we can see:\n\n9 penguins had missing values for sex\n2 penguins had missing values in bill_length, bill_depth, flipper_length, body_mass, and sex.\n\nVisualizing the combinations of missing values helps us discover patterns of association in missingness that we don’t expect."
+    "objectID": "contributing.html#r-snack-template",
+    "href": "contributing.html#r-snack-template",
+    "title": "Contributing",
+    "section": "R Snack Template",
+    "text": "R Snack Template\nAn example of an R Snack is here. Copy this into the r_snacks/ folder to get started.\nAdd a preview image in /r_snacks/images/ to make your post more enticing, and then add it to the image: field in your snack. For example, if your image is /r_snacks/images/my_plot.png, then the front matter should look like this:\n---\ntitle: My Cool Snack\nimage: images/my_plot.png\n[...]\n---"
   },
   {
-    "objectID": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
-    "href": "r_snacks/naniar.html#continuous-values-and-missingness-geom_miss_point",
-    "title": "What’s Missing with {naniar}",
-    "section": "Continuous Values and Missingness: geom_miss_point()",
-    "text": "Continuous Values and Missingness: geom_miss_point()\nMost of these visualizations use a shadow matrix representation of missing values. This shadow matrix lets you do clever things such as visualize two continuous variables on a plot but include those missing values to assess whether those missing values are MNAR, MAR, or MCAR.\nWhen you are plotting two continuous values, you need to be curious about whether there are biases in the missingness. geom_miss_point() gives us a way to visualize the missing values when we plot.\n\n\n\n\n\n\n\n\nIn this plot, the missing values are represented by red points that are below the zero line for both axes (they are jittered so they don’t all occupy the same line). Specifically, the points on the left side have values for Solar.R but are missing values for Ozone. In this case, the points are distributed across the entire range of Solar.R. Note that this isn’t the case for missing values of Solar.R, which are represented in the lower right of the plot. These missing values are not distributed evenly across Ozone, showing a bias towards lower values of Ozone.\nThis is especially helpful when you facet on a categorical variable, to look for conditioned randomness, MAR/MNAR.\n\n\n\n\n\n\n\n\nHere we can see a possible bias in missing values by the month (compare month=6 to month=9)."
+    "objectID": "contributing.html#python-snack-template",
+    "href": "contributing.html#python-snack-template",
+    "title": "Contributing",
+    "section": "Python Snack Template",
+    "text": "Python Snack Template\nAn example of a Python Snack is here.\nAdd a preview image in /python_snacks/images/ to make your post more enticing."
   },
   {
-    "objectID": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
-    "href": "r_snacks/naniar.html#in-conclusion-we-miss-you-missing-values",
-    "title": "What’s Missing with {naniar}",
-    "section": "In Conclusion: We Miss You, Missing Values",
-    "text": "In Conclusion: We Miss You, Missing Values\nI’ve barely scratched the surface of all you can do with {naniar}. Nick has come up with all sorts of visualizations to address issues with missing values. I especially like the visualizations he’s added around imputations, which is one way to address missing values. Check his package out!"
+    "objectID": "contributing.html#make-sure-the-site-builds",
+    "href": "contributing.html#make-sure-the-site-builds",
+    "title": "Contributing",
+    "section": "Make Sure the Site Builds",
+    "text": "Make Sure the Site Builds\nIn your folder, run:\nquarto preview ."
   },
   {
-    "objectID": "r_snacks/patchwork.html",
-    "href": "r_snacks/patchwork.html",
-    "title": "Compose Plots with {patchwork}",
+    "objectID": "contributing.html#make-a-pull-request",
+    "href": "contributing.html#make-a-pull-request",
+    "title": "Contributing",
+    "section": "Make a Pull Request",
+    "text": "Make a Pull Request"
+  },
+  {
+    "objectID": "python_snacks/wordcloud.html",
+    "href": "python_snacks/wordcloud.html",
+    "title": "Visualize text frequency with {wordcloud}",
     "section": "",
-    "text": "Learn more about composing plots together with a package with straightforward syntax."
+    "text": "A wordcloud is a simple data visualization tool for looking at frequency of text data, and quickly answers what are some of the most common words that show up in a body of text by the font size. We show how to make wordclouds via the wordcloud Python module."
   },
   {
-    "objectID": "r_snacks/patchwork.html#learning-objectives",
-    "href": "r_snacks/patchwork.html#learning-objectives",
-    "title": "Compose Plots with {patchwork}",
+    "objectID": "python_snacks/wordcloud.html#show-your-data",
+    "href": "python_snacks/wordcloud.html#show-your-data",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Show your data",
+    "text": "Show your data\nWe download US Presidential State of the Union speeches as a demo dataset - from Washington to Obama."
+  },
+  {
+    "objectID": "python_snacks/wordcloud.html#demonstrate-wordcloud",
+    "href": "python_snacks/wordcloud.html#demonstrate-wordcloud",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Demonstrate wordcloud",
+    "text": "Demonstrate wordcloud"
+  },
+  {
+    "objectID": "python_snacks/wordcloud.html#your-turn",
+    "href": "python_snacks/wordcloud.html#your-turn",
+    "title": "Visualize text frequency with {wordcloud}",
+    "section": "Your turn!",
+    "text": "Your turn!\nWhat happens when you change the max_font_size?"
+  },
+  {
+    "objectID": "r_snacks/gtsummary.html",
+    "href": "r_snacks/gtsummary.html",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "",
+    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
+  },
+  {
+    "objectID": "r_snacks/gtsummary.html#need-a-table-1",
+    "href": "r_snacks/gtsummary.html#need-a-table-1",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "",
+    "text": "When making tables for publication, one of the most common ones we need are Table 1’s: the summarization of our study populations in terms of demographics.\nOftentimes, this would require tedious formatting in something like Word or Excel, especially when we want to include confidence intervals in the same cell, and of course, we need to calculate p-values between groups.\nWell, Daniel Sjoberg’s {gtsummary} package is here to save you a lot of work!"
+  },
+  {
+    "objectID": "r_snacks/gtsummary.html#learning-objectives",
+    "href": "r_snacks/gtsummary.html#learning-objectives",
+    "title": "Make your Table 1 with {gtsummary}",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nAfter working with this Data Snack you should be able to:\n\nExplain how the {patchwork} package lets you compose plots together\nUtilize {patchwork} to compose multiple plots in various layouts"
+    "text": "Learning Objectives\n\nExplain the major use case of {gtsummary}\nUtilize {gtsummary} features to summarize your cohort\nOutput {gtsummary} tables in a variety of formats"
   },
   {
-    "objectID": "r_snacks/patchwork.html#what-is-patchwork",
-    "href": "r_snacks/patchwork.html#what-is-patchwork",
-    "title": "Compose Plots with {patchwork}",
-    "section": "What is {patchwork}?",
-    "text": "What is {patchwork}?\nThe {patchwork} package solves a problem that many of us have:\n\nhow do we compose multiple plots together into a single figure?"
+    "objectID": "r_snacks/gtsummary.html#our-cohort-penguins",
+    "href": "r_snacks/gtsummary.html#our-cohort-penguins",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Our Cohort: Penguins",
+    "text": "Our Cohort: Penguins\nWe’re going to use the palmerpenguins dataset as our example cohort. As a reminder, here’s the first few rows of this dataset."
   },
   {
-    "objectID": "r_snacks/patchwork.html#penguins-data",
-    "href": "r_snacks/patchwork.html#penguins-data",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Penguins Data",
-    "text": "Penguins Data\nJust a quick reminder of the penguins data:"
+    "objectID": "r_snacks/gtsummary.html#summary-table-of-penguins",
+    "href": "r_snacks/gtsummary.html#summary-table-of-penguins",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Summary Table of Penguins",
+    "text": "Summary Table of Penguins\n{gtsummary} lets you build up a summary demographics table with dplyr commands and special summarization commands.\nHere, we pass our columns into the tbl_summary() function, which is the start of interacting with {gtsummary}:"
   },
   {
-    "objectID": "r_snacks/patchwork.html#lets-start-with-two-plots",
-    "href": "r_snacks/patchwork.html#lets-start-with-two-plots",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Let’s start with two plots",
-    "text": "Let’s start with two plots\nLet’s make two different views of the palmerpenguins data. The first is a bar plot of the penguin species:\n\n\n\n\n\n\n\n\nLet’s do a histogram of penguin bill_length_mm, colored by species:"
+    "objectID": "r_snacks/gtsummary.html#comparing-groups",
+    "href": "r_snacks/gtsummary.html#comparing-groups",
+    "title": "Make your Table 1 with {gtsummary}",
+    "section": "Comparing Groups",
+    "text": "Comparing Groups\nHere we want to look at the intersection of species by island, as well as the distribution of bill lengths:\n\n\n\n\n\n\n\n\nWe can also add N’s and P-values:\n\n\n\n\n\n\n\n\nHere you can see we did a chi-squared test to look at combinations of island and species, and we did a Kruskal-Wallis rank sum to compare bill_length_mm across species.\nThis is just the tip of the iceberg for {gtsummary}. You also can output to Microsoft Word for further tweaks.\n{gtsummary} link"
   },
   {
-    "objectID": "r_snacks/patchwork.html#side-by-side-and-stacked",
-    "href": "r_snacks/patchwork.html#side-by-side-and-stacked",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Side by side and Stacked",
-    "text": "Side by side and Stacked\nHow about three figures? We can compose them with a combination of + and /:\n\n\n\n\n\n\n\n\nThere is an equivalent syntax of using | (the pipe character), which does the same thing as +:"
+    "objectID": "r_snacks/mermaid.html",
+    "href": "r_snacks/mermaid.html",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "",
+    "text": "There are many times when I am reading about a long and convoluted process in a paper and I think “y’know, Mermaid exists”.\nMermaid.js is a diagramming engine written in JavaScript that builds diagrams from a relatively simple text format. The nice thing about mermaid is that it exists as a JavaScript plugin that can be included into your webpage.\nI use the flowchart diagram the most within my Quarto documents. Here’s an example of a two-branch process.\ngraph TD\n  A[Start] --&gt; B[End 1]\n  A --bad path--&gt; C[End 2]\nAnd here’s the code I used to generate the above diagram:\nSome notes on this code:"
   },
   {
-    "objectID": "r_snacks/patchwork.html#plot-labeling",
-    "href": "r_snacks/patchwork.html#plot-labeling",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Plot Labeling",
-    "text": "Plot Labeling\nYou can automatically label plots in your figure using plot_annotation():\n\n\n\n\n\n\n\n\nFinally, let’s add a title for our figure:"
+    "objectID": "r_snacks/mermaid.html#diagrammer",
+    "href": "r_snacks/mermaid.html#diagrammer",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "DiagrammeR",
+    "text": "DiagrammeR\nWe can play with Mermaid Diagrams using the DiagrammeR package. We can cut and paste our graph as a string to the DiagrammeR function:"
   },
   {
-    "objectID": "r_snacks/patchwork.html#try-it-out",
-    "href": "r_snacks/patchwork.html#try-it-out",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Try it out!",
-    "text": "Try it out!\nTry out a different combination of plots, such as one plot on top and another on the bottom. Or make your own penguins plot and compose them."
+    "objectID": "r_snacks/mermaid.html#try-it-out",
+    "href": "r_snacks/mermaid.html#try-it-out",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Try it Out!",
+    "text": "Try it Out!"
   },
   {
-    "objectID": "r_snacks/patchwork.html#go-further",
-    "href": "r_snacks/patchwork.html#go-further",
-    "title": "Compose Plots with {patchwork}",
-    "section": "Go Further",
-    "text": "Go Further\nThis is just the tip of the iceberg. You can learn way more about {patchwork} at Thomas Lin Pedersen’s website: https://patchwork.data-imaginist.com/index.html"
+    "objectID": "r_snacks/mermaid.html#try-it-out-1",
+    "href": "r_snacks/mermaid.html#try-it-out-1",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Try it Out!",
+    "text": "Try it Out!"
+  },
+  {
+    "objectID": "r_snacks/mermaid.html#subgraphs",
+    "href": "r_snacks/mermaid.html#subgraphs",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Subgraphs",
+    "text": "Subgraphs\nThe key with Mermaid is that you usually don’t have control over the layout. You are specifying conditions that the layout diagram must fulfill.\nYou have a little more control through the use of subgraphs. You can wrap a set of nodes in subgraph &lt;name&gt;, where &lt;name&gt; is your name for the subgraph, and end. Mermaid will try to group the nodes in the subgraph together.\nWe can try to group C and E into a subgraph:"
+  },
+  {
+    "objectID": "r_snacks/mermaid.html#resources",
+    "href": "r_snacks/mermaid.html#resources",
+    "title": "Mermaid and DiagrammeR - Amazing for Diagrams",
+    "section": "Resources",
+    "text": "Resources\n\n[Mermaid Live]"
+  },
+  {
+    "objectID": "r_snacks/parquet.html",
+    "href": "r_snacks/parquet.html",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "",
+    "text": "As you continue on with your work as a Data Scientist, you will start encountering parquet files as a way of storing large data. Let’s add to our toolkit.\nWhat is a parquet file? It is another way of storing data that is organized in a way that it’s fast to search. In contrast to row-based storage, where the data is stored by row, parquet is column-based: data is stored by column. There are some particular advantages to this storage type:\nThe main drawback is that there is additional technology required to work with parquet files. We’ll use the nanoparquet, duckdb, and duckplyr packages to interact with them using a tidy workflow."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#you-dont-load-parquet-files-into-memory",
+    "href": "r_snacks/parquet.html#you-dont-load-parquet-files-into-memory",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "You Don’t Load Parquet Files Into Memory",
+    "text": "You Don’t Load Parquet Files Into Memory\nIn general, you don’t load parquet files into memory to work with them. You tend to work with them through a database query engine. In our case, we’ll use a system called DuckDB. DuckDB is a database query engine that works with a wide variety of data types.\nOther query engines that are important are Snowflake, Google BigQuery, and Amazon RedShift. So you can see that learning how to work with parquet files is important."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#a-titanic-parquet-file",
+    "href": "r_snacks/parquet.html#a-titanic-parquet-file",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "A Titanic Parquet file",
+    "text": "A Titanic Parquet file\nWe’ve got a folder called data/, and there is a file called titanic.parquet (link to data if you want to download) in there.\n\n\n\n\n\n\n\n\nNow that we know what’s in our data/ folder, we can get some info on this file. We’ll use the {nanoparquet} package to get some info on the file. We can get an idea of the size of the data using parquet_info():\n\n\n\n\n\n\n\n\nLet’s get info about the column types in our file with parquet_column_types\n\n\n\n\n\n\n\n\nIn general, nanoparquet is very useful for reading and writing parquet files. But remember, we are going to be interacting with the files through a database query engine. Enter DuckDB."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#querying-your-data",
+    "href": "r_snacks/parquet.html#querying-your-data",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Querying your Data",
+    "text": "Querying your Data\nTo actually interact with the data, we can connect to the parquet file with the DuckDB package. We first need to start what’s called a database connection so that we can connect to the DuckDB software:\n\n\n\n\n\n\n\n\nNow, we’re going to make a “View”, which is a temporary table in DuckDB to do our queries on. This also connects our parquet file into DuckDB with the PARQUET_SCAN() function in DuckDB.\nThis is the only SQL we need to write to interact with the data. The rest we can do with dplyr commands thanks to a package called duckplyr.\n\n\n\n\n\n\n\n\nNow, we have our connection and our view, we can start to take a look at the data. We can pass our connection and view with the tbl() function. Here we’re calling head(), followed by collect().\n\n\n\n\n\n\n\n\nWhy do we need to call collect()? DuckDB uses what’s called Lazy Execution: it only calculates a value when you tell it to. Lazy Execution allows DuckDB to make an execution plan: it finds the best strategy for executing the entire query rather than calculate it piece by piece."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#summarizing-the-passengers",
+    "href": "r_snacks/parquet.html#summarizing-the-passengers",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Summarizing the Passengers",
+    "text": "Summarizing the Passengers\nLet’s look at who survived and their average fare. Note that we can remove missing values with the na.rm argument to mean():\n\n\n\n\n\n\n\n\nDepressingly, it seems that those who survived paid more for their fare."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#try-constructing-your-own-query",
+    "href": "r_snacks/parquet.html#try-constructing-your-own-query",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Try Constructing Your Own Query",
+    "text": "Try Constructing Your Own Query\nFind out the mean Age by Pclass (1st, 2nd, 3rd class)."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#explain-it-to-me",
+    "href": "r_snacks/parquet.html#explain-it-to-me",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "Explain it to Me",
+    "text": "Explain it to Me\nYou can see how DuckDB is building the query by asking it to explain(). It will show you the query plan for the search:\n\n\n\n\n\n\n\n\nThis output is a bit difficult to understand, but as you start writing more and more queries, it can be helpful to dive into the query plan."
+  },
+  {
+    "objectID": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
+    "href": "r_snacks/parquet.html#the-tip-of-the-er-iceberg",
+    "title": "Large Data Work: Intro to parquet files in R",
+    "section": "The Tip of the, er, Iceberg",
+    "text": "The Tip of the, er, Iceberg\nThat’s just the beginning of working with DuckDB and parquet files. Hopefully you learned something useful and I’ll write more about parquet files in a future data snack.\nThanks to Francois Michonneau for the DuckDB Tutorial."
   },
   {
     "objectID": "r_snacks/sas2r.html",

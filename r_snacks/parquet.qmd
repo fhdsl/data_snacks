@@ -8,7 +8,7 @@ engine: knitr
 categories: ["R", "Tables", "databases", "bigdata"]
 webr:
   autorun: false
-  render-df: gt-interactive
+  render-df: paged-table
   packages:   # put your R packages here
     - nanoparquet
     - duckdb
@@ -27,7 +27,7 @@ resources:
 
 As you continue on with your work as a Data Scientist, you will start encountering parquet files as a way of storing large data. Let's add to our toolkit. 
 
-What is a [parquet file]()? It is another way of storing data that is organized in a way that it's fast to search. In contrast to row-based storage, where the data is stored by row, `parquet` is *column-based*: data is stored by column. There are some particular advantages to this storage type:
+What is a [parquet file](https://coralogix.com/blog/parquet-file-format/)? It is another way of storing data that is organized in a way that it's fast to search. In contrast to row-based storage, where the data is stored by row, `parquet` is *column-based*: data is stored by column. There are some particular advantages to this storage type:
 
 - It is well suited to storing very large datasets.
 - It is extremely fast to filter within a column, since you can just scan up and down in a column in the file
@@ -128,6 +128,20 @@ tbl(con, "titanic") |>
   summarize(mean_age=-----) |>
   collect()
 ```
+
+## Explain it to Me
+
+You can see how DuckDB is building the query by asking it to `explain()`. It will show you the *query plan* for the search:
+
+```{webr}
+#| autorun: false
+tbl(con, "titanic") |>
+  group_by(Survived) |>
+  summarise(mean_fare = mean(Fare, na.rm=TRUE)) |>
+  explain()
+```
+
+This output is a bit difficult to understand, but as you start writing more and more queries, it can be helpful to dive into the query plan.
 
 ## The Tip of the, er, Iceberg
 

@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 6f067d81-2e8f-431a-82eb-5b68bf551122
+      url: 'https://unrivaled-custard-53f87d.netlify.app'

@@ -5,6 +5,7 @@ project:
     - "r_snacks/*.qmd"
     - "python_snacks/*.qmd"
     - "!r_snacks/index.qmd"
+    - "!r_snacks/reactable.qmd"
     - "!python_snacks/index.qmd"
   output-dir: docs
 

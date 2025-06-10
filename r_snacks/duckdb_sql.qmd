@@ -1,0 +1,149 @@
+---
+title: "Why SQL will Never Die"
+author: "Ted Laderas"
+date: 2024-11-4
+format: live-html
+image: "images/duckdb.svg"  #path to image in images/ folder
+engine: knitr
+categories: ["R", "Tables", "databases", "bigdata"]
+webr:
+  autorun: false
+  render-df: paged-table
+  packages:   # put your R packages here
+    - duckdb
+    - gt
+    - dplyr
+    - duckplyr
+    - DBI
+    - dbplyr
+resources: 
+  - ../data
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+I had an analyst learning R ask me whether their SQL (Structured Query Language) skills are still going to be valued down the line. I'm writing this to reassure them that *SQL will always be relevant* to data analysts and to demonstrate to you why it will always be useful.
+
+Part of the reason why is that most modern database systems such as DuckDB and Snowflake have SQL built into them. So many people think in SQL, and it is a remarkably expressive language to build queries in.
+
+## A Quick Note
+
+I have used databases for a long time, but I got a C in my databases class. Your mileage may vary from my comparisons.
+
+## Setup
+
+We'll use DuckDB to connect to a dataset. 
+
+```{webr}
+#| edit: false
+library(dplyr)
+library(duckdb)
+library(duckplyr)
+library(palmerpenguins)
+```
+
+We'll start by connecting to the DuckDB system and write the `penguins` table as a view called `penguins_view`. This is the table view that we'll query with both `dbplyr`/`duckdbplyr` and `duckdb`:
+
+```{webr}
+con <- dbConnect(duckdb())
+dbWriteTable(con, "penguins_view", palmerpenguins::penguins)
+```
+
+We can confirm that we loaded our data with the following statement:
+
+```{webr}
+tbl(con, "penguins_view") |>
+  collect()
+```
+
+We encountered `collect()` when we investigated parquet files. 
+
+## `tbl()` vs `dbGetQuery()`
+
+When we query the table in DuckDB, we have two main options. We can treat the table like a *data source* using `tbl()`, which means we can pipe it to `dplyr()` functions:
+
+```r
+tbl(con, "penguins_view")
+```
+Or we can directly query the table using SQL statements and the `dbGetQuery()` function, such as the following:
+
+```r
+dbGetQuery(con, "SELECT * from penguins_view")
+```
+Both of these methods get us where we want to go. The main difference is how we query and manipulate the data.
+
+## SQL is Easy to Read and Understand
+
+If you look at the definition of the Structured Query Language (SQL), and data science frameworks such as `pandas` or the `{tidyverse}`, you will notice that both of these frameworks borrow terminology heavily from SQL.
+
+For example, the `select()` statement in `tidyverse` lets you select columns:
+
+```{webr}
+tbl(con, "penguins_view") |>
+  select(species, island, bill_length_mm) |>
+  collect()
+```
+
+Here's the equivalent in SQL. Our statement is in quotes below:
+
+```{webr}
+dbGetQuery(con, "SELECT species, island, bill_length_mm 
+           FROM penguins_view")
+```
+
+## Filtering
+
+Let's compare how we filter. 
+
+::::{.panel-tabset group="language"}
+## SQL
+
+We use `WHERE` in SQL to specify our filters.
+
+```{webr}
+dbGetQuery(con, "SELECT * FROM penguins_view WHERE 
+           species ='Adelie' AND island='Torgersen'")
+```
+
+## `dplyr`
+
+In `dplyr`, we use `filter()`:
+
+```{webr}
+tbl(con, "penguins_view") |>
+  filter(species == 'Adelie') |>
+  filter(island == 'Torgersen') |>
+  collect()
+```
+::::
+
+## Joining Tables
+
+One of the biggest advantages of using SQL is that you can shape the Query Plan. Good SQL writers can optimize a query so that it will execute faster.
+
+Where SQL excels is in the joining of multiple tables at once, and with multiple criteria.
+
+```sql
+
+```
+
+### Query Optimizers
+
+Most modern database systems include a *query optimizer* - routines that look at your overall query plan and tries to find the most efficient way to execute them.
+
+
+
+
+## Indexing
+
+One of the fundamental things we can do in SQL that we can't do in `dplyr` is creating indexes on table columns for faster searching. 
+
+## Subqueries and Temporary Tables
+
+I think one of the strongest arguments for learning SQL is because of subqueries and temporary tables.
+
+
+
+## Resources
+
+- [Optimizing SQL Performance: A Comprehensive Guide](https://medium.com/womenintechnology/optimizing-sql-query-performance-a-comprehensive-guide-6cb72b9f52ef)

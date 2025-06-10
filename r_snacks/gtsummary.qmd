@@ -47,16 +47,18 @@ gt(head(penguins))
 
 `{gtsummary}` lets you build up a summary demographics table with `dplyr` commands and special summarization commands. 
 
-Here, we're 
+Here, we pass our columns into the `tbl_summary()` function, which is the start of interacting with `{gtsummary}`:
 
 ```{webr}
 #| autorun: false
 penguins |>
   select(species, island, bill_length_mm) |>
-  tbl_summary()
+  gtsummary::tbl_summary()
 ```
 
 ## Comparing Groups
+
+Here we want to look at the intersection of species by island, as well as the distribution of bill lengths:
 
 ```{webr}
 penguins |>
@@ -84,9 +86,3 @@ This is just the tip of the iceberg for `{gtsummary}`. You also can output to Mi
 
 [`{gtsummary}` link](https://www.danieldsjoberg.com/gtsummary/)
 
-## Packages Used
-
-```{webr}
-#| edit: false
-sessionInfo()
-```

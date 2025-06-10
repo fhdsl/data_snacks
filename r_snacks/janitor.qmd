@@ -1,0 +1,176 @@
+---
+title: "`{janitor}`: The Power of Crosstables"
+author: "Ted Laderas"
+date: 2024-10-08
+format: 
+  live-html:
+    standalone: true
+engine: knitr
+image: images/janitor.png
+categories: ["R", "tables", "EDA"]
+resources: data
+webr:
+  render-df: paged-table
+  packages:
+    - dplyr
+    - janitor
+    - forcats
+    - readr
+---
+
+## One of my favorite tools: `{janitor}` and Crosstables
+
+One of my most used tools in Exploratory Data Analysis is the humble crosstable. Crosstables can tell us many things, including whether variables are evenly distributed among two variables, or highlight structural zeros (combinations of variables that just don't exist), and highlight the strength of association of one variable with another. 
+
+Let's start out with the 80 cereals dataset (available [here](https://www.kaggle.com/datasets/crawford/80-cereals)). Looking at the description, we know there should be at least 3 categorical variables (`manufacturer`, `type`, and `shelf`). Let's keep that in mind when we start looking at the data.
+
+```{webr}
+#| message: false
+#| edit: false
+cereals_raw <- readr::read_csv("data/cereal.csv") 
+head(cereals_raw)
+```
+
+Doing a bit of cleaning here, relabeling the manufacturers with their actual names.
+
+```{webr}
+manu_labels <- c("American Home"="A",
+                   "General Mills"="G",
+                   "Kelloggs"="K",
+                   "Nabisco" = "N",
+                   "Post" = "P",
+                   "Quaker Oats" = "Q", 
+                   "Ralston Purina" = "R")
+
+cereals <- cereals_raw |> 
+  janitor::clean_names() |>
+  mutate(shelf = factor(shelf, ordered=TRUE)) |>
+  mutate(across(c("manufacturer", "type"), as.factor)) |>
+  mutate(manufacturer = forcats::fct_recode(manufacturer, !!!manu_labels))
+
+head(cereals)
+```
+
+## Crosstabs with `janitor::tabyl()`
+
+There is a lot of power in counting things, especially in the crosstable, where we ask questions of association between variables. I want to highlight the power of crosstables. 
+
+You might be familiar with `table(x, y)` as a way to build your crosstables. I'd like to point one of the wonders of the `{janitor}` package: `janitor::tabyl()`. This function can be directly plugged into a tidy workflow. 
+
+For example, instead of `table(cereals$shelf)` we can write
+
+```{webr}
+#| autorun: false
+cereals |>
+  janitor::tabyl(shelf) 
+```
+
+A couple of things that `tabyl()` does well: for single variables, it gives the counts and percentages, which can be extremely useful. 
+
+From [reading the description](https://www.kaggle.com/datasets/crawford/80-cereals), we know that `manufacturer` (if you are using the data from kaggle, I recoded `mfr` to be `manufacturer`) and `type` are two categorical variables in the data. We may want to know whether the manufacturers are evenly distributed in terms of cereal type.
+
+It's harder to see the picture because of the counts, though we do notice some things (`General Mills` and `Kelloggs` don't have any hot cereals). We can look at proportions by using `janitor::adorn_percentages`, which will show us the row percentages in our cross table.
+
+```{webr}
+#| autorun: false
+cereals |>
+  janitor::tabyl(manufacturer, type) |>
+  janitor::adorn_percentages(denominator = "row") |>
+  janitor::adorn_pct_formatting() |>
+  janitor::adorn_ns() 
+```
+
+Using `adorn_totals(denominator="row")`, we can see the percentage of hot and cold cereals for each manufacturer. Note that by using `adorn_percentages()` and `adorn_n()` we can get both the counts and percentages. 
+
+A couple things become more obvious from the crosstab. There is only one manufacturer (`A`) that makes only hot cereals. The majority make cold cereals other than `Nabisco` and `Quaker Oats`.
+
+## Shelf Height and Marketing
+
+What about the distribution of cereals among the shelf height (`1`=lowest shelf and `3`=highest)? According to [this article](https://www.usatoday.com/story/news/nation/2014/04/03/cereal-aisle-eye-contact/7212389/):
+
+>In a two-part study, researchers confirmed that the **cereals targeting children** are placed about **23 inches** off the ground and those aimed at adults 48 inches high. After studying 65 cereals and 86 "spokes-characters" they found the cereals on the top shelves have characters staring straight ahead or slightly up to make eye contact with adults. For the lower boxes with cartoon characters with large inviting eyes, the gaze is focused slightly downward, to create eye contact with children.
+
+We know that a lot of cereals that are marketed towards kids are on the second shelf, and a lot of value cereals are on the first shelf, and the more "adult cereals" are on the top shelf. Can we use crosstables to visualize the distribution of cereals?
+
+```{webr}
+#| autorun: false
+cereals |>
+  janitor::tabyl(manufacturer, shelf) |>
+  janitor::adorn_percentages(denominator="row") |>
+  janitor::adorn_ns() 
+```
+
+So now we have an idea that kid-marketed cereals are on the second shelf. Can we check this? One idea to check this is to see which cereals that have breakfast cereal mascots. Then we can do a crosstab of cereals that have mascots versus shelf level. 
+
+## Which shelves have cereal mascots?
+
+We can do this by merging a CSV file I built from scraping a [whiteclouds article about cereal mascots](https://www.whiteclouds.com/listicles/268-cereal-mascots/). If you're interested in how I made this, [the recipe is here](https://gist.github.com/laderast/74131e0ca53e626c353bc644adad28c5). You can also download the `mascot.csv` file there as well. I didn't clean it too much (note that some of the cereals have some notes in parentheses), but I'm mostly interested to see if there's a match in our cereals dataset.
+
+I changed cereal names to match where necessary in the mascots data.frame so that merging the two frames will produce correct results.
+
+```{webr}
+#| edit: false
+m_c <- read.csv("data/mascots.csv", row.names = NULL)
+head(m_c)
+```
+
+We'll need to do some data cleaning here, mostly renaming cereal names so they will match up with our `cereals` dataset:
+
+```{webr}
+#| autorun: false
+m_c <- m_c |>
+mutate(name=stringr::str_replace(name,"Cap’n Crunch cereals", "Cap'n'Crunch")) |>
+  mutate(name=stringr::str_replace(name, "Count Chocula cereal", "Count Chocula")) |>
+  mutate(name=stringr::str_replace(name, "Honey Smacks", "Smacks")) |>
+  mutate(name=stringr::str_replace(name, "Mini-Wheats", "Frosted Mini-Wheats")) 
+
+mascot_count <- cereals |>
+  left_join(y=m_c, by="name") |>
+  mutate(has_mascot = ifelse(is.na(mascot), "No", "Yes")) 
+
+dim(mascot_count)
+```
+As a quick check, let's take a look at the 2nd shelf to see if we missed any potential cereal mascots.
+
+```{webr}
+#| autorun: false
+mascot_count |>
+  dplyr::filter(shelf==2) |>
+  select(name, manufacturer, mascot, has_mascot) |>
+  arrange(mascot) 
+```
+
+Looks ok. Note that there's duplicate rows for cereals, because mascots can change over time (some cereals have multiple mascots).
+
+Ok, now that we're satisfied, we can start to answer our question about cereal mascots and shelves. In order to produce our cross tab, we'll need to remove duplicate cereals (because they can have multiple mascots) before we make the cross-tab. I'll do that using `distinct()` after I remove the `mascot` column:
+
+```{webr}
+#| autorun: false
+mascot_count |>
+  select(name, shelf, has_mascot) |>
+  distinct() |>
+  janitor::tabyl(shelf, has_mascot) |>
+  janitor::adorn_percentages() |>
+  janitor::adorn_pct_formatting() |>
+  janitor::adorn_ns() 
+```
+
+And wow! Summarizing the data in this way makes one thing very obvious: **there are no cereals that have mascots on the 3rd shelf**. So yes, our quick EDA shows that cereal manufacturers are targeting children on the 1st and 2nd shelves.
+
+If we dive deeper, we can see that General Mills and Kellogg's are the brands that have the most cereal mascots (40% and 40% of all cereal mascots in the dataset). Note we're using column totals this time for the dataset.
+
+```{webr}
+#| autorun: false
+mascot_count |>
+  select(name, manufacturer, has_mascot) |>
+  distinct() |>
+  janitor::tabyl(manufacturer, has_mascot) |>
+  janitor::adorn_percentages(denominator = "col") |>
+  janitor::adorn_pct_formatting() |>
+  janitor::adorn_ns() 
+```
+
+## What did we learn?
+
+We learned about the power of crosstables to highlight patterns of association in the data. By merging in a data.frame of cereal mascots, we were able to show that the marketing to childen using these mascots at their eye level was real.
+

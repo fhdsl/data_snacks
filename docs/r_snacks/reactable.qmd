@@ -1,0 +1,30 @@
+---
+title: "Reactable: Interactive Tables"
+author: "Ted Laderas"
+date: 2025-02-02
+format: live-html
+#image: "images/duckdb.svg"  #path to image in images/ folder
+engine: knitr
+categories: ["R", "Tables"]
+webr:
+  autorun: false
+  render-df: reactable
+  packages:   # put your R packages here
+    - reactable
+    - dplyr
+    - palmerpenguins
+#resources: 
+#  - ../data
+    
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+## Reactable: Make your tables interactive
+
+```{webr}
+#library(reactable)
+library(palmerpenguins)
+#reactable(penguins)
+penguins
+```

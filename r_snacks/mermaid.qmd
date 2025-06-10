@@ -1,0 +1,98 @@
+---
+title: "Mermaid and DiagrammeR - Amazing for Diagrams"
+author: "Ted Laderas"
+date: 2025-02-02
+format: live-html
+engine: knitr
+categories: ["R", "Diagrams", "Python", "quarto"]
+webr:
+  autorun: false
+  packages:   # put your R packages here
+    - DiagrammeR
+---
+
+{{< include ../_extensions/r-wasm/live/_knitr.qmd >}}
+
+There are many times when I am reading about a long and convoluted process in a paper and I think "y'know, Mermaid exists". 
+
+Mermaid.js is a diagramming engine written in JavaScript that builds diagrams from a relatively simple text format. The nice thing about mermaid is that it exists as a JavaScript plugin that can be included into your webpage.
+
+I use the flowchart diagram the most within my Quarto documents. Here's an example of a two-branch process.
+
+```{mermaid}
+graph TD
+  A[Start] --> B[End 1]
+  A --bad path--> C[End 2]
+```
+
+And here's the code I used to generate the above diagram:
+
+```{{mermaid}}
+graph TD
+  A[Start] --> B[End 1]
+  A --> C[End 2]
+```
+
+Some notes on this code:
+
+1. We need to declare the graph type at the beginning of a diagram. For flowchart diagrams, we can use `graph TD` (top-down orientation) or `graph LR` (left-right orientation).
+2. We give nodes names by encasing them in `[]`, `()`, or a combination of the two. 
+3. We connect nodes by using `-->`, and can add labels by putting them between `--` and `-->`.
+4. Once a node is defined, we refer to it by its ID (`A`, for example).
+
+## `DiagrammeR`
+
+We can play with Mermaid Diagrams using the `DiagrammeR` package. We can cut and paste our graph as a string to the `DiagrammeR` function:
+
+```{webr}
+library(DiagrammeR)
+
+DiagrammeR(
+  "graph TD
+  A[Start] --> B[End 1]
+  A --bad path--> C[End 2]"
+  )
+```
+
+## Try it Out!
+
+## Try it Out!
+
+```{webr}
+library(DiagrammeR)
+
+DiagrammeR(
+  "graph TD
+    A[Start] --> B[End 1]
+    A --> C[End 2]
+    A --> E[End 3]
+    C --> D[Interrupt]"
+  )
+```
+
+## Subgraphs
+
+The key with Mermaid is that you usually don't have control over the layout. You are specifying conditions that the layout diagram must fulfill.
+
+You have a little more control through the use of **subgraphs**. You can wrap a set of nodes in `subgraph <name>`, where `<name>` is your name for the subgraph, and `end`. Mermaid will try to group the nodes in the subgraph together.
+
+We can try to group `C` and `E` into a subgraph:
+
+```{webr}
+library(DiagrammeR)
+
+DiagrammeR(
+  "graph TD
+    A[Start] --> B[End 1]
+    subgraph g
+      A --> E[End 3]
+      A --> C[End 2]
+      C --> D[Interrupt]
+    end"
+  )
+
+```
+
+## Resources
+
+- [Mermaid Live]

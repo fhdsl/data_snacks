@@ -1,0 +1,135 @@
+---
+title: "Learning R as a SAS user"
+author: "Ted Laderas"
+date: 2024-10-17
+format: 
+  html:
+    df-print: paged
+engine: knitr
+#image: images/naniar.png
+categories: ["R", "SAS"]
+webr:
+  standalone: true
+  resources: data
+---
+
+There are a number of learners in the Intro to R course I'm teaching at Fred Hutch that are coming to R from SAS. I want to make them more comfortable in their learning journey.
+
+I previously mentored a group as part of Posit Academy who also came from SAS. They were basically being forced to learn R because their employer did not want to pay for a SAS license.
+
+So whether you're a reluctant or interested learner of R coming from SAS, this article is full of tips, software, cheatsheets, and videos to aid you in learning R.
+
+Thanks all who contributed to this!
+
+## Useful Packages coming from SAS
+
+When I asked about what helped SAS users, one of the first things that came up was the Sassy system of packages: <https://r-sassy.org/>. These packages replicate SAS outputs that SAS users may be used to, including basic procedures such as `proc freq`.
+
+In the words of David Bosak, the developer of Sassy:
+
+> R has great strengths in statistics, data wrangling, and graphics. However, there are still weaknesses in other areas. Some tasks, such as creating a log, formatting values, managing datasets, and creating a report, are much more difficult than they should be. The sassy system was developed to improve R in these areas. The system leverages concepts from SAS® software that make programming in R faster and easier for everyone.
+
+Look out for a future data snack with the [`{procs}`](https://procs.r-sassy.org/index.html) package.
+
+(Thanks to David for contributing lots of tips below!)
+
+## Useful Articles, Videos, and Cheat Sheets
+
+Priyanka Gagneja gave a lightning talk comparing procedures from SAS with R which is an excellent intro:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/68OTaahig8g?si=iXwpD74tOlzphdx_&amp;start=206" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+Libby Heeren mentioned this article from Posit called [How to Learn R as a SAS User](https://posit.co/blog/how-to-learn-r-as-a-sas-user/).
+
+Multiple people mentioned how helpful Brendan O'Dowd's [SAS to R Cheat Sheet (Brendan O'Dowd)](https://github.com/brendanjodowd/SAS-R) was for their learning journey. [BOD]
+
+[![Image of the SAS to R Cheatsheet](images/sas-r.png)](https://github.com/brendanjodowd/SAS-R)
+
+The Bayer Oncology group has complied their own guide to SAS/R equivalents: [SAS and R](https://bayer-group.github.io/sas2r/). [MK]
+
+[Translate SAS to R](https://github.com/asnr/sas-to-r) by Andy Murtha has more examples of SAS equivalents in R. [AM]
+
+Finally, Sunil Gupta has a lot of resources about R/SAS, including [Comparing R and SAS Commands (Sunil Gupta)](https://r-guru.com/Compare-with-SAS) 
+
+## Useful Tips
+
+Thanks to everyone who contributed tips, videos, and websites. I've included their information below. If there was a tip that wasn't attributed correctly, please let me know and I'll fix it.
+
+I've tried to organize these tips according to theme and from beginner to more knowledgable. 
+
+### Data Loading Tips
+
+- Data does not write itself to disk automatically in R. You have to read/write explicitly. (DB)
+- R can read SAS datasets, but not write them. (DB)
+- The one that really threw me initially was permanent vs temporary datasets in SAS, and it not being quite the same thing in R (KG).
+- IIRC, SAS (like SPSS, Stata, et. al) has an idea of "the data in memory" as like, a single rectangular data set. (At least, after the DATA block of code creates it.) R, on the other hand, has an environment where you can save multiple data frames at once along with other miscellany (custom functions, lists, vectors, etc.) This means that in R you have to be more explicit about which data frame to perform operations on. (N)
+
+### Execution Tips
+
+- You can run one line at a time and see what it does. (KB)
+- Ctrl + Return will run a line of code and move the cursor to the next line. Very useful. (DB)
+- If you put your cursor on a function and press F1, it will bring up the help for that function. (DB)
+- Any error will stop execution. (DB)
+- There is no native log in R, although there are logging packages. (DB)
+
+### Intro Coding Tips
+
+- In R, a data frame holds tabular data like a SAS dataset. But the foundational data structure is a vector. Make sure you understand it, or you'll never really understand how R works. (DB)
+- You cannot output multiple datasets in a single step (CM)
+- Some features of SAS are going to be missed and that's okay. E.g., the ESTIMATE statement in the modeling PROCS was a lifesaver. You don't have that here. [SVH]
+- The DATA step is the workhorse of SAS, and the {tidyverse} functions combined with the native pipe (|>) give you tons of great abilities to transform data that approximate the control that you had in SAS. [SVH]
+- I like `filter(!duplicated([yourvariable]))` as an equivalent to SAS’ `first()` function. [TC]
+
+### Missing Values
+
+- A missing value is usually represented by `NA`. There are special functions to help deal with it. (DB)
+- Check to see how your missing values are handled, e.g. during read/write, aggregating, sorting. In particular be aware that an empty string is different to NA in R. (BOD)
+- Also, in R comparisons with `NA` return `NA` -- I think comparisons with `.` return some actual result in SAS? Eg `1==NA` or `3<NA`
+
+### The Multiverse of R Packages
+
+- There are many functions and packages to do the same thing. It will take some research and experimentation to find the one that is most suitable for your needs. (David Bosak)
+- In the same vein of customization, you’re essentially locked in to SAS syntax, but in R you could go with base R, tidy, or data.table per your preference (KG)
+- In many statistical software packages, there's basically one way to do each thing, because a single team of people developed it and avoided being redundant. R, in contrast, lets you do the same things using base R or tidyverse or data.table etc. Because it's more decentralized and anyone can contribute, there's some redundancy -- and that's ok! You don't have to know all the ways to do something. Just start with one way that makes sense to you and go from there. (N)
+
+
+### Programming and Macros
+
+- Do-loops and macros are not a thing in R, but there are workarounds (CM)
+- You don't need a semi-colon at the end of each line. (DB)
+- There is no macro language in R. But there are variables and control structures that allow you to do similar things. (DB)
+- Also understand factors and lists. They will come up all the time. (DB)
+- Documentation in R is sometimes good. Sometimes not. (DB)
+- Learn the *apply functions because the macro facility does not exist in #rstats. The efficiency you get through macros can be obtained in a different way. (E.g., data sets can be stored in lists and acted upon with lapply().) (SVH)
+- Sorting in R uses the system locale by default. (TL)
+
+### Performance
+ 
+- I think they should to try to embrace Apache Arrow through the arrow package so they can get the same kind of performances and features they got from the SAS ecosystem: https://arrow.apache.org/docs/r/ (GP)
+
+### Statistical Modeling
+
+- I find modeling (particularly mixed modeling) and getting helpful viz much more intuitive in R. Also great functionality with checking assumptions using DHARMa as opposed to the SAS modeling output (KG)
+- The default regression coding for categorical variables is opposite: R has no indicator for the first level, SAS drops the last (TL)
+
+## Thanks Everyone!
+
+Thanks to all the replies on Mastodon and LinkedIn. Super helpful. I've tried to give credit where I could. 
+
+- [David Bosak](https://www.linkedin.com/in/david-bosak-724b3911/) (DB) (Author of Sassy Packages)
+- [Sam Van Horne](https://vis.social/@DataAngler) (SVH)
+- [Jessica Hoehner](https://www.linkedin.com/in/jessmhoehner) (JH)
+- [Gregory Power](https://www.linkedin.com/in/gregorywpower) (GP)
+- [Priyanka Gagneja](https://www.linkedin.com/in/priyanka-gagneja) (PG)
+- [Tony Collechia](https://www.linkedin.com/in/tony-collecchia/) (TC)
+- [Matthew Kumar](https://www.linkedin.com/in/matthew-kumar-24910629) [MK]
+- [Libby Heeren](https://www.linkedin.com/in/libbyheeren) (LH)
+- [Cynthia Miguel](https://www.linkedin.com/in/cynthia-miguel) (CM)
+- [Ken Butler](https://www.linkedin.com/in/ken-butler-41688150/) (KB)
+- [Sunil Gupta](https://www.linkedin.com/in/sassavvy) (SG)
+- [Thomas Lumley](https://fediscience.org/@tslumley) (TL)
+- [Andy Murtha](https://www.linkedin.com/in/andy-murtha-8983755) [AM]
+- [Kathleen Galper](https://www.linkedin.com/in/kathleen-galper-a38808172) (KG)
+- [Christopher B](https://www.linkedin.com/in/christopher-b-7246942) (CB)
+- [Nate](https://tech.lgbt/@bidoof29) (N)
+- [Brendan O'Dowd](https://www.linkedin.com/in/brendanjodowd) (Author of SAS <> R Cheatsheet) (BOD)
